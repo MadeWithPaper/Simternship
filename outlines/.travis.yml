@@ -1,0 +1,11 @@
+language: android
+android:
+   components:
+
+   # The BuildTools version used by project
+
+   # The SDK version used to complie project
+   - android-19
+   #Additional components
+   - sys-img-armeabi-v7a-android-19
+
