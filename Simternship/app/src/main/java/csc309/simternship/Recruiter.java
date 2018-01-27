@@ -18,7 +18,7 @@ public class Recruiter extends NPC
     * @param booth the career fair booth of the recruiter
     * @param company the company of the recruiter
     */
-   public Recruiter(Name name, CareerFairBooth booth, Company company)
+   public Recruiter(String name, CareerFairBooth booth, Company company)
    {
       this.name = name;
       this.booth = booth;
