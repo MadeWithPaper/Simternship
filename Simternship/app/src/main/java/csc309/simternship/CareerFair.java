@@ -1,19 +1,21 @@
+package csc309.simternship;
+
 import java.util.*;
 
 public class CareerFair {
-	private Booth[] booths;
-	private Attendee[] attendees;
+	private CareerFairBooth[] booths;
+	private CareerFairAttendee[] attendees;
 
 	public CareerFair() {
-		booths = new Booth[6];
-		attendees = new Attendee[50];
+		//booths = new CareerFairBooth[6];
+		//attendees = new Attendee[50];
 	}
 
-	public Booth[] getBooths() {
+	public CareerFairBooth[] getBooths() {
 		return booths;
 	}
 
-	public Attendee[] getAttendees() {
+	public CareerFairAttendee[] getAttendees() {
 		return attendees;
 	}
 }

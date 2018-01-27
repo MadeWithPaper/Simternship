@@ -1,3 +1,4 @@
+package csc309.simternship;
 import java.util.*;
 
 public class JobInterview {

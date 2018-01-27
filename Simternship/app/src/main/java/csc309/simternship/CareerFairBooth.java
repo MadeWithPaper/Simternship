@@ -5,6 +5,8 @@
 * 
 */
 
+package csc309.simternship;
+
 import java.io.*;
 import java.util.*;
 

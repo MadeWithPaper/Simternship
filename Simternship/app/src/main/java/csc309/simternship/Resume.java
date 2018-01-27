@@ -1,3 +1,5 @@
+package csc309.simternship;
+
 import java.util.*;
 import java.math.BigDecimal;
 
@@ -18,7 +20,7 @@ public class Resume
    public final ContactInfo contactInfo;
    public final List<String> skills;
    public final List<Education> education;
-   public final List<experience> experience;
+   public final List<Experience> experience;
 
    /**
     * Constructs a Resume.

@@ -6,9 +6,9 @@
 * 
 */
 
+package csc309.simternship;
 
-public class NPC
-{
+public class NPC  {
    public String name;
 
    /**

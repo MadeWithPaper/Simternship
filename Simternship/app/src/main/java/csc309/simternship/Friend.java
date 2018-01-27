@@ -5,6 +5,8 @@
 * @version 0.1
 * 
 */
+package csc309.simternship;
+
 public class Friend extends NPC
 {
    private Company company;
@@ -14,7 +16,8 @@ public class Friend extends NPC
     * @param name the name of the friend
     * @param company the company of the friend
     */
-   public Friend(Name name, Company company)
+
+   public Friend(String name, Company company)
    {
       this.company = company;
       this.name = name;
@@ -24,7 +27,7 @@ public class Friend extends NPC
     * change the company of a friend
     * @param company the new company of the friend
     */
-   public void setCompany(company){
+   public void setCompany(Company company){
       this.company = company;
    }
 

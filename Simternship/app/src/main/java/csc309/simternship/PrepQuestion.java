@@ -1,3 +1,5 @@
+package csc309.simternship;
+
 //Dustyn Zierman-Felix
 //Simternship
 import java.util.*;

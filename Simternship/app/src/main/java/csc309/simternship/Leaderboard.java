@@ -1,3 +1,5 @@
+package csc309.simternship;
+
 import java.util.*;
 
 /**
@@ -9,7 +11,7 @@ import java.util.*;
  * @version 0.1
  * @since 2018-01-16
  */
-class Leaderboard
+public class Leaderboard
 {
    private List<Player> players;
 

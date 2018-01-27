@@ -6,6 +6,7 @@
 * 
 */
 
+package csc309.simternship;
 
 public class CareerFairAttendee extends NPC
 {
@@ -16,7 +17,7 @@ public class CareerFairAttendee extends NPC
     * @param name is the name of attendee
     * @param booth is the career fair booth he is at
     */
-   public CareerFairAttendee(Name name, CareerFairBooth booth)
+   public CareerFairAttendee(String name, CareerFairBooth booth)
    {
       this.name = name; 
       this.booth = booth;
