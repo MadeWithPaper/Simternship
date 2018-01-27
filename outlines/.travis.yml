@@ -4,6 +4,8 @@ android:
 
    # The BuildTools version used by project
    - build-tools-26.0.2
+   - tools
+   - platform-tools
    # The SDK version used to complie project
    - android-19
    #Additional components
@@ -16,4 +18,6 @@ addons:
          secure: "0e2812484539455a0287fd3b0759a4f7f867875f"
 
    script:
+      - echo "Travis branch is $TRAVIS_BRANCH"
+      - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
       - sonar-scanner
