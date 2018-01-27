@@ -123,7 +123,7 @@ public class Player extends Observable
    public BigDecimal getBestSalary()
    {
       List<Player.JobOffer> offers = this.getJobOffers();
-      if (offers.size())
+      if (!offers.isEmpty())
       {
          return offers.get(0).salary;
       }
