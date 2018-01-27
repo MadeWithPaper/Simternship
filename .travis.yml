@@ -3,13 +3,12 @@ android:
    components:
 
    # The BuildTools version used by project
-   - build-tools-26.0.2
-   - tools
    - platform-tools
+   - tools
+   - build-tools-26.0.2
    # The SDK version used to complie project
    - android-19
    #Additional components
-   - sys-img-armeabi-v7a-android-19
 
 addons:
    sonarcloud:
