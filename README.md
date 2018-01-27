@@ -1,4 +1,5 @@
 # Simternship
+[![Build Status](https://travis-ci.org/MadeWithPaper/Simternship.png?branch=master)](https://travis-ci.org/MadeWithPaper/Simternship)
 
 Repo for our project. At some point, we need to update this readme.
 
