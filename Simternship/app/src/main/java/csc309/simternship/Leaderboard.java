@@ -44,7 +44,7 @@ class Leaderboard
          @Override
          public int compare(LeaderboardEntry one, LeaderboardEntry two)
          {
-            return (new Integer(two.score)).compare(one.score);
+            return (new Integer(two.score)).compareTo(one.score);
          }
       });
 
