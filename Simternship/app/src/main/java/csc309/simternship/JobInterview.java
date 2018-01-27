@@ -5,7 +5,7 @@ public class JobInterview {
 	private String companyName;
 	private InterviewQuestion[] questions;
 	private int score = 0;
-	private int currentQuestion = 0;
+	private int currentQuestionIndex = 0;
 
 	public JobInterview(String companyName) {
 		this.companyName = companyName;
@@ -21,12 +21,13 @@ public class JobInterview {
 	}
 
 	public InterviewQuestion getNextQuestion() {
-		currentQuestion++;
-		return questions[currentQuestion-1];
+		currentQuestionIndex++;
+		return questions[currentQuestionIndex-1];
 	}
 
 	public boolean submitAnswer(String answer) {
-		if (questions[currentQuestion-1].answer == answer) {
+		InterviewQuestion currentQuestion = questions[currentQuestionIndex - 1];
+		if (currentQuestion.getAnswers()[currentQuestion.getCorrectAnswerIndex()] == answer) {
 			score++;
 			return true;
 		}

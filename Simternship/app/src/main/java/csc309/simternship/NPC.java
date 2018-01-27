@@ -9,7 +9,7 @@
 package csc309.simternship;
 
 public class NPC  {
-   public String name;
+   protected String name;
 
    /**
     * change the name of NPC
