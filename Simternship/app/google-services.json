@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "807672051151",
+    "firebase_url": "https://simternship.firebaseio.com",
+    "project_id": "simternship",
+    "storage_bucket": "simternship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807672051151:android:815267a374f1965f",
+        "android_client_info": {
+          "package_name": "csc309.simternship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807672051151-vgm8d8rohc3fnep0tj13sk0v2op7tm03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI7L2QrWB8B4_k3tDHJdnLXjCwBVA2ElM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
