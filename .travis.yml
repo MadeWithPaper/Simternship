@@ -19,7 +19,7 @@ addons:
    script:
       - echo "Travis branch is $TRAVIS_BRANCH"
       - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
-      - sonar-scanner
+      - ./gradlew sonarqube
 
 notifications:
    email:

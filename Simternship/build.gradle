@@ -16,6 +16,8 @@ buildscript {
     }
 }
 
+apply plugin: "org.sonarqube"
+
 allprojects {
     repositories {
         google()
