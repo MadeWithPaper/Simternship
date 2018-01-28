@@ -9,23 +9,10 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.google.gms:google-services:3.1.0'
-        testCompile 'junit:junit:4.12'
+        //testCompile 'junit:junit:4.12'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-    }
-    plugins {
-        id "org.sonarqube" version "2.2"
-    }
-
-    apply plugin: 'java'
-    apply plugin: 'jacoco'
-
-    sonarqube {
-        properties {
-            property "sonar.projectName", "CSC309 Simternship"
-            property "sonar.projectKey", "csc309.simternship"
-        }
     }
 }
 

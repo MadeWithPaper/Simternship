@@ -14,7 +14,7 @@ addons:
    sonarcloud:
       organization: "madewithpaper-github"
       token:
-         secure: "462817f6fa5c37f721a34dfd936f2ec6d13398f2"
+         secure: "Sonar_Token"
 
    script:
       - echo "Travis branch is $TRAVIS_BRANCH"
