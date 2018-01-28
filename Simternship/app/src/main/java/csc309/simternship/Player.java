@@ -38,7 +38,12 @@ public class Player extends Observable
    public Player(String firstName, String lastName, String email,
       String hashedPassword, double networkingScore, double energyScore)
    {
-
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.hashedPassword = hashedPassword;
+      this.networkingScore = networkingScore;
+      this.energyScore = energyScore;
    }
 
    /**
@@ -65,7 +70,7 @@ public class Player extends Observable
     */
    public static String hashPassword(String password)
    {
-
+      return "";
    }
 
    /**
@@ -113,7 +118,7 @@ public class Player extends Observable
     */
    public List<Player.JobOffer> getJobOffers()
    {
-
+      return null;
    }
 
    /**
@@ -136,7 +141,7 @@ public class Player extends Observable
     */
    public int getScore()
    {
-
+      return 0;
    }
 
    /**
@@ -144,7 +149,7 @@ public class Player extends Observable
     */
    public double getNetworkingScore()
    {
-
+      return 0;
    }
 
    /**
@@ -152,7 +157,7 @@ public class Player extends Observable
     */
    public double getEnergyScore()
    {
-
+      return 0;
    }
 
    /**

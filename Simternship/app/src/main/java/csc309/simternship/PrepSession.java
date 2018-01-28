@@ -1,27 +1,33 @@
 package csc309.simternship;
-
 import java.util.*;
 
 public class PrepSession {
+	private String companyName;
 	private PrepQuestion[] questions;
 	private int score = 0;
-	private int currentQuestion = 0;
+	private int currentQuestionIndex = 0;
 
-	public PrepSession() {
+	public PrepSession(String companyName) {
+		this.companyName = companyName;
 		questions = new PrepQuestion[10];
+	}
+
+	public String getCompanyName() {
+		return companyName;
 	}
 
 	public int getScore() {
 		return score;
 	}
 
-	public InterviewQuestion getNextQuestion() {
-		currentQuestion++;
-		return questions[currentQuestion-1];
+	public PrepQuestion getNextQuestion() {
+		currentQuestionIndex++;
+		return questions[currentQuestionIndex-1];
 	}
 
 	public boolean submitAnswer(String answer) {
-		if (questions[currentQuestion-1].answer == answer) {
+		PrepQuestion currentQuestion = questions[currentQuestionIndex - 1];
+		if (currentQuestion.getAnswers()[currentQuestion.getCorrectAnswerIndex()] == answer) {
 			score++;
 			return true;
 		}

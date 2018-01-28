@@ -1,3 +1,4 @@
+package csc309.simternship;
 //Dustyn Zierman-Felix
 //Simternship
 import java.util.*;
@@ -5,7 +6,35 @@ import java.io.*;
 
 public class InterviewQuestion 
 {
-	Scanner kb = new Scanner(System.in);
+	private String question;
+	private String[] answers;
+	private int correctAnswerIndex;
+
+
+	public InterviewQuestion(String q, String a1, String a2, String a3, String a4, int correct) {
+		this.answers = new String[4];
+		this.answers[0] = a1;
+		this.answers[1] = a2;
+		this.answers[2] = a3;
+		this.answers[3] = a4;
+		this.question = q;
+		this.correctAnswerIndex = correct;
+	}
+
+	public String getQuestion() {
+		return this.question;
+	}
+
+	public String[] getAnswers () {
+		return this.answers;
+	}
+
+	public int getCorrectAnswerIndex() {
+		return this.correctAnswerIndex;
+	}
+
+
+	/*Scanner kb = new Scanner(System.in);
 	int correctAnswers, wrongAnswers, numberQuestion;
 	
 	//create map to store questions and their respective answers
@@ -139,7 +168,7 @@ public class InterviewQuestion
 	{	
 		System.out.println("Correct Answers: " + correctAnswers);
 		System.out.println("Wrong Answers: " + wrongAnswers);
-	}
+	}*/
 	/*
 	//to view all questions
 	public void viewQuestions()
