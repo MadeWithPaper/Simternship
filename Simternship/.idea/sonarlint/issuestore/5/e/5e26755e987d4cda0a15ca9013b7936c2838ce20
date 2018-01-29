@@ -1,21 +1,21 @@
 
-Ysquid:UnusedPrivateMethod"1Remove this unused private "setBoothName" method.(œ»¨ìøÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÿè¦ïüÿÿÿÿ
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ
 Tsquid:UnusedPrivateMethod"1Remove this unused private "getBoothName" method.(ƒª™é
-Zsquid:UnusedPrivateMethod"7Remove this unused private "getListOfAttendees" method.(Ñ†Ò‹
-`squid:UnusedPrivateMethod"8Remove this unused private "getListOfRecuriters" method.(ÌŸÆµúÿÿÿÿ
-ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ø¿ÞŒüÿÿÿÿ
-msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬¸ÛM
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ßñÅ“ýÿÿÿÿ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(ÞŠÓ”þÿÿÿÿ
+Zsquid:UnusedPrivateMethod"7Remove this unused private "getListOfAttendees" method.(Ñ†Ò‹
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
+msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬¸ÛM
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ø¿ÞŒüÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ßñÅ“ýÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(—ÞÐû
+`squid:UnusedPrivateMethod"8Remove this unused private "getListOfRecuriters" method.(ÌŸÆµúÿÿÿÿ
+Ysquid:UnusedPrivateMethod"1Remove this unused private "setBoothName" method.(œ»¨ìøÿÿÿÿ
 M
 squid:S106"9Replace this use of System.out or System.err by a logger.(É˜ÕÂ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÿè¦ïüÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(—ÞÐû
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ
