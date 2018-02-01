@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Simternship</string>
     <string name="password">Password</string>
+    <string name="title_activity_end_screen">EndScreen</string>
+    <string name="title_activity_job_interview_preview">JobInterviewPreview</string>
+    <string name="title_activity_job_offer_preview">JobOfferPreview</string>
+    <string name="title_activity_job_interview_view">JobInterviewView</string>
+    <string name="title_activity_job_offer_view">JobOfferView</string>
 </resources>
