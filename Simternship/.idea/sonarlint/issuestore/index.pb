@@ -23,3 +23,9 @@ X
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 Y
 )app/src/main/res/layout/activity_main.xml,7/6/76b07e40f24cce093536731477540f12e7da3cb6
+a
+1app/src/main/res/layout/activity_start_screen.xml,c/a/cab7752b3afd044e54255762a3986157fe5243f3
+_
+/app/src/main/res/layout/activity_end_screen.xml,1/d/1d63d9ac07fb7ace3d8590e5f5fc9a22be803557
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
