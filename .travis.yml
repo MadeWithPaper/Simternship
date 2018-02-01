@@ -20,13 +20,8 @@ addons:
       - echo "Travis branch is $TRAVIS_BRANCH"
       - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
       - ./gradlew sonarqube
+      - sonar-scanner
 
-cache:
-  directories:
-      - '$HOME/.m2/repository'
-          - '$HOME/.sonar/cache'
-              - '$HOME/.gradle'
-                  - '.gradle'
 notifications:
    email:
       recipients:
