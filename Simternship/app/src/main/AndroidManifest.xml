@@ -11,8 +11,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".StartScreen">
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".EndScreen" />
         <activity
             android:name=".CareerFairScreen"
             android:label="@string/title_activity_career_fair_screen">
