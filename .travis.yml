@@ -9,14 +9,27 @@ android:
    # The SDK version used to complie project
    - android-19
    #Additional components
-
+dist: trusty
 addons:
    sonarcloud:
       organization: "madewithpaper-github"
       token:
-         secure: "0e2812484539455a0287fd3b0759a4f7f867875f"
+         secure: "5b66b857b862c05a65c6fd6f5a4503ef5064fd9a"
 
    script:
       - echo "Travis branch is $TRAVIS_BRANCH"
       - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
+      - ./gradlew sonarqube
       - sonar-scanner
+
+notifications:
+   email:
+      recipients:
+         - huangjacky.1996@gmail.com
+         - anniemo1002@gmail.com
+         - dziermanfelix@gmail.com
+         - mdbrown7079@gmail.com
+         - joeldentici@gmail.com
+
+   on_success: change
+   on_failure: change
