@@ -1,20 +1,20 @@
 package csc309.simternship;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.content.Intent;
 
-public class EndScreen extends AppCompatActivity
+public class JobInterviewPreview extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_end_screen);
+        setContentView(R.layout.activity_job_interview_preview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,12 +30,13 @@ public class EndScreen extends AppCompatActivity
         });
     }
 
-    //method for starting the game again
-    public void onClickPlayAgain(View view)
+    /*
+    Todo: Will have to fill the list with available interviews and use a switch statement to go to the
+        correct JobInterviewView
+     */
+    public void onClickInterview(View view)
     {
-        //todo: figure out how to send to beginning of game again
-        //todo: change the class that we intend to go to
-        Intent intent = new Intent(this, JobOfferPreview.class);
+        Intent intent = new Intent(this, JobInterviewView.class);
         startActivity(intent);
     }
 }

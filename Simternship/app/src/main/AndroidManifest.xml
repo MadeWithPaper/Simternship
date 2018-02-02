@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".StartScreen">
-
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".EndScreen" />
@@ -19,12 +18,31 @@
             android:label="@string/title_activity_career_fair_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".NewUser"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".EndScreen"
+            android:label="@string/title_activity_end_screen"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".JobInterviewPreview"
+            android:label="@string/title_activity_job_interview_preview"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".JobOfferPreview"
+            android:label="@string/title_activity_job_offer_preview"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".JobInterviewView"
+            android:label="@string/title_activity_job_interview_view"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".JobOfferView"
+            android:label="@string/title_activity_job_offer_view"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

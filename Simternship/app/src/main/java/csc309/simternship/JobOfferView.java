@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class EndScreen extends AppCompatActivity
+public class JobOfferView extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_end_screen);
+        setContentView(R.layout.activity_job_offer_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,11 +30,36 @@ public class EndScreen extends AppCompatActivity
         });
     }
 
-    //method for starting the game again
-    public void onClickPlayAgain(View view)
+    /*
+    method for Entering into the process
+    Todo: Create the actual JobOffer page
+    */
+    public void onClickAccept(View view)
     {
-        //todo: figure out how to send to beginning of game again
-        //todo: change the class that we intend to go to
+        //Todo: Change the class we intend to switch to
+        Intent intent = new Intent(this, JobOfferPreview.class);
+        startActivity(intent);
+    }
+
+    //method for declining an offer
+    public void onClickDecline(View view)
+    {
+        Intent intent = new Intent(this, JobOfferPreview.class);
+        startActivity(intent);
+
+        //Todo: Delete the offer the user decides to decline
+    }
+
+    //method for going back to JobInterviewPreview if the user chooses to ignore for now
+    public void onClickIgnore(View view)
+    {
+        Intent intent = new Intent(this, JobOfferPreview.class);
+        startActivity(intent);
+    }
+
+    //method for going back to JobOfferPreview from the back button
+    public void onClickBack(View view)
+    {
         Intent intent = new Intent(this, JobOfferPreview.class);
         startActivity(intent);
     }
