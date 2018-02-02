@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "807672051151-bd17a4dmrj943k9lnlbbheiptrmvm7hv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "csc309.simternship",
+            "certificate_hash": "058be77e1e252123216da7a237bc74433f4408f6"
+          }
+        },
+        {
           "client_id": "807672051151-vgm8d8rohc3fnep0tj13sk0v2op7tm03.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807672051151-vgm8d8rohc3fnep0tj13sk0v2op7tm03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -29,3 +29,9 @@ _
 /app/src/main/res/layout/activity_end_screen.xml,1/d/1d63d9ac07fb7ace3d8590e5f5fc9a22be803557
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+R
+"app/src/main/res/values/styles.xml,f/7/f79cc2688e29fcbc286fda14ae07b27c9e83690f
+a
+1app/src/main/java/csc309/simternship/NewUser.java,b/3/b3875fcfa9a8c0b4f4c631b6932252db41e41dc7
+]
+-app/src/main/res/layout/activity_new_user.xml,0/5/0595a5df94422283e8b6c9ed65e95d2e7e27addc

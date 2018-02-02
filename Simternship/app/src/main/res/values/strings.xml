@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Simternship</string>
     <string name="password">Password</string>
+    <string name="title_activity_new__user">New_User</string>
 </resources>
