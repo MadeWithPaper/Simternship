@@ -16,8 +16,7 @@
         <activity android:name=".EndScreen" />
         <activity
             android:name=".CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_career_fair_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -67,7 +67,14 @@ public class CareerFairScreen extends AppCompatActivity {
                 new Company("Apple", 5, true, 5),
                 new Company("Hooli", 5, true, 5),
                 new Company("Uber", 5, true, 5),
-                new Company("Lyft", 5, true, 5)
+                new Company("Lyft", 5, true, 5),
+                new Company("HP", 5, true, 5),
+                new Company("Adobe Systems", 5, true, 5),
+                new Company("Intel", 5, true, 5),
+                new Company("Nvidia", 5, true, 5),
+                new Company("Pied Piper", 5, true, 5),
+                new Company("Western Digital", 5, true, 5),
+                new Company("VMware", 5, true, 5)
         ));
     }
 
