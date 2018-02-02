@@ -86,7 +86,7 @@ public class Company
    /**
    *  returns the company name
    */
-   private String getCompanyName()
+   public String getCompanyName()
    {
       return companyName;
    }

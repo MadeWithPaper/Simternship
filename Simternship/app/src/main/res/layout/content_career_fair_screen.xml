@@ -20,6 +20,7 @@
         android:layout_marginTop="8dp"
         android:text="Company2"
         tools:layout_editor_absoluteX="208dp"
+        android:textAllCaps="false"
 
         app:layout_constraintBottom_toTopOf="@+id/company4"
         app:layout_constraintEnd_toStartOf="parent"
@@ -36,6 +37,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Company1"
+        android:textAllCaps="false"
+
         app:layout_constraintBottom_toTopOf="@+id/company3"
         app:layout_constraintEnd_toStartOf="@+id/company2"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +53,7 @@
         android:text="Company3"
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="208dp"
+        android:textAllCaps="false"
 
 
         app:layout_constraintBottom_toTopOf="@+id/prevbtn"
@@ -66,6 +70,7 @@
         android:layout_marginStart="8dp"
         android:text="Company4"
         tools:layout_editor_absoluteY="208dp"
+        android:textAllCaps="false"
 
         app:layout_constraintBottom_toTopOf="@+id/nextbtn"
         app:layout_constraintEnd_toStartOf="parent"
@@ -81,6 +86,7 @@
         android:layout_marginStart="8dp"
         android:text="Previous"
         tools:layout_editor_absoluteY="387dp"
+        android:textAllCaps="false"
 
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,6 +102,7 @@
         android:text="Next"
         tools:layout_editor_absoluteX="220dp"
         tools:layout_editor_absoluteY="387dp"
+        android:textAllCaps="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/prevbtn"

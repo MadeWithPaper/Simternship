@@ -9,12 +9,13 @@ import android.view.View;
 import java.util.Arrays;
 import java.util.List;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class CareerFairScreen extends AppCompatActivity {
 
     private List<Button> companyButtons;
     private Button prev, next;
-    private List<String> companies; //this would be actual companies later
+    private List<Company> companies;
     private int page = 0;
 
     @Override
@@ -23,15 +24,6 @@ public class CareerFairScreen extends AppCompatActivity {
         setContentView(R.layout.activity_career_fair_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        this.companies = Arrays.asList(
-            "Google",
-            "Facebook",
-            "Apple",
-            "Hooli",
-            "Uber",
-            "Lyft"
-        );
 
         this.companyButtons = Arrays.asList(
                 (Button) findViewById(R.id.company1),
@@ -58,7 +50,25 @@ public class CareerFairScreen extends AppCompatActivity {
             }
         });
 
-        this.setPage(0);
+        int i = 0;
+        for (Button btn : this.companyButtons) {
+            final int buttonNumber = i++;
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    CareerFairScreen.this.visitCompany(buttonNumber);
+                }
+            });
+        }
+
+        this.setCompanies(Arrays.asList(
+                new Company("Google", 5, true, 5),
+                new Company("Facebook", 5, true, 5),
+                new Company("Apple", 5, true, 5),
+                new Company("Hooli", 5, true, 5),
+                new Company("Uber", 5, true, 5),
+                new Company("Lyft", 5, true, 5)
+        ));
     }
 
     private void setPage(int newPage) {
@@ -78,7 +88,7 @@ public class CareerFairScreen extends AppCompatActivity {
             Button btn = this.companyButtons.get(i);
             updateButton(btn, j < end);
             if (j < end)
-                btn.setText(this.companies.get(j));
+                btn.setText(this.companyName(j));
         }
 
         //update nav buttons
@@ -95,6 +105,21 @@ public class CareerFairScreen extends AppCompatActivity {
         else {
             button.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private void visitCompany(int buttonNumber) {
+        int companyNumber = this.page * this.companyButtons.size() + buttonNumber;
+        String company = this.companyName(companyNumber);
+        Toast.makeText(this, company + " clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    private String companyName(int companyNumber) {
+        return this.companies.get(companyNumber).getCompanyName();
+    }
+
+    private void setCompanies(List<Company> companies) {
+        this.companies = companies;
+        this.setPage(0);
     }
 
 
