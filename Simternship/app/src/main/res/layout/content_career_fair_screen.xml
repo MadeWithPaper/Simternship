@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:maxHeight="600dp"
+    android:maxWidth="400dp"
+    android:minHeight="300dp"
+    android:minWidth="300dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="csc309.simternship.CareerFairScreen"
+    tools:showIn="@layout/activity_career_fair_screen">
+
+    <Button
+        android:id="@+id/company2"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Company2"
+        tools:layout_editor_absoluteX="208dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/company4"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/company1"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/company1"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Company1"
+        app:layout_constraintBottom_toTopOf="@+id/company3"
+        app:layout_constraintEnd_toStartOf="@+id/company2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <Button
+        android:id="@+id/company3"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:text="Company3"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="208dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/prevbtn"
+        app:layout_constraintEnd_toStartOf="@+id/company4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company1"
+        />
+
+    <Button
+        android:id="@+id/company4"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Company4"
+        tools:layout_editor_absoluteY="208dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/nextbtn"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/company3"
+        app:layout_constraintTop_toBottomOf="@+id/company2"
+        />
+
+    <Button
+        android:id="@+id/prevbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Previous"
+        tools:layout_editor_absoluteY="387dp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nextbtn"
+        app:layout_constraintTop_toBottomOf="@+id/company3"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:id="@+id/nextbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="387dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/prevbtn"
+        app:layout_constraintTop_toBottomOf="@+id/company4"
+        app:layout_constraintEnd_toStartOf="parent"
+        />
+</android.support.constraint.ConstraintLayout>
