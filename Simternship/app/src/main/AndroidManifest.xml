@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartScreen">
-        </activity>
+        <activity android:name=".StartScreen" />
         <activity
             android:name=".CareerFairScreen"
             android:label="@string/title_activity_career_fair_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewUser"></activity>
+        <activity android:name=".NewUser" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".EndScreen"
@@ -40,7 +40,10 @@
         <activity
             android:name=".JobOfferView"
             android:label="@string/title_activity_job_offer_view"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".account_screen_view" />
+        <activity android:name=".leaderboard_screen" />
+        <activity android:name=".settings_screen"></activity>
     </application>
 
 </manifest>

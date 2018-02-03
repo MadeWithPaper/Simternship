@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="csc309.simternship.settings_screen">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="56dp"
+        android:text="Current Score: XXXX"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="127dp" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Sound"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="122dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Volume:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/switch1"
+        app:layout_constraintStart_toStartOf="@+id/switch1"
+        tools:layout_editor_absoluteY="191dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Difficulty:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="122dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        tools:layout_editor_absoluteY="336dp" />
+
+    <TextView
+        android:id="@+id/diffLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Freshman"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar2"
+        app:layout_constraintStart_toStartOf="@+id/seekBar2"
+        tools:layout_editor_absoluteY="376dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="@+id/diffLabel"
+        app:layout_constraintStart_toStartOf="@+id/diffLabel"
+        tools:layout_editor_absoluteY="417dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Cancel"
+        app:layout_constraintEnd_toEndOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        tools:layout_editor_absoluteY="483dp" />
+
+</android.support.constraint.ConstraintLayout>
