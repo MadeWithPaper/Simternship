@@ -1,5 +1,11 @@
 language: android
 sudo: true
+
+cache:
+   directories:
+      - ${TRAVIS_BUILD_DIR}/gradle/caches/
+      - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
+
 android:
    components:
 
@@ -12,7 +18,8 @@ android:
    - android-19
    #Additional components
 jdk:
-   oraclejdk8
+   oraclejdk9
+
 addons:
    sonarcloud:
       organization: "madewithpaper-github"
