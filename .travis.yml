@@ -20,6 +20,10 @@ android:
 jdk:
    oraclejdk8
 
+licenses:
+   - 'android-sdk-preview-license-.+'
+   - 'android-sdk-license-.+'
+
 addons:
    sonarcloud:
       organization: "madewithpaper-github"
