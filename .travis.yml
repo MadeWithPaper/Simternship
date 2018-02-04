@@ -18,7 +18,7 @@ android:
    - android-19
    #Additional components
 jdk:
-   oraclejdk9
+   oraclejdk8
 
 addons:
    sonarcloud:
