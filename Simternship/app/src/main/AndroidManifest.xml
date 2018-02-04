@@ -10,14 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".StartScreen">
-        </activity>
-        <activity
-            android:name=".CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen">
+            //copy and paste this under your screen to set it as the starting screen
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            //end of copy and paste
+        </activity>
+        <activity
+            android:name=".CareerFairScreen"
+            android:label="@string/title_activity_career_fair_screen">
         </activity>
         <activity android:name=".NewUser"></activity>
         <activity android:name=".MainActivity" />
@@ -28,7 +30,7 @@
         <activity
             android:name=".JobInterviewPreview"
             android:label="@string/title_activity_job_interview_preview"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme" />February
         <activity
             android:name=".JobOfferPreview"
             android:label="@string/title_activity_job_offer_preview"
