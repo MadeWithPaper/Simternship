@@ -27,8 +27,8 @@ addons:
          secure: "5b66b857b862c05a65c6fd6f5a4503ef5064fd9a"
 
 before_script:
-   -cd Simternship
-   -chmod +x gradlew
+   - cd Simternship
+   - chmod +x gradlew
 
 script:
    - echo "Travis branch is $TRAVIS_BRANCH"
