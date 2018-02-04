@@ -9,28 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".StartScreen">
-            //copy and paste this under your screen to set it as the starting screen
-=======
-        <activity android:name=".StartScreen" />
-        <activity
-            android:name=".CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen">
->>>>>>> 7003442b9982cf2df111a29c908073ef276f7310
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".StartScreen" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            //end of copy and paste
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen">
-        </activity>
+            android:label="@string/title_activity_career_fair_screen"/>
         <activity android:name=".NewUser" />
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".EndScreen"
             android:label="@string/title_activity_end_screen"
@@ -38,7 +28,7 @@
         <activity
             android:name=".JobInterviewPreview"
             android:label="@string/title_activity_job_interview_preview"
-            android:theme="@style/AppTheme" />February
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".JobOfferPreview"
             android:label="@string/title_activity_job_offer_preview"

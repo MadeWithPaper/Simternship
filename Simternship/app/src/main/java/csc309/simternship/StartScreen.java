@@ -49,9 +49,9 @@ public class StartScreen extends AppCompatActivity {
         }
 
         //UI views
-        this.userEmail = (EditText) findViewById(R.id.editEmail);
-        this.userPass = (EditText) findViewById(R.id.editPassword);
-        this.logIn = (Button) findViewById(R.id.logInButton);
+        userEmail =  findViewById(R.id.editEmail);
+        userPass =  findViewById(R.id.editPassword);
+        logIn = findViewById(R.id.logInButton);
 
         setContentView(R.layout.activity_start_screen);
 
