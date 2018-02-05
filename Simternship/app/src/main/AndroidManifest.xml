@@ -10,16 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".StartScreen" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen"/>
+            android:label="@string/title_activity_career_fair_screen">
+
+        </activity>
         <activity android:name=".NewUser" />
         <activity
             android:name=".EndScreen"
@@ -44,6 +48,7 @@
         <activity android:name=".account_screen_view" />
         <activity android:name=".leaderboard_screen" />
         <activity android:name=".settings_screen"></activity>
+        <activity android:name=".PrepQuestionScreen"></activity>
     </application>
 
 </manifest>
