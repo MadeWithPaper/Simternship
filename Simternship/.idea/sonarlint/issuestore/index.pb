@@ -35,3 +35,7 @@ a
 1app/src/main/java/csc309/simternship/NewUser.java,b/3/b3875fcfa9a8c0b4f4c631b6932252db41e41dc7
 ]
 -app/src/main/res/layout/activity_new_user.xml,0/5/0595a5df94422283e8b6c9ed65e95d2e7e27addc
+g
+7app/src/main/res/layout/activity_career_fair_screen.xml,2/e/2ebd79b917c1a53f558e1a4527aed14e7ac93e8e
+l
+<app/src/main/java/csc309/simternship/CareerFairAttendee.java,d/2/d23c3a3fcb23f1c06fc757d5b7d1b823d55672e7

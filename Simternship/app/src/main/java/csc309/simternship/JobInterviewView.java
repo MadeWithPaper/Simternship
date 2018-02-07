@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class EndScreen extends AppCompatActivity
+public class JobInterviewView extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_end_screen);
+        setContentView(R.layout.activity_job_interview_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,12 +30,21 @@ public class EndScreen extends AppCompatActivity
         });
     }
 
-    //method for starting the game again
-    public void onClickPlayAgain(View view)
+    /*
+    method for Entering into the Interview process
+    Todo: Create the actual interview process
+     */
+    public void onClickEnter(View view)
     {
-        //todo: figure out how to send to beginning of game again
-        //todo: change the class that we intend to go to
-        Intent intent = new Intent(this, JobOfferPreview.class);
+        //Todo: Change the class we intend to switch to
+        Intent intent = new Intent(this, JobInterviewPreview.class);
+        startActivity(intent);
+    }
+
+    //method for going back to JobInterviewPreview
+    public void onClickBack(View view)
+    {
+        Intent intent = new Intent(this, JobInterviewPreview.class);
         startActivity(intent);
     }
 }

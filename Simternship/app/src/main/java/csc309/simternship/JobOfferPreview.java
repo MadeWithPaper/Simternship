@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class EndScreen extends AppCompatActivity
+public class JobOfferPreview extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_end_screen);
+        setContentView(R.layout.activity_job_offer_preview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,12 +30,13 @@ public class EndScreen extends AppCompatActivity
         });
     }
 
-    //method for starting the game again
-    public void onClickPlayAgain(View view)
-    {
-        //todo: figure out how to send to beginning of game again
-        //todo: change the class that we intend to go to
-        Intent intent = new Intent(this, JobOfferPreview.class);
-        startActivity(intent);
-    }
+   /*
+   Todo: Will have to fill the list with available offers and use a switch statement to go to the
+      correct JobOfferView
+   */
+   public void onClickOffer(View view)
+   {
+      Intent intent = new Intent(this, JobInterviewView.class);
+      startActivity(intent);
+   }
 }

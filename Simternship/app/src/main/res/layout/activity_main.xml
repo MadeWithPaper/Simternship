@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="csc309.simternship.MainActivity">
+
     <android.support.design.internal.BottomNavigationItemView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -15,7 +16,53 @@
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
         app:menu="@menu/bottom_navigation_main"
-        />
+        >
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/TabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="33dp"
+            android:visibility="visible"
+            app:tabIndicatorColor="@color/colorPrimaryDark">
+
+            <android.support.design.widget.TabItem
+
+                android:id="@+id/prep_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:icon="@drawable/ic_prep_question"
+                android:text="Prep Questions"
+                android:title="Prep"
+
+                app:showAsAction="ifRoom" />
+
+            <android.support.design.widget.TabItem
+
+                android:id="@+id/career_fair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:icon="@drawable/ic_career_fair"
+                android:text="Career Fair"
+                android:title="Career Fair"
+                app:showAsAction="ifRoom" />
+
+            <android.support.design.widget.TabItem
+
+                android:id="@+id/account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:icon="@drawable/ic_account"
+                android:text="Account"
+                android:title="Account"
+                app:showAsAction="ifRoom" />
+        </android.support.design.widget.TabLayout>
+    </android.support.design.internal.BottomNavigationItemView>
 
 
 </RelativeLayout>

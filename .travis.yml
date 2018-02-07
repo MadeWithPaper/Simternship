@@ -1,26 +1,44 @@
 language: android
+sudo: true
+
+cache:
+   directories:
+      - ${TRAVIS_BUILD_DIR}/gradle/caches/
+      - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
+
 android:
    components:
 
    # The BuildTools version used by project
+   - tools
    - platform-tools
    - tools
    - build-tools-26.0.2
    # The SDK version used to complie project
    - android-19
    #Additional components
-dist: trusty
+jdk:
+   oraclejdk8
+
+licenses:
+   - 'android-sdk-preview-license-.+'
+   - 'android-sdk-license-.+'
+
 addons:
    sonarcloud:
       organization: "madewithpaper-github"
       token:
          secure: "5b66b857b862c05a65c6fd6f5a4503ef5064fd9a"
 
-   script:
-      - echo "Travis branch is $TRAVIS_BRANCH"
-      - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
-      - ./gradlew sonarqube
-      - sonar-scanner
+before_script:
+   - cd Simternship
+   - chmod +x gradlew
+
+script:
+   - echo "Travis branch is $TRAVIS_BRANCH"
+   - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
+   - ./gradlew build
+   - sonar-scanner
 
 notifications:
    email:
