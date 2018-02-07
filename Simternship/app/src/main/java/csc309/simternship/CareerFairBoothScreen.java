@@ -1,5 +1,6 @@
 package csc309.simternship;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -129,6 +130,7 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         fakeAction("Back");
+        finish();
         return true;
     }
 

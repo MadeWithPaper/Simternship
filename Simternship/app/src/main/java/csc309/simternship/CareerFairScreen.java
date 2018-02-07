@@ -1,5 +1,6 @@
 package csc309.simternship;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -119,6 +120,7 @@ public class CareerFairScreen extends AppCompatActivity {
         int companyNumber = this.page * this.companyButtons.size() + buttonNumber;
         String company = this.companyName(companyNumber);
         Toast.makeText(this, company + " clicked!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(CareerFairScreen.this, CareerFairBoothScreen.class));
     }
 
     private String companyName(int companyNumber) {
