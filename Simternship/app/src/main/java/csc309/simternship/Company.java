@@ -94,7 +94,7 @@ public class Company
    /**
    *  returns the rating of the company
    */
-   private int getRating()
+   public int getRating()
    {
       return rating;
    }
@@ -102,7 +102,7 @@ public class Company
    /** 
    *  returns the diffculty of the company
    */
-   private int getDiffculty()
+   public int getDifficulty()
    {
       return diffculty;
    }
@@ -110,7 +110,7 @@ public class Company
    /**
    *  returns the availability of the company
    */
-   private boolean getAvailability()
+   public boolean getAvailability()
    {
       return availability;
    }

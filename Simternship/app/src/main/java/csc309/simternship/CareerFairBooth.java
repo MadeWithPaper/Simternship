@@ -7,6 +7,8 @@
 
 package csc309.simternship;
 
+import android.provider.CalendarContract;
+
 import java.io.*;
 import java.util.*;
 
@@ -14,8 +16,8 @@ public class CareerFairBooth
 { 
 
    private String boothName;
-   private ArrayList<Object> listOfAttendees;
-   private ArrayList<Object> listOfRecuriters;
+   private ArrayList<CareerFairAttendee> listOfAttendees;
+   private ArrayList<Recruiter> listOfRecuriters;
 
    /**
    *  construct a career fair booth
@@ -24,8 +26,8 @@ public class CareerFairBooth
    public CareerFairBooth (String boothName)
    {
       this.boothName = boothName;
-      listOfAttendees = new ArrayList<Object> ();
-      listOfRecuriters = new ArrayList<Object> ();
+      listOfAttendees = new ArrayList<> ();
+      listOfRecuriters = new ArrayList<> ();
       //call methods to add recuriters upon creation of the booth
       //listOfRecuriters.add(new Recuriter(name));
    }
@@ -45,7 +47,7 @@ public class CareerFairBooth
    *  queue up a list of NPC and player 
    *  @param player object will be added to the list
    */
-   public void queueAttendee(Object player)
+   public void queueAttendee(CareerFairAttendee player)
    {
       listOfAttendees.add(player);
    }
@@ -93,5 +95,13 @@ public class CareerFairBooth
          System.out.print(q);
       }
       System.out.println(" ");
+   }
+
+   public List<Recruiter> getRecruiters() {
+      return this.listOfRecuriters;
+   }
+
+   public List<CareerFairAttendee> getAttendees() {
+      return this.listOfAttendees;
    }
 }

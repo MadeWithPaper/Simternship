@@ -3,4 +3,5 @@
     <string name="password">Password</string>
     <string name="title_activity_career_fair_screen">Career Fair</string>
     <string name="title_activity_new__user">New_User</string>
+    <string name="title_activity_career_fair_booth_screen">Career Fair Booth</string>
 </resources>
