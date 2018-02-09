@@ -39,3 +39,5 @@ g
 7app/src/main/res/layout/activity_career_fair_screen.xml,2/e/2ebd79b917c1a53f558e1a4527aed14e7ac93e8e
 l
 <app/src/main/java/csc309/simternship/CareerFairAttendee.java,d/2/d23c3a3fcb23f1c06fc757d5b7d1b823d55672e7
+f
+6app/src/main/java/csc309/simternship/MainActivity.java,4/2/42af2fee18c3f6739ccb07abe3c441f0bf53a76e

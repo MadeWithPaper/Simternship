@@ -1,0 +1,6 @@
+
+|squid:UselessImportCheck"URemove this unused import 'android.support.design.internal.BottomNavigationItemView'.(¦îŒ®üÿÿÿÿ
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(øå´¡ÿÿÿÿÿ
+csquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(²Ú±Ž
+Lsquid:S1905"7Remove this unnecessary cast to "BottomNavigationView".(»ÐöÐ
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ
