@@ -34,13 +34,11 @@ addons:
          secure: "5b66b857b862c05a65c6fd6f5a4503ef5064fd9a"
 
 script:
+   - chmod +x ./Simternship/gradlew
    - echo "Travis branch is $TRAVIS_BRANCH"
    - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
-   - ./gradlew sonarqube \
-     Dsonar.host.url=https://sonarcloud.io \
-     Dsonar.organization=madewithpaper-github \
-     Dsonar.login=5b66b857b862c05a65c6fd6f5a4503ef5064fd9a \
-     Dsonar.branch.name=master
+   - ./gradlew build
+   - sonar-scanner
 notifications:
    email:
       recipients:
