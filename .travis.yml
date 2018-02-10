@@ -38,7 +38,7 @@ script:
    - echo "Travis branch is $TRAVIS_BRANCH"
    - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
    - ./Simternship/gradlew build
-   - sonar-scanner
+   - ./Simternship/gradlew sonarqube
 notifications:
    email:
       recipients:
