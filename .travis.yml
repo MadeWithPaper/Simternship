@@ -37,7 +37,7 @@ script:
    - chmod +x ./Simternship/gradlew
    - echo "Travis branch is $TRAVIS_BRANCH"
    - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
-   - ./gradlew build
+   - ./Simternship/gradlew build
    - sonar-scanner
 notifications:
    email:
