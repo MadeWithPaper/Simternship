@@ -1,0 +1,13 @@
+
+Msquid:S1068"3Remove this unused "networkingScore" private field.(¨·¾ûÿÿÿÿ
+Isquid:S1068"/Remove this unused "energyScore" private field.(ñÍµÚşÿÿÿÿ
+Csquid:S1068")Remove this unused "email" private field.(ËÌ˜øÿÿÿÿ
+Fsquid:S1068"2Remove this unused "hashedPassword" private field.(¸±ác
+Fsquid:S1068"1Remove this unused "currentResume" private field.(ğ²ö¸
+Ssquid:S3400"9Remove this method and declare a constant for this value.(Ö§”Óşÿÿÿÿ
+Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
+Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
+Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
+Isquid:S1172"/Remove this unused method parameter "password".(ÅÉ°Íùÿÿÿÿ
+@squid:S1168"+Return an empty collection instead of null.(¥¹ï
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ

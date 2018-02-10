@@ -30,4 +30,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:design:26.1.0'
 }
+sonarqube{
+    properties{
+        property "sonar.host.ulr", "https://sonarcloud.io/dashboard?id=Simternship"
+        property "sonar.projectkey", "Simternship"
+    }
+}
 apply plugin: 'com.google.gms.google-services'
