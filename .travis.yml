@@ -31,14 +31,14 @@ addons:
    sonarcloud:
       organization: "madewithpaper-github"
       token:
-         secure: "5b66b857b862c05a65c6fd6f5a4503ef5064fd9a"
+         secure: "Sonar_Simternship"
 
 script:
    - chmod +x ./Simternship/gradlew
    - echo "Travis branch is $TRAVIS_BRANCH"
    - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
    - ./Simternship/gradlew build
-   - ./Simternship/gradlew sonarqube
+   - ./gradlew sonarqube \ -Dsonar.host.url=https://sonarcloud.io \ -Dsonar.organization=madewithpaper-github \ -Dsonar.login=5dc62d3156c97cce7a1f9dc95d346f95cabd8798 \ -Dsonar.branch.name=master
 notifications:
    email:
       recipients:
