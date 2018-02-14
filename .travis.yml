@@ -27,12 +27,6 @@ licenses:
    - 'android-sdk-license-.+'
    - 'google-gdk-license-.+'
 
-addons:
-   sonarcloud:
-      organization: "madewithpaper-github"
-      token:
-         secure: "Sonar_Simternship"
-
 script:
    - chmod +x ./Simternship/gradlew
    - cd Simternship
