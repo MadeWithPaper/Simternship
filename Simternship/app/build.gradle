@@ -31,10 +31,5 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     testCompile 'org.mockito:mockito-core:1.10.19'
 }
-sonarqube{
-    properties{
-        property "sonar.host.ulr", "https://sonarcloud.io/dashboard?id=Simternship"
-        property "sonar.projectkey", "Simternship"
-    }
-}
+
 apply plugin: 'com.google.gms.google-services'

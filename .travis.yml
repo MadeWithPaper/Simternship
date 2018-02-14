@@ -35,10 +35,11 @@ addons:
 
 script:
    - chmod +x ./Simternship/gradlew
-   - echo "Travis branch is $TRAVIS_BRANCH"
-   - echo "Travis branc is in pull request $TRAVIS_PULL+REQUEST"
-   - ./Simternship/gradlew build
-   - ./Simternship/gradlew sonarqube  -Dsonar.host.url=https://sonarcloud.io  -Dsonar.organization=madewithpaper-github  -Dsonar.login=5dc62d3156c97cce7a1f9dc95d346f95cabd8798  -Dsonar.branch.name=master
+   - cd Simternship
+   - echo "Build project"
+   - ./gradlew build
+   - echo "Run sonarqube -- push to sonarcloud"
+   - ./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=madewithpaper-github -Dsonar.login="$SONAR_TOKEN" -Dsonar.branch.name=master
 notifications:
    email:
       recipients:
