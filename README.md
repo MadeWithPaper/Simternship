@@ -1,5 +1,6 @@
 # Simternship
 [![Build Status](https://travis-ci.org/MadeWithPaper/Simternship.png?branch=master)](https://travis-ci.org/MadeWithPaper/Simternship)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=Simternship&metric=alert_status)](https://sonarcloud.io/dashboard?id=Simternship)
 
 Repo for our project. At some point, we need to update this readme.
 
