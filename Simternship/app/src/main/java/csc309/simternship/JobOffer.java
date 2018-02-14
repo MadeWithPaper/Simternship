@@ -27,4 +27,14 @@ public class JobOffer
         this.companyName = companyName;
         this.salary = salary;
     }
+
+    public boolean equals(Object other) {
+        return other instanceof JobOffer &&
+                this.equals((JobOffer) other);
+    }
+
+    public boolean equals(JobOffer other) {
+        return companyName.equals(other.companyName)
+                && salary.equals(other.salary);
+    }
 }

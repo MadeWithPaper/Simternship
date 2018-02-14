@@ -44,6 +44,9 @@ public class Player extends Observable
       this.hashedPassword = hashedPassword;
       this.networkingScore = networkingScore;
       this.energyScore = energyScore;
+      this.completedInterviews = new ArrayList<>();
+      this.completedPrepSessions = new ArrayList<>();
+      this.friends = new ArrayList<>();
    }
 
    /**
@@ -118,7 +121,16 @@ public class Player extends Observable
     */
    public List<JobOffer> getJobOffers()
    {
-      return null;
+      return new ArrayList<>();
+   }
+
+   public JobOffer getBestOffer() {
+      List<JobOffer> offers = getJobOffers();
+      if (offers.isEmpty()) {
+         return null;
+      }
+
+      return offers.get(0);
    }
 
    /**
@@ -127,10 +139,9 @@ public class Player extends Observable
     */
    public BigDecimal getBestSalary()
    {
-      List<JobOffer> offers = this.getJobOffers();
-      if (!offers.isEmpty())
-      {
-         return offers.get(0).salary;
+      JobOffer bestOffer = getBestOffer();
+      if (bestOffer != null) {
+         return bestOffer.salary;
       }
 
       return new BigDecimal(0);
@@ -218,6 +229,14 @@ public class Player extends Observable
    {
       this.setChanged();
       this.notifyObservers();
+   }
+
+   /**
+    * Gets the Player's full name.
+    * @return String the full name
+    */
+   public String getFullName() {
+      return this.firstName + " " + this.lastName;
    }
 
 }

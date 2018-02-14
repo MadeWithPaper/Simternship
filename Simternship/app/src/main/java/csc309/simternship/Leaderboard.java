@@ -36,7 +36,7 @@ public class Leaderboard
       for (Player player : this.players)
       {
          entries.add(new LeaderboardEntry(
-            player.firstName + " " + player.lastName,
+            player.getFullName(),
             player.getScore()
          ));
       }
@@ -46,7 +46,7 @@ public class Leaderboard
          @Override
          public int compare(LeaderboardEntry one, LeaderboardEntry two)
          {
-            return (new Integer(two.score)).compareTo(one.score);
+            return two.score - one.score;
          }
       });
 
@@ -99,6 +99,16 @@ public class Leaderboard
       {
          this.playerName = playerName;
          this.score = score;
+      }
+
+      public boolean equals(Object other) {
+         return other instanceof LeaderboardEntry &&
+                 this.equals((LeaderboardEntry) other);
+      }
+
+      public boolean equals(LeaderboardEntry other) {
+         return playerName.equals(other.playerName)
+                 && score == other.score;
       }
    }
 }
