@@ -31,7 +31,7 @@ script:
    - chmod +x ./Simternship/gradlew
    - cd Simternship
    - echo "Build project"
-   - ./Simternship/gradlew build
+   - ./gradlew build
    - echo "Run sonarqube -- push to sonarcloud"
    - ./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=madewithpaper-github -Dsonar.login="$SONAR_TOKEN" -Dsonar.branch.name=master
 notifications:
