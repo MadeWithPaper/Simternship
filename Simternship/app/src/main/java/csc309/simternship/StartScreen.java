@@ -24,16 +24,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class StartScreen extends AppCompatActivity {
 
-     EditText userEmail;
-     EditText userPass;
-     Button logIn;
-     ProgressDialog progress;
+    EditText userEmail;
+    EditText userPass;
+    Button logInButton;
 
-    public static String password = null;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private static final String TAG = "StartScreen";
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +39,10 @@ public class StartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
 
-        //hides keyboard after user enters email and password
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(StartScreen.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-
         //UI views
         userEmail =  findViewById(R.id.editEmail);
         userPass =  findViewById(R.id.editPassword);
-        logIn = findViewById(R.id.logInButton);
+        logInButton = (Button) findViewById(R.id.logInButton);
 
         setContentView(R.layout.activity_start_screen);
 
@@ -82,27 +73,25 @@ public class StartScreen extends AppCompatActivity {
                 return keyEntered;
             }
         });
+    }
 
-        logIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginAttempt();
-            }
-        });
-
-        //add method to check if user is new or not
+    public void onClickLogIn(View view) {
+        //loginAttempt();
+        signIn("test@gmail.com", "123456");
     }
         private void loginAttempt()
         {
-            progress = ProgressDialog.show(this, "Logging in", "Please wait ...",true);
+            //progress = ProgressDialog.show(this, "Logging in", "Please wait ...",true);
 
-            String email = getString(userEmail);
+            /*String email = getString(userEmail);
             String password = getString(userPass);
 
             if (email.equals("") || password.equals(""))
                 Toast.makeText(StartScreen.this, "Required fields are empty!", Toast.LENGTH_SHORT).show();
             else
-                signIn(email, password);
+                signIn(email, password);*/
+
+            signIn("test@gmail.com", "123456");
         }
 
         private String getString(EditText view)
@@ -134,15 +123,14 @@ public class StartScreen extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(progress != null) progress.dismiss();
-                if (!task.isSuccessful()){
-                    StartScreen.password = null;
-                    Toast.makeText(StartScreen.this, "login failed!", Toast.LENGTH_LONG).show();
-                } else{
+                if (task.isSuccessful()){
                     Intent i = new Intent(StartScreen.this, MainActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    Toast.makeText(StartScreen.this, "login success!", Toast.LENGTH_LONG).show();
                     startActivity(i);
-                    finish();
+                } else{
+                    Toast.makeText(StartScreen.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

@@ -37,7 +37,7 @@ public class Company
    /**
    *  determine if a applicant object will be hired
    *  @param applicant a player object that is applying 
-   *
+   *  @return returns a boolean which indicates if the applicatn is hired or not
    */
    public boolean hire(Object applicant)
    {
@@ -46,78 +46,78 @@ public class Company
 
    //setter methods
    /**
-   *  change the name of the company
-   *  @param newName the new name of the company
-   */
-   private void setCompanyName(String newName)
+    * change the name of the company
+    * @param newName the new name of the company
+    */
+   public void setCompanyName(String newName)
    {
-      this.companyName = newName;
+      companyName = newName;
    }
 
    /**
-   *  sets the rating of the company
-   *  @param newRating the new rating of the company
-   */
-   private void setRating(int newRating)
+    * sets the rating of the company
+    * @param newRating the new rating of the company
+    */
+   public void setRating(int newRating)
    {
-      this.rating = newRating;
+      rating = newRating;
    }
 
    /**
-   *  sets the availability of the company
-   *  @param newAvailability the new availability of the company
-   */
-   private void setAvailability(boolean newAvailability)
+    * sets the availability of the company
+    * @param newAvailability the new availability of the company
+    */
+   public void setAvailability(boolean newAvailability)
    {
-      this.availability = newAvailability;
+      availability = newAvailability;
    }
 
    /**
-   *  sets the diffculty of the company
-   *  @param newDiffculty sets the new diffculty of the company
-   */
-   private void setDiffculty(int newDiffculty)
+    * sets the diffculty of the company
+    * @param newDiffculty sets the new diffculty of the company
+    */
+   public void setDiffculty(int newDiffculty)
    {
-      this.diffculty = newDiffculty;
+      diffculty = newDiffculty;
    }
 
 
    //getter methods
    /**
-   *  returns the company name
-   */
+    * @return  the company's name
+    */
    public String getCompanyName()
    {
       return companyName;
    }
 
    /**
-   *  returns the rating of the company
-   */
+    * @return the rating of the company
+    */
    public int getRating()
    {
       return rating;
    }
 
-   /** 
-   *  returns the diffculty of the company
-   */
+   /**
+    * @return the diffculty of the company
+    */
    public int getDifficulty()
    {
       return diffculty;
    }
 
    /**
-   *  returns the availability of the company
-   */
+    * @return the availability of the company
+    */
    public boolean getAvailability()
    {
       return availability;
    }
 
    /**
-   *  prints object to screen
-   */
+    * @return a description of the company object
+    */
    public String toText()
    {
       return ("CompanyName: " + companyName + "\n" +
