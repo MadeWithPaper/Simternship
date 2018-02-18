@@ -27,6 +27,7 @@ public class StartScreen extends AppCompatActivity {
     EditText userEmail;
     EditText userPass;
     Button logInButton;
+    Button signUpButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -38,13 +39,14 @@ public class StartScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         //UI views
         userEmail =  findViewById(R.id.editEmail);
         userPass =  findViewById(R.id.editPassword);
-        logInButton = (Button) findViewById(R.id.logInButton);
+        logInButton = findViewById(R.id.logInButton);
+        signUpButton = findViewById(R.id.registration);
 
-        setContentView(R.layout.activity_start_screen);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
@@ -73,15 +75,35 @@ public class StartScreen extends AppCompatActivity {
                 return keyEntered;
             }
         });
+       signUpButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+             Toast.makeText(StartScreen.this, "New Account!", Toast.LENGTH_SHORT).show();
+             startActivity(new Intent(StartScreen.this, NewUser.class));
+          }
+          });
+
+       findViewById(R.id.loginView).setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+             InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+             im.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                   0);
+          }
+       });
     }
 
     public void onClickLogIn(View view) {
-        //loginAttempt();
-        signIn("test@gmail.com", "123456");
+        loginAttempt();
     }
+
+   /*public void onClickRegister(View view) {
+      Toast.makeText(StartScreen.this, "New Account!", Toast.LENGTH_SHORT).show();
+      startActivity(new Intent(StartScreen.this, NewUser.class));
+
+   }*/
         private void loginAttempt()
         {
-            //progress = ProgressDialog.show(this, "Logging in", "Please wait ...",true);
 
             /*String email = getString(userEmail);
             String password = getString(userPass);
@@ -125,15 +147,14 @@ public class StartScreen extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Intent i = new Intent(StartScreen.this, MainActivity.class);
-
                     Toast.makeText(StartScreen.this, "login success!", Toast.LENGTH_LONG).show();
                     startActivity(i);
                 } else{
                     Toast.makeText(StartScreen.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
 
     }
+
 }
