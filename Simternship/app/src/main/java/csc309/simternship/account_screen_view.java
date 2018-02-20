@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 public class account_screen_view extends AppCompatActivity {
@@ -13,5 +14,15 @@ public class account_screen_view extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_screen_view);
         
+    }
+
+    public void onClickSetting(View view) {
+       Toast.makeText(account_screen_view.this, "Setting screen!", Toast.LENGTH_SHORT).show();
+       startActivity(new Intent(account_screen_view.this, settings_screen.class));
+    }
+
+    public void onClickLeaderboard(View view) {
+       Toast.makeText(account_screen_view.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
+       startActivity(new Intent(account_screen_view.this, leaderboard_screen.class));
     }
 }
