@@ -2,15 +2,19 @@ package csc309.simternship;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import java.util.Arrays;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
+
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.ListView;
 
 public class CareerFairScreen extends AppCompatActivity {
 
@@ -26,6 +30,7 @@ public class CareerFairScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /*
         this.companyButtons = Arrays.asList(
                 (Button) findViewById(R.id.company1),
                 (Button) findViewById(R.id.company2),
@@ -61,8 +66,7 @@ public class CareerFairScreen extends AppCompatActivity {
                     CareerFairScreen.this.visitCompany(buttonNumber);
                 }
             });
-        }
-
+        }*/
         this.setCompanies(Arrays.asList(
                 new Company("Google", 5, true, 5),
                 new Company("Facebook", 5, true, 5),
@@ -80,6 +84,7 @@ public class CareerFairScreen extends AppCompatActivity {
         ));
     }
 
+    /*
     private void setPage(int newPage) {
         //check if this is a valid page number
         int numPages = (int) Math.ceil(
@@ -105,8 +110,9 @@ public class CareerFairScreen extends AppCompatActivity {
         updateButton(prev, prevVisible);
 
         this.page = newPage;
-    }
+    }*/
 
+    /*
     private void updateButton(Button button, boolean visible) {
         if (visible) {
             button.setVisibility(View.VISIBLE);
@@ -114,22 +120,45 @@ public class CareerFairScreen extends AppCompatActivity {
         else {
             button.setVisibility(View.INVISIBLE);
         }
-    }
+    }*/
 
+    /*
     private void visitCompany(int buttonNumber) {
         int companyNumber = this.page * this.companyButtons.size() + buttonNumber;
         String company = this.companyName(companyNumber);
         Toast.makeText(this, company + " clicked!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(CareerFairScreen.this, CareerFairBoothScreen.class));
-    }
+    }*/
 
+    /*
     private String companyName(int companyNumber) {
         return this.companies.get(companyNumber).getCompanyName();
+    }*/
+
+    private void visitCompany(int companyNumber) {
+        String name = this.companies.get(companyNumber).getCompanyName();
+        Toast.makeText(this, name + " clicked!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, CareerFairBoothScreen.class));
     }
 
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
-        this.setPage(0);
+        List<String> names = new ArrayList<>();
+        for (Company company : companies) {
+            names.add(company.getCompanyName());
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+
+        ListView lv = findViewById(R.id.careerFairCompanyList);
+
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                CareerFairScreen.this.visitCompany(position);
+            }
+        });
     }
 
 

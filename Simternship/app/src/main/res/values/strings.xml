@@ -9,4 +9,7 @@
     <string name="title_activity_job_offer_preview">JobOfferPreview</string>
     <string name="title_activity_job_interview_view">JobInterviewView</string>
     <string name="title_activity_job_offer_view">JobOfferView</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
