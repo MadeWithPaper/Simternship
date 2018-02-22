@@ -25,4 +25,14 @@ public class account_screen_view extends AppCompatActivity {
        Toast.makeText(account_screen_view.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
        startActivity(new Intent(account_screen_view.this, leaderboard_screen.class));
     }
+
+    public void onClickInterviews(View view) {
+        Toast.makeText(account_screen_view.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(account_screen_view.this, JobInterviewPreview.class));
+    }
+
+    public void onClickJobOffers(View view) {
+        Toast.makeText(account_screen_view.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(account_screen_view.this, JobOfferPreview.class));
+    }
 }
