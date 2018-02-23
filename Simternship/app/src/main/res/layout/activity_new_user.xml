@@ -5,7 +5,7 @@
     android:id="@+id/newUserLayOut"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="csc309.simternship.NewUser">
+    tools:context="simternship.simternship.NewUser">
 
     <EditText
         android:id="@+id/fillFirstName"

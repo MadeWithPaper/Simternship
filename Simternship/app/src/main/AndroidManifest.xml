@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="csc309.simternship">
+    package="simternship.simternship">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".StartScreen"
+            android:name="simternship.simternship.StartScreen"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,40 +18,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name="simternship.simternship.MainActivity"></activity>
         <activity
-            android:name=".CareerFairScreen"
+            android:name="simternship.simternship.CareerFairScreen"
             android:label="@string/title_activity_career_fair_screen"></activity>
         <activity
-            android:name=".CareerFairBoothScreen"
+            android:name="simternship.simternship.CareerFairBoothScreen"
             android:label="@string/title_activity_career_fair_booth_screen"></activity>
-        <activity android:name=".NewUser" />
+        <activity android:name="simternship.simternship.NewUser" />
         <activity
-            android:name=".EndScreen"
+            android:name="simternship.simternship.EndScreen"
             android:label="@string/title_activity_end_screen"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".JobInterviewPreview"
+            android:name="simternship.simternship.JobInterviewPreview"
             android:label="@string/title_activity_job_interview_preview"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".JobOfferPreview"
+            android:name="simternship.simternship.JobOfferPreview"
             android:label="@string/title_activity_job_offer_preview"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".JobInterviewView"
+            android:name="simternship.simternship.JobInterviewView"
             android:label="@string/title_activity_job_interview_view"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".JobOfferView"
+            android:name="simternship.simternship.JobOfferView"
             android:label="@string/title_activity_job_offer_view"
             android:theme="@style/AppTheme" />
-        <activity android:name=".account_screen_view" />
-        <activity android:name=".leaderboard_screen" />
-        <activity android:name=".settings_screen" />
-        <activity android:name=".PrepQuestionScreen" />
+        <activity android:name="simternship.simternship.account_screen_view" />
+        <activity android:name="simternship.simternship.leaderboard_screen" />
+        <activity android:name="simternship.simternship.settings_screen" />
+        <activity android:name="simternship.simternship.PrepQuestionScreen" />
         <activity
-            android:name=".NewGameView"
+            android:name="simternship.simternship.NewGameView"
             android:label="@string/title_activity_new_game_view"
             android:theme="@style/AppTheme"></activity>
     </application>

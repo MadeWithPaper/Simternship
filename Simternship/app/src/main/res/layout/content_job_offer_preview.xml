@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="csc309.simternship.JobOfferPreview"
+    tools:context="simternship.simternship.JobOfferPreview"
     tools:showIn="@layout/activity_job_offer_preview">
 
     <TextView

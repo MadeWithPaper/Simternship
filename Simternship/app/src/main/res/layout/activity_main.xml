@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="csc309.simternship.MainActivity">
+    tools:context="simternship.simternship.MainActivity">
 
     <android.support.design.internal.BottomNavigationItemView
         android:id="@+id/bottom_navigation"

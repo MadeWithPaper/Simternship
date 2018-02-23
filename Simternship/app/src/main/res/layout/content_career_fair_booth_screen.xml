@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="csc309.simternship.CareerFairBoothScreen"
+    tools:context="simternship.simternship.CareerFairBoothScreen"
     tools:showIn="@layout/activity_career_fair_booth_screen">
 
     <TextView

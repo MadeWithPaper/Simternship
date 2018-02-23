@@ -9,7 +9,7 @@
     android:minHeight="300dp"
     android:minWidth="300dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="csc309.simternship.CareerFairScreen"
+    tools:context="simternship.simternship.CareerFairScreen"
     tools:showIn="@layout/activity_career_fair_screen">
 
     <TextView
