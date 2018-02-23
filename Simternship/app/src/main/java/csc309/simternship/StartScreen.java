@@ -146,7 +146,7 @@ public class StartScreen extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Intent i = new Intent(StartScreen.this, MainActivity.class);
+                    Intent i = new Intent(StartScreen.this, NewGameView.class);
                     Toast.makeText(StartScreen.this, "login success!", Toast.LENGTH_LONG).show();
                     startActivity(i);
                 } else{

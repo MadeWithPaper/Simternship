@@ -27,10 +27,6 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_career_fair_booth_screen);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         difficulties = new HashMap<>();
         difficulties.put(1, "Very Easy");
@@ -125,13 +121,6 @@ public class CareerFairBoothScreen extends AppCompatActivity {
 
     private void meetFriend() {
         fakeAction("Socialize");
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        fakeAction("Back");
-        finish();
-        return true;
     }
 
     private void fakeAction(String action) {

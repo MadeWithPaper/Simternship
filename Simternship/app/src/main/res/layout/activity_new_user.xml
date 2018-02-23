@@ -33,17 +33,6 @@
         app:layout_constraintStart_toStartOf="@+id/fillFirstName"
         app:layout_constraintTop_toBottomOf="@+id/fillFirstName" />
 
-    <NumberPicker
-        android:id="@+id/difficultyPicker"
-        android:layout_width="128dp"
-        android:layout_height="83dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/fillLastName"
-        app:layout_constraintStart_toStartOf="@+id/fillLastName"
-        app:layout_constraintTop_toBottomOf="@+id/fillLastName" />
-
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
@@ -51,11 +40,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
         android:onClick="onClickSignUp"
-        android:text="Begin Your Adventure"
-        app:layout_constraintEnd_toEndOf="@+id/difficultyPicker"
+        android:text="Create Account"
+        app:layout_constraintEnd_toEndOf="@+id/fillLastName"
         app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/difficultyPicker"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyPicker" />
+        app:layout_constraintStart_toStartOf="@+id/fillLastName"
+        app:layout_constraintTop_toBottomOf="@+id/fillLastName" />
 
     <EditText
         android:id="@+id/fillEmail"
@@ -83,27 +72,5 @@
         app:layout_constraintEnd_toEndOf="@+id/fillEmail"
         app:layout_constraintStart_toStartOf="@+id/fillEmail"
         app:layout_constraintTop_toBottomOf="@+id/fillEmail" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:text="lower number is easier diffculty"
-        app:layout_constraintEnd_toEndOf="@+id/difficultyPicker"
-        app:layout_constraintStart_toStartOf="@+id/difficultyPicker"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyPicker" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Set Difficulty of the game"
-        app:layout_constraintBottom_toTopOf="@+id/difficultyPicker"
-        app:layout_constraintStart_toStartOf="@+id/fillLastName" />
 
 </android.support.constraint.ConstraintLayout>

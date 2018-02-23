@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartScreen"
+        <activity
+            android:name=".StartScreen"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,19 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" >
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen">
-
-        </activity>
+            android:label="@string/title_activity_career_fair_screen"></activity>
         <activity
             android:name=".CareerFairBoothScreen"
-            android:label="@string/title_activity_career_fair_booth_screen">
-        </activity>
-        <activity
-            android:name=".NewUser" />
+            android:label="@string/title_activity_career_fair_booth_screen"></activity>
+        <activity android:name=".NewUser" />
         <activity
             android:name=".EndScreen"
             android:label="@string/title_activity_end_screen"
@@ -52,8 +48,12 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".account_screen_view" />
         <activity android:name=".leaderboard_screen" />
-        <activity android:name=".settings_screen"></activity>
-        <activity android:name=".PrepQuestionScreen"></activity>
+        <activity android:name=".settings_screen" />
+        <activity android:name=".PrepQuestionScreen" />
+        <activity
+            android:name=".NewGameView"
+            android:label="@string/title_activity_new_game_view"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

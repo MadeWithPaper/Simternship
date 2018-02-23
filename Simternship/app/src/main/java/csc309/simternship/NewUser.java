@@ -31,7 +31,6 @@ public class NewUser extends AppCompatActivity {
     EditText fillLastNameView;
     EditText fillEmailView;
     EditText fillPasswordView;
-    NumberPicker fillDifficultyPicker;
 
    private static final String TAG = "MainActivity";
 
@@ -56,7 +55,6 @@ public class NewUser extends AppCompatActivity {
         fillLastNameView = findViewById(R.id.fillLastName);
         fillEmailView = findViewById(R.id.fillEmail);
         fillPasswordView = findViewById(R.id.fillPassword);
-        fillDifficultyPicker = findViewById(R.id.difficultyPicker);
 
         fillEmailView.requestFocus();
 
@@ -85,10 +83,7 @@ public class NewUser extends AppCompatActivity {
         }
         });*/
 
-        final String [] difficulty = {"Freshman (1)", "Sophomore (2)", "Junior (3)", "Senior (4)"};
-        fillDifficultyPicker.setMinValue(0);
-        fillDifficultyPicker.setMaxValue(difficulty.length-1);
-        fillDifficultyPicker.setDisplayedValues(difficulty);
+
 
         /*fillDifficultyPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
            @Override
@@ -106,10 +101,8 @@ public class NewUser extends AppCompatActivity {
        String lastName = getString(fillLastNameView);
        String email = getString(fillEmailView);
        String password = getString(fillPasswordView);
-       int difficulty = fillDifficultyPicker.getValue();
 
-      if (!firstName.equals("") && !lastName.equals("") && !email.equals("") && !password.equals("")
-            && difficulty > 0) {
+      if (!firstName.equals("") && !lastName.equals("") && !email.equals("") && !password.equals("")) {
          createAccount(email, password);
       }
    }
@@ -134,7 +127,7 @@ public class NewUser extends AppCompatActivity {
          public void onComplete(@NonNull Task<AuthResult> task) {
             if (task.isSuccessful()) {
                Toast.makeText(NewUser.this, "Registration success!", Toast.LENGTH_SHORT).show();
-               Intent i = new Intent(NewUser.this, MainActivity.class);
+               Intent i = new Intent(NewUser.this, NewGameView.class);
                startActivity(i);
             }
             else
