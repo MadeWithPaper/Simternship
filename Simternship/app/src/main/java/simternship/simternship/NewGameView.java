@@ -36,6 +36,7 @@ public class NewGameView extends AppCompatActivity {
     }
 
     public void onClickBeginGame(View view) {
+        GameState.getInstance().newGame(this);
         startActivity(new Intent(this, MainActivity.class));
     }
 
