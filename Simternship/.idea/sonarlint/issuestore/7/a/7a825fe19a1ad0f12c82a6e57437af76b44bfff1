@@ -1,6 +1,0 @@
-
-Asquid:S1172",Remove this unused method parameter "email".(º¥€ç
-Asquid:S1172",Remove this unused method parameter "phone".(Îè„þ
-–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(º¥€ç
-–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Îè„þ
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ

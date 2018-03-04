@@ -1,8 +1,0 @@
-
-[squid:S1161":Add the "@Override" annotation above this method signature(»ŒÇåùÿÿÿÿ8ÔÛÅô•,
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…‡ˆ8ÅÿÉÁš,
-Vsquid:S1161":Add the "@Override" annotation above this method signature(  óŞ8ÔÛÅô•,
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(®¥£½üÿÿÿÿ8´˜´Áš,
-`squid:UselessImportCheck"7Remove this unused import 'android.app.ProgressDialog'.(¶ÍÔÓ8´˜´Áš,
-csquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ĞÕıÊ

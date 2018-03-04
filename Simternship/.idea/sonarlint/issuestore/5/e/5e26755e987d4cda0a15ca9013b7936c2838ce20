@@ -1,21 +1,0 @@
-
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(É˜ÕÂ
-`squid:UnusedPrivateMethod"8Remove this unused private "getListOfRecuriters" method.(ÌŸÆµúÿÿÿÿ
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Øíõ¹øÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ßñÅ“ýÿÿÿÿ
-msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬¸ÛM
-Ysquid:UnusedPrivateMethod"1Remove this unused private "setBoothName" method.(œ»¨ìøÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÿè¦ïüÿÿÿÿ
-Tsquid:UnusedPrivateMethod"1Remove this unused private "getBoothName" method.(ƒª™é
-ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ø¿ÞŒüÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÞŠÓ”þÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(—ÞÐû
-Zsquid:UnusedPrivateMethod"7Remove this unused private "getListOfAttendees" method.(Ñ†Ò‹
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ

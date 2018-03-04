@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class NewUser extends AppCompatActivity {
 
@@ -28,7 +31,6 @@ public class NewUser extends AppCompatActivity {
     EditText fillLastNameView;
     EditText fillEmailView;
     EditText fillPasswordView;
-
    private static final String TAG = "MainActivity";
 
    @Override
@@ -37,7 +39,7 @@ public class NewUser extends AppCompatActivity {
         setContentView(R.layout.activity_new_user);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        mAuth = FirebaseAuth.getInstance();
+      mAuth = FirebaseAuth.getInstance();
        mAuthListener = new FirebaseAuth.AuthStateListener() {
           @Override
           public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -79,15 +81,6 @@ public class NewUser extends AppCompatActivity {
            return keyEntered;
         }
         });*/
-
-
-
-        /*fillDifficultyPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-           @Override
-           public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
-
-           }
-        });*/
     }
    public void onClickSignUp(View view) {
        signUpAttempt();
@@ -118,13 +111,14 @@ public class NewUser extends AppCompatActivity {
        }
    }
 
-   public void createAccount(String email, String password) {
+   public void createAccount(final String email, String password) {
       mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
          @Override
          public void onComplete(@NonNull Task<AuthResult> task) {
             if (task.isSuccessful()) {
                Toast.makeText(NewUser.this, "Registration success!", Toast.LENGTH_SHORT).show();
                Intent i = new Intent(NewUser.this, NewGameView.class);
+               clearFields();
                startActivity(i);
             }
             else
@@ -139,6 +133,16 @@ public class NewUser extends AppCompatActivity {
       else {
          Toast.makeText(NewUser.this, "Fields are empty", Toast.LENGTH_SHORT).show();
          return "";
+      }
+   }
+
+   public void clearFields() {
+      ViewGroup group = findViewById(R.id.newUserLayOut);
+      for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+         View view = group.getChildAt(i);
+         if (view instanceof EditText) {
+            ((EditText) view).setText("");
+         }
       }
    }
 }

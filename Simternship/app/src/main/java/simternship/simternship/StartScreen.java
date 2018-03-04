@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -73,10 +74,12 @@ public class StartScreen extends AppCompatActivity {
                 return keyEntered;
             }
         });
+
        signUpButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
              Toast.makeText(StartScreen.this, "New Account!", Toast.LENGTH_SHORT).show();
+             clearFields();
              startActivity(new Intent(StartScreen.this, NewUser.class));
           }
           });
@@ -95,11 +98,6 @@ public class StartScreen extends AppCompatActivity {
         loginAttempt();
     }
 
-   /*public void onClickRegister(View view) {
-      Toast.makeText(StartScreen.this, "New Account!", Toast.LENGTH_SHORT).show();
-      startActivity(new Intent(StartScreen.this, NewUser.class));
-
-   }*/
         private void loginAttempt()
         {
 
@@ -145,14 +143,26 @@ public class StartScreen extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Intent i = new Intent(StartScreen.this, NewGameView.class);
+                   FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                   String uid = user.getUid();
+                   i.putExtra("user id", uid);
                     Toast.makeText(StartScreen.this, "login success!", Toast.LENGTH_LONG).show();
+                    clearFields();
                     startActivity(i);
                 } else{
                     Toast.makeText(StartScreen.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
+   public void clearFields() {
+      ViewGroup group = findViewById(R.id.loginView);
+      for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+         View view = group.getChildAt(i);
+         if (view instanceof EditText) {
+            ((EditText) view).setText("");
+         }
+      }
+   }
 }
