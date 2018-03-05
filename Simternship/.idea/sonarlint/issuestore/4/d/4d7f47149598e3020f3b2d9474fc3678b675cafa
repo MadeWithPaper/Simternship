@@ -1,0 +1,11 @@
+
+„squid:S4165"hRemove this useless assignment; "finalScore" already holds the assigned value along all execution paths.(Ã¬Ã†8—Å¬ Ÿ,
+’squid:S1319"qThe return type of this method should be an interface such as "List" rather than the implementation "LinkedList".(›Ã¥ùÿÿÿÿ8™ ßŸ,
+Hsquid:S1172",Remove this unused method parameter "score".(Ã¬Ã†8—Å¬ Ÿ,
+Osquid:S1068"4Remove this unused "startingActivity" private field.(ó‰Ùb8ĞÎŸ¡Ÿ,
+zsquid:S1450"_Remove the "startingActivity" field and declare it as a local variable in the relevant methods.(ó‰Ùb8ĞÎŸ¡Ÿ,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(Â‘¹–ıÿÿÿÿ8ĞÎŸ¡Ÿ,
+tsquid:S1450"XRemove the "companies" field and declare it as a local variable in the relevant methods.(÷ÕÒ8ĞÎŸ¡Ÿ,
+¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹Ü±Øûÿÿÿÿ8ĞÎŸ¡Ÿ,
+Jsquid:S1068")Remove this unused "names" private field.(©Íò»ùÿÿÿÿ8ĞÎŸ¡Ÿ,
+squid:S1319"qThe return type of this method should be an interface such as "List" rather than the implementation "LinkedList".(øé®æ8™ ßŸ,

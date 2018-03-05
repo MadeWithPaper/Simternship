@@ -9,9 +9,9 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class User {
 
-      public String firstName;
-      public String lastName;
-      public String email;
+      private String firstName;
+      private String lastName;
+      private String email;
 
       public User() {
          // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -22,4 +22,16 @@ public class User {
          this.lastName = lastName;
          this.email = email;
       }
+
+      public void setFirstName (String firstName) {this.firstName = firstName;}
+
+      public void setLastName (String lastName) {this.lastName = lastName;}
+
+      public void setEmail (String email) {this.email = email;}
+
+      public String getFirstName () {return this.firstName;}
+
+      public String getLastName () {return this.lastName;}
+
+      public String getEmail () {return this.email;}
 }

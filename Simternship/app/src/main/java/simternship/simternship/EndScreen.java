@@ -33,9 +33,6 @@ public class EndScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
 
-        theGame.setLastName("Samuel");
-        theGame.setFirstName("Jay");
-        theGame.setFinalScore(95555);
         getLeaderboard();
     }
 
@@ -44,8 +41,6 @@ public class EndScreen extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    System.out.print("GETTING THE DATA: ");
-                    System.out.println(postSnapshot);
                     Iterable values = postSnapshot.getChildren();
                     Iterator iter = values.iterator();
                     DataSnapshot firstNameJSON = (DataSnapshot) iter.next();
@@ -79,15 +74,12 @@ public class EndScreen extends AppCompatActivity
 
     public void updateLeaderboard() {
         finalScore = theGame.getFinalScore();
-        System.out.print("FINAL SCORE: ");
-        System.out.println(finalScore);
 
         ListIterator<Integer> checkScore = scores.listIterator();
 
         for (int i =0; checkScore.hasNext(); i++)
         {
             if (finalScore > checkScore.next() || !checkScore.hasNext()) {
-                System.out.println("Adding score" + finalScore);
                 scores.add(i, finalScore);
                 firstNames.add(i, theGame.getFirstName());
                 lastNames.add(i, theGame.getLastName());
