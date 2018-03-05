@@ -1,19 +1,16 @@
 package simternship.simternship;
 
-public class CareerFair {
-	private CareerFairBooth[] booths;
-	private CareerFairAttendee[] attendees;
+import java.util.List;
 
-	public CareerFair() {
-		//booths = new CareerFairBooth[6];
-		//attendees = new Attendee[50];
+public class CareerFair {
+	private List<CareerFairBooth> booths;
+
+	public CareerFair(List<CareerFairBooth> booths) {
+		this.booths = booths;
 	}
 
-	public CareerFairBooth[] getBooths() {
+	public List<CareerFairBooth> getBooths() {
 		return booths;
 	}
 
-	public CareerFairAttendee[] getAttendees() {
-		return attendees;
-	}
 }
