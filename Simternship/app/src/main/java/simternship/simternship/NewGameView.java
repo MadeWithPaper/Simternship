@@ -68,9 +68,9 @@ public class NewGameView extends AppCompatActivity {
 
     public void onClickBeginGame(View view) {
         GameState theGame = GameState.getInstance();
-        theGame.setFirstName(firstName);
-        theGame.setLastName(lastName);
-        theGame.setGameDifficulty(fillDifficultyPicker.getValue());
+
+        theGame.newGame(this, firstName, lastName, fillDifficultyPicker.getValue());
+
        startActivity(new Intent(this, MainActivity.class));
     }
 

@@ -11,6 +11,13 @@ import java.util.List;
  */
 
 public class GameState {
+    private static int MIN_COMPANIES = 5;
+    private static int MAX_COMPANIES = 20;
+    private static int MIN_RECRUITERS = 2;
+    private static int MAX_RECRUITERS = 5;
+    private static int MIN_ATTENDEES = 2;
+    private static int MAX_ATTENDEES = 30;
+
     private CareerFairFactory careerFairFactory;
     private CompanyFactory companyFactory;
 
@@ -45,7 +52,7 @@ public class GameState {
      * being null and existing, since some things will be constructed
      * by a timer.
      */
-    public void newGame(Activity caller) {
+    public void newGame(Activity caller, String firstName, String lastName, int difficulty) {
         destroyOldGame();
         startingActivity = caller;
         //TODO: career fair should be constructed by timer
@@ -55,6 +62,10 @@ public class GameState {
         currentNetworking = 0;
         currentJobOffers = new LinkedList<>();
         currentJobInterviews = new LinkedList<>();
+
+        setFirstName(firstName);
+        setLastName(lastName);
+        setGameDifficulty(difficulty);
     }
 
     public void setCurrentBooth(CareerFairBooth booth) {
@@ -93,7 +104,9 @@ public class GameState {
     private static GameState gameState;
 
     private GameState() {
-
+        this.companyFactory = new CompanyFactory(MIN_COMPANIES, MAX_COMPANIES);
+        this.careerFairFactory = new CareerFairFactory(MIN_RECRUITERS, MAX_RECRUITERS,
+                MIN_ATTENDEES, MAX_ATTENDEES, names);
     }
 
     // Setters
