@@ -6,6 +6,15 @@ package simternship.simternship;
 public class PrepQuestion 
 {
 	private String question;
+	private String answer;
+	public PrepQuestion(String q, String a){
+		this.question = q;
+		this.answer = a;
+	}
+	public String getQuestion(){return this.question;}
+	public String getAnswer(){return this.answer;}
+	/*
+	private String question;
 	private String[] answers;
 	private int correctAnswerIndex;
 
@@ -31,7 +40,7 @@ public class PrepQuestion
 	public int getCorrectAnswerIndex() {
 		return this.correctAnswerIndex;
 	}
-
+*/
 	/*Scanner kb = new Scanner(System.in);
 	int correctAnswers, wrongAnswers, numberQuestion;
 	

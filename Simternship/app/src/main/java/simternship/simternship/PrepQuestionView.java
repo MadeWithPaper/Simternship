@@ -1,14 +1,21 @@
 package simternship.simternship;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import java.util.Iterator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,10 +25,14 @@ import android.view.ViewGroup;
  * Use the {@link PrepQuestionView#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PrepQuestionView extends android.app.Fragment {
+
+public class PrepQuestionView extends android.app.Fragment implements View.OnClickListener{
     private Context context;
     private OnFragmentInteractionListener mListener;
-
+    TextView tv2;
+    PrepSession ps = new PrepSession();
+    PrepQuestion currentQuestion;
+    Iterator<PrepQuestion> pqIterator = ps.getQuestionList().iterator();
     public PrepQuestionView() {
         // Required empty public constructor
     }
@@ -50,7 +61,20 @@ public class PrepQuestionView extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_prep_question_view, container, false);
+        View v = inflater.inflate(R.layout.fragment_prep_question_view, container, false);
+        if (pqIterator.hasNext()) {
+            currentQuestion = pqIterator.next();
+        }
+        TextView tv1 = (TextView)v.getRootView().findViewById(R.id.textView7);
+        if (tv1!=null) {
+            tv1.setText(currentQuestion.getQuestion());
+        }
+        Button b = (Button) v.findViewById(R.id.button6);
+        b.setOnClickListener( this);
+        Button b1 = (Button) v.findViewById(R.id.button7);
+        b1.setOnClickListener( this);
+        return v;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -98,4 +122,49 @@ public class PrepQuestionView extends android.app.Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    private void setPage(android.app.Fragment fragment) {
+        //fragment.getView().setBackgroundColor(Color.WHITE);
+        getFragmentManager().beginTransaction().replace(R.id.prepFrameLayout, fragment).commit();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button6: //next click
+                if (pqIterator.hasNext()) {
+                    currentQuestion = pqIterator.next();
+                    TextView tv1 = (TextView)v.getRootView().findViewById(R.id.textView7);
+                    if (tv1!=null) {
+                        tv1.setText(currentQuestion.getQuestion());
+                    }
+                    tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
+                    if (tv2!=null){
+                        tv2.setVisibility(View.INVISIBLE);//invisible
+                    }
+                    if (!pqIterator.hasNext()){
+                        Button b = (Button) v.findViewById(R.id.button6);
+                        b.setText("Submit");
+                    }
+                }
+                else{
+                    //Intent i = new Intent( , PrepQuestionScoreScreen.class);
+
+                    setPage(PrepQuestionScoreView.newInstance());
+                    //setPage(CareerFairView.newInstance());
+                }
+
+
+                break;
+            case R.id.button7:
+                tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
+                if (tv2!=null){
+                    tv2.setText(currentQuestion.getAnswer());
+                    tv2.setVisibility(View.VISIBLE);//visible
+                }
+                break;
+        }
+    }
+
 }
