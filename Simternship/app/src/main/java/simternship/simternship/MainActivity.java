@@ -14,7 +14,8 @@ import android.app.Fragment;
 public class MainActivity extends AppCompatActivity
 implements CareerFairView.OnFragmentInteractionListener,
         PrepQuestionView.OnFragmentInteractionListener,
-        AccountSettingsView.OnFragmentInteractionListener {
+        AccountSettingsView.OnFragmentInteractionListener,
+        PrepQuestionScoreView.OnFragmentInteractionListener{
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

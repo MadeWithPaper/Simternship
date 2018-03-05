@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 
-public class PrepQuestionScreen extends AppCompatActivity
+public class PrepQuestionScoreScreen extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
