@@ -37,4 +37,14 @@ public class JobOffer
         return companyName.equals(other.companyName)
                 && salary.equals(other.salary);
     }
+
+    public String getCompanyName()
+    {
+        return companyName;
+    }
+
+    public BigDecimal getSalary()
+    {
+        return salary;
+    }
 }

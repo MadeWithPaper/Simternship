@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.014" />
 
-    <EditText
+    <TextView
         android:id="@+id/companyNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,30 +34,31 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="[Company Name]"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.589" />
 
-    <EditText
+    <TextView
         android:id="@+id/jobTitleText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="[Job Title]"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyNameText"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <ImageView
         android:id="@+id/companyLogo"
@@ -92,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/companyLogo"
         app:layout_constraintVertical_bias="0.344" />
 
-    <EditText
+    <TextView
         android:id="@+id/jobLocationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,15 +102,16 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="[Location]"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toTopOf="@+id/companyLogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobTitleText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.176" />
 
-    <EditText
+    <TextView
         android:id="@+id/jobSalaryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,13 +120,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="[Salary]"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toTopOf="@+id/companyLogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobLocationText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.411" />
 
     <Button
         android:id="@+id/ignoreButton"
