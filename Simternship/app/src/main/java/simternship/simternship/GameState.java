@@ -1,6 +1,7 @@
 package simternship.simternship;
 
 import android.app.Activity;
+import java.util.LinkedList;
 
 /**
  * Created by joel on 2/23/18.
@@ -8,6 +9,13 @@ import android.app.Activity;
 
 public class GameState {
     private CareerFair careerFair;
+    private int currentEnergy;
+    private int currentNetworking;
+    private LinkedList<JobOffer> currentJobOffers;
+    private LinkedList<JobInterview> currentJobInterviews;
+    private int gameDifficulty;
+    private String firstName;
+    private String lastName;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity startingActivity;
@@ -24,6 +32,10 @@ public class GameState {
         startingActivity = caller;
         //TODO: career fair should be constructed by timer
         careerFair = new CareerFair();
+        currentEnergy = 100;
+        currentNetworking = 0;
+        currentJobOffers = new LinkedList<>();
+        currentJobInterviews = new LinkedList<>();
     }
 
     /**
@@ -57,5 +69,61 @@ public class GameState {
 
     }
 
+    // Setters
+    public void setGameDifficulty(int difficulty) {
+        this.gameDifficulty = difficulty;
+    }
 
+    public void newJobOffer(JobOffer job) {
+        this.currentJobOffers.add(job);
+    }
+
+    public void newJobInterview(JobInterview interview) {
+        this.currentJobInterviews.add(interview);
+    }
+
+    public void setFirstName(String name) {
+        this.firstName = name;
+    }
+
+    public void setLastName(String name) {
+        this.lastName = name;
+    }
+
+    public void updateEnergy(int change) {
+        this.currentEnergy += change;
+    }
+
+    public void updateNetworking(int change) {
+        this.currentNetworking += change;
+    }
+
+    // Getters
+    public int getGameDifficulty() {
+        return this.gameDifficulty;
+    }
+
+    public LinkedList<JobOffer> getCurrentJobOffers(){
+        return this.currentJobOffers;
+    }
+
+    public LinkedList<JobInterview> getCurrentJobInterviews(){
+        return this.currentJobInterviews;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public int getCurrentEnergy() {
+        return this.currentEnergy;
+    }
+
+    public int getCurrentNetworking() {
+        return this.currentNetworking;
+    }
 }
