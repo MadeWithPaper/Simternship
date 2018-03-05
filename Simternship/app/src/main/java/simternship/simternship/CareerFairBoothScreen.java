@@ -61,8 +61,8 @@ public class CareerFairBoothScreen extends AppCompatActivity {
             }
         });
 
-        CareerFairBooth booth = new CareerFairBooth("Pied Piper");
-        Company company = new Company("Pied Piper", 5, true, 5);
+        CareerFairBooth booth = GameState.getInstance().getCurrentBooth();
+        Company company = booth.getCompany();
         setBooth(booth);
         setCompany(company);
     }
