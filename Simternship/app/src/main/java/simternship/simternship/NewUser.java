@@ -31,6 +31,9 @@ public class NewUser extends AppCompatActivity {
     EditText fillLastNameView;
     EditText fillEmailView;
     EditText fillPasswordView;
+
+   private DatabaseReference mDatabase;
+
    private static final String TAG = "MainActivity";
 
    @Override
@@ -38,6 +41,8 @@ public class NewUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+      mDatabase = FirebaseDatabase.getInstance().getReference();
 
       mAuth = FirebaseAuth.getInstance();
        mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -116,10 +121,7 @@ public class NewUser extends AppCompatActivity {
          @Override
          public void onComplete(@NonNull Task<AuthResult> task) {
             if (task.isSuccessful()) {
-               Toast.makeText(NewUser.this, "Registration success!", Toast.LENGTH_SHORT).show();
-               Intent i = new Intent(NewUser.this, NewGameView.class);
-               clearFields();
-               startActivity(i);
+               onAuthSuccess(task.getResult().getUser());
             }
             else
                Toast.makeText(NewUser.this, "Registration failed!", Toast.LENGTH_SHORT).show();
@@ -144,5 +146,26 @@ public class NewUser extends AppCompatActivity {
             ((EditText) view).setText("");
          }
       }
+   }
+
+   private void onAuthSuccess(FirebaseUser user) {
+      String firstName = getString(fillFirstNameView);
+      String lastName = getString(fillLastNameView);
+
+      // Write new user
+      writeNewUser(user.getUid(), user.getEmail(), firstName, lastName);
+
+      // Go to MainActivity
+      clearFields();
+
+      Toast.makeText(NewUser.this, "Registration success!", Toast.LENGTH_SHORT).show();
+      startActivity(new Intent(NewUser.this, MainActivity.class));
+   }
+
+
+   private void writeNewUser(String userId, String email, String firstName, String lastName) {
+      User user = new User(firstName, lastName, email);
+
+      mDatabase.child("users").child(userId).setValue(user);
    }
 }
