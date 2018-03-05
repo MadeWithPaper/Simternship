@@ -3,12 +3,29 @@ package simternship.simternship;
 import android.app.Activity;
 import java.util.LinkedList;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by joel on 2/23/18.
  */
 
 public class GameState {
+    private CareerFairFactory careerFairFactory;
+    private CompanyFactory companyFactory;
+
+    //names that recruiters/attendees can have
+    //probably would load from file if we had time.
+    private List<String> names = Arrays.asList(
+            "Bill", "Jim", "John", "James", "Derek",
+            "Daniel", "Jason", "Catherine", "Jennifer", "Chad",
+            "Charles"
+    );
+
     private CareerFair careerFair;
+    private List<Company> companies;
+    private CareerFairBooth booth;
+
     private int currentEnergy;
     private int currentNetworking;
     private LinkedList<JobOffer> currentJobOffers;
@@ -32,11 +49,20 @@ public class GameState {
         destroyOldGame();
         startingActivity = caller;
         //TODO: career fair should be constructed by timer
-        careerFair = new CareerFair();
+        companies = companyFactory.createCompanies();
+        careerFair = careerFairFactory.createCareerFair(companies);
         currentEnergy = 100;
         currentNetworking = 0;
         currentJobOffers = new LinkedList<>();
         currentJobInterviews = new LinkedList<>();
+    }
+
+    public void setCurrentBooth(CareerFairBooth booth) {
+        this.booth = booth;
+    }
+
+    public CareerFairBooth getCurrentBooth() {
+        return this.booth;
     }
 
     /**
@@ -66,7 +92,7 @@ public class GameState {
 
     private static GameState gameState;
 
-    public GameState() {
+    private GameState() {
 
     }
 

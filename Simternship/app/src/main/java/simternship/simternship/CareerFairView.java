@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -28,7 +27,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class CareerFairView extends android.app.Fragment {
-    private List<Company> companies;
+    private CareerFair careerFair;
 
     private Context context;
     private OnFragmentInteractionListener mListener;
@@ -88,21 +87,7 @@ public class CareerFairView extends android.app.Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setCompanies(Arrays.asList(
-                new Company("Google", 5, true, 5),
-                new Company("Facebook", 5, true, 5),
-                new Company("Apple", 5, true, 5),
-                new Company("Hooli", 5, true, 5),
-                new Company("Uber", 5, true, 5),
-                new Company("Lyft", 5, true, 5),
-                new Company("HP", 5, true, 5),
-                new Company("Adobe Systems", 5, true, 5),
-                new Company("Intel", 5, true, 5),
-                new Company("Nvidia", 5, true, 5),
-                new Company("Pied Piper", 5, true, 5),
-                new Company("Western Digital", 5, true, 5),
-                new Company("VMware", 5, true, 5)
-        ));
+        this.resetState();
     }
 
     @Override
@@ -112,17 +97,25 @@ public class CareerFairView extends android.app.Fragment {
     }
 
     private void visitCompany(int companyNumber) {
-        String name = this.companies.get(companyNumber).getCompanyName();
+        CareerFairBooth booth = careerFair.getBooths().get(companyNumber);
+
+        String name = booth.getCompany().getCompanyName();
+
+        GameState.getInstance().setCurrentBooth(booth);
 
         Toast.makeText(context, name + " clicked!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(context, CareerFairBoothScreen.class));
     }
 
-    private void setCompanies(List<Company> companies) {
-        this.companies = companies;
+    private void resetState() {
+        this.careerFair = GameState.getInstance().getCareerFair();
+        this.setCompanies();
+    }
+
+    private void setCompanies() {
         List<String> names = new ArrayList<>();
-        for (Company company : companies) {
-            names.add(company.getCompanyName());
+        for (CareerFairBooth booth : careerFair.getBooths()) {
+            names.add(booth.getCompany().getCompanyName());
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, names);

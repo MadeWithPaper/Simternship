@@ -12,7 +12,7 @@ import java.util.*;
 public class CareerFairBooth
 { 
 
-   private String boothName;
+   private Company company;
    private ArrayList<CareerFairAttendee> listOfAttendees;
    private ArrayList<Recruiter> listOfRecuriters;
 
@@ -20,13 +20,11 @@ public class CareerFairBooth
    *  construct a career fair booth
    *  @param boothName is the name of the booth, usually a comapny's name
    */
-   public CareerFairBooth (String boothName)
+   public CareerFairBooth (Company company)
    {
-      this.boothName = boothName;
+      this.company = company;
       listOfAttendees = new ArrayList<> ();
       listOfRecuriters = new ArrayList<> ();
-      //call methods to add recuriters upon creation of the booth
-      //listOfRecuriters.add(new Recuriter(name));
    }
 
    /**
@@ -49,56 +47,19 @@ public class CareerFairBooth
       listOfAttendees.add(player);
    }
 
-   //setters
-   /**
-   *  change the name of the booth
-   *  @param newName the new name for the booth
-   */
-   private void setBoothName(String newName)
-   {
-      this.boothName = newName;
-   }
-
-   //getters
-   /**   
-   *  return the name of the booth
-   */
-   private String getBoothName()
-   {
-      return boothName;
-   }
-
-   /**
-   *  prints out the list of attendees in the line for the booth
-   */
-   private void getListOfAttendees()
-   {
-      System.out.print("The current queue for " + boothName + " are as follows ");
-      for (Object p : listOfAttendees)
-      {
-         System.out.print(p);
-      }
-      System.out.println(" ");
-   }
-
-   /**
-   *  prints out a list of recuriters at the booth
-   */
-   private void getListOfRecuriters()
-   {
-      System.out.print("Recuriters present at " + boothName + " are as follows ");
-      for (Object q : listOfRecuriters)
-      {
-         System.out.print(q);
-      }
-      System.out.println(" ");
-   }
-
    public List<Recruiter> getRecruiters() {
       return this.listOfRecuriters;
    }
 
    public List<CareerFairAttendee> getAttendees() {
       return this.listOfAttendees;
+   }
+
+   public void addRecruiter(Recruiter recruiter) {
+      listOfRecuriters.add(recruiter);
+   }
+
+   public Company getCompany() {
+      return this.company;
    }
 }
