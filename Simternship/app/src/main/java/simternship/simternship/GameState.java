@@ -125,7 +125,7 @@ public class GameState {
         this.currentNetworking += change;
     }
 
-    public void setFinalScore(int score) {this.finalScore = finalScore; }
+    public void setFinalScore(int score) {this.finalScore = score; }
 
     // Getters
     public int getGameDifficulty() {

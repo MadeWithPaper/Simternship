@@ -32,19 +32,6 @@ public class EndScreen extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         theGame.setLastName("Samuel");
         theGame.setFirstName("Jay");
@@ -53,7 +40,7 @@ public class EndScreen extends AppCompatActivity
     }
 
     void getLeaderboard() {
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
@@ -73,12 +60,14 @@ public class EndScreen extends AppCompatActivity
                     scores.add(scoreInt);
                 }
 
-                updateLeaderboard();
+
 
                 ListIterator<String> firstIter = firstNames.listIterator();
                 while(firstIter.hasNext()) {
                     System.out.println(firstIter.next());
                 }
+
+                updateLeaderboard();
             }
 
             @Override
@@ -90,16 +79,19 @@ public class EndScreen extends AppCompatActivity
 
     public void updateLeaderboard() {
         finalScore = theGame.getFinalScore();
+        System.out.print("FINAL SCORE: ");
+        System.out.println(finalScore);
 
         ListIterator<Integer> checkScore = scores.listIterator();
 
         for (int i =0; checkScore.hasNext(); i++)
         {
-            if (finalScore > checkScore.next()) {
+            if (finalScore > checkScore.next() || !checkScore.hasNext()) {
+                System.out.println("Adding score" + finalScore);
                 scores.add(i, finalScore);
                 firstNames.add(i, theGame.getFirstName());
                 lastNames.add(i, theGame.getLastName());
-                return;
+                break;
             }
         }
 
