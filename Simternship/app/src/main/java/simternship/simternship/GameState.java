@@ -16,6 +16,7 @@ public class GameState {
     private int gameDifficulty;
     private String firstName;
     private String lastName;
+    private int finalScore;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity startingActivity;
@@ -65,7 +66,7 @@ public class GameState {
 
     private static GameState gameState;
 
-    private GameState() {
+    public GameState() {
 
     }
 
@@ -98,6 +99,8 @@ public class GameState {
         this.currentNetworking += change;
     }
 
+    public void setFinalScore(int score) {this.finalScore = finalScore; }
+
     // Getters
     public int getGameDifficulty() {
         return this.gameDifficulty;
@@ -126,4 +129,6 @@ public class GameState {
     public int getCurrentNetworking() {
         return this.currentNetworking;
     }
+
+    public int getFinalScore() {return this.finalScore; }
 }

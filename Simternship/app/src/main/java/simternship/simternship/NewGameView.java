@@ -1,5 +1,6 @@
 package simternship.simternship;
 
+import android.icu.util.TimeZone;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.constraint.solver.widgets.Snapshot;
@@ -53,7 +54,6 @@ public class NewGameView extends AppCompatActivity {
 
           @Override
           public void onCancelled(DatabaseError databaseError) {
-
           }
        });
 
@@ -67,8 +67,11 @@ public class NewGameView extends AppCompatActivity {
     }
 
     public void onClickBeginGame(View view) {
-        GameState.getInstance().newGame(this);
-        startActivity(new Intent(this, MainActivity.class));
+        GameState theGame = GameState.getInstance();
+        theGame.setFirstName(firstName);
+        theGame.setLastName(lastName);
+        theGame.setGameDifficulty(fillDifficultyPicker.getValue());
+       startActivity(new Intent(this, MainActivity.class));
     }
 
 }

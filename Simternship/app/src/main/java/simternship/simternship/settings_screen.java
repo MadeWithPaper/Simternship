@@ -33,7 +33,7 @@ public class settings_screen extends AppCompatActivity {
 
    public void onClickSave(View view)
     {
-       Intent i = new Intent(settings_screen.this, MainActivity.class);
+       Intent i = new Intent(settings_screen.this, EndScreen.class);
        Toast.makeText(settings_screen.this, "settings saved!", Toast.LENGTH_LONG).show();
        startActivity(i);
     }
