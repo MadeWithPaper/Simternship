@@ -95,7 +95,7 @@ public class AccountSettingsView extends android.app.Fragment {
                 new Listener(context, "Interview!", JobInterviewPreview.class)
         );
 
-        getView().findViewById(R.id.button3).setOnClickListener(
+        getView().findViewById(R.id.jobOffer).setOnClickListener(
                 new Listener(context, "Offers!", JobOfferPreview.class)
         );
     }
