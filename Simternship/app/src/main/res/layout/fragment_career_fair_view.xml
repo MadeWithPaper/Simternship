@@ -14,21 +14,22 @@
         android:maxWidth="400dp"
         android:minHeight="300dp"
         android:minWidth="300dp"
+        android:background="#FFFFFF"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/careerFairHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Career Fair"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/careerFairCompanyList"/>
+        <TextView
+            android:id="@+id/CareerFairHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Career Fair"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toTopOf="@+id/careerFairCompanyList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/careerFairCompanyList"
@@ -37,7 +38,7 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/careerFairHeader"
+        app:layout_constraintTop_toBottomOf="@+id/CareerFairHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

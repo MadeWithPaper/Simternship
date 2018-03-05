@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+
 public class account_screen_view extends AppCompatActivity {
+
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_screen_view);
-        
+
     }
 
     public void onClickSetting(View view) {
@@ -26,12 +29,12 @@ public class account_screen_view extends AppCompatActivity {
     }
 
     public void onClickInterviews(View view) {
-        Toast.makeText(account_screen_view.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(account_screen_view.this, "Interview!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(account_screen_view.this, JobInterviewPreview.class));
     }
 
     public void onClickJobOffers(View view) {
-        Toast.makeText(account_screen_view.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(account_screen_view.this, "Job Offers!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(account_screen_view.this, JobOfferPreview.class));
     }
 }

@@ -1,0 +1,9 @@
+
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ù ®Íúÿÿÿÿ
+›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½Ä³ïþÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ßÎ…—
+Asquid:S1481"'Remove this unused "fl" local variable.(ÀÆÎ®ýÿÿÿÿ
+Psquid:S1854"6Remove this useless assignment to local variable "fl".(ÀÆÎ®ýÿÿÿÿ
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(à¶Âýÿÿÿÿ
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„˜®’
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ž¦›Í
