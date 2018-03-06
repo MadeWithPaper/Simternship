@@ -1,5 +1,6 @@
 package simternship.simternship;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -116,7 +117,7 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     }
 
     private void meetFriend() {
-        fakeAction("Socialize");
+        startActivity(new Intent(CareerFairBoothScreen.this, SocializeDialogue.class));
     }
 
     private void fakeAction(String action) {
