@@ -30,7 +30,6 @@ public class JobInterviewPreview extends AppCompatActivity implements Observer
         setup();
     }
 
-
     public void update(Observable a, Object b) {
         this.reset();
     }
