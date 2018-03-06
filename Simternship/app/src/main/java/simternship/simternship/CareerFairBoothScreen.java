@@ -1,9 +1,15 @@
 package simternship.simternship;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -123,7 +129,11 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     }
 
     private void collectSwag() {
-        fakeAction("Collect Swag");
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup);
+        TextView txt = (TextView)dialog.findViewById(R.id.popUpText);
+        txt.setText("Gained " + "Engery Points."); //add method to show how many points gained
+        dialog.show();
     }
 
     private void meetFriend() {

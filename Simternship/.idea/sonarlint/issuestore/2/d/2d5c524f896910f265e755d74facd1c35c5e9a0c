@@ -1,11 +1,11 @@
 
 Msquid:S1068"3Remove this unused "networkingScore" private field.(¨·¾ûÿÿÿÿ
 Isquid:S1068"/Remove this unused "energyScore" private field.(ñÍµÚşÿÿÿÿ
-Csquid:S1068")Remove this unused "email" private field.(ËÌ˜øÿÿÿÿ
-Fsquid:S1068"2Remove this unused "hashedPassword" private field.(¸±ác
+Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
 Fsquid:S1068"1Remove this unused "currentResume" private field.(ğ²ö¸
+Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
 Ssquid:S3400"9Remove this method and declare a constant for this value.(Ö§”Óşÿÿÿÿ
-Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
-Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
-Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
 Isquid:S1172"/Remove this unused method parameter "password".(ÅÉ°Íùÿÿÿÿ
+Fsquid:S1068"2Remove this unused "hashedPassword" private field.(¸±ác
+Nsquid:S3400"9Remove this method and declare a constant for this value.(”·³›
+Csquid:S1068")Remove this unused "email" private field.(ËÌ˜øÿÿÿÿ

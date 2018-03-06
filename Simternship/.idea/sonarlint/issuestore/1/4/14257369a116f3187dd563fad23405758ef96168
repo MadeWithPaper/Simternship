@@ -1,5 +1,9 @@
 
 esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(®¥£½üÿÿÿÿ
-Tsquid:S1161":Add the "@Override" annotation above this method signature(»ŒÇåùÿÿÿÿ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ý´ªþ8š³ÇÆŸ,
 csquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ÐÕýÊ
+[squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ûüìÆŸ,
+Ksquid:S00108")Either remove or fill this block of code.(¤¦ß‘üÿÿÿÿ8ûüìÆŸ,
+Tsquid:S1161":Add the "@Override" annotation above this method signature(»ŒÇåùÿÿÿÿ
 Osquid:S1161":Add the "@Override" annotation above this method signature(  óÞ
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÞôúÿÿÿÿ8Ø—ÉÆŸ,

@@ -1,0 +1,7 @@
+
+Ksquid:S1905"*Remove this unnecessary cast to "Toolbar".(ªü–ıÿÿÿÿ8ƒÿŠÈŸ,
+xsquid:UselessImportCheck"ORemove this unused import 'android.support.design.widget.FloatingActionButton'.(„Ÿ¹¼8ñ˜‰ÈŸ,
+Nsquid:S1135"2Complete the task associated to this TODO comment.(ö€¥…8©ÿ®ÉŸ,
+Nsquid:S1135"2Complete the task associated to this TODO comment.(àÚ²à8©ÿ®ÉŸ,
+ksquid:UselessImportCheck"CRemove this unused import 'android.support.design.widget.Snackbar'.( À®p8ñ˜‰ÈŸ,
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ÚëĞıÿÿÿÿ
