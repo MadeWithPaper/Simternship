@@ -16,6 +16,9 @@ public class CareerFairBooth
    private ArrayList<CareerFairAttendee> listOfAttendees;
    private ArrayList<Recruiter> listOfRecuriters;
 
+   private boolean hasSocialized;
+   private boolean metRecruiter;
+
    /**
    *  construct a career fair booth
    *  @param boothName is the name of the booth, usually a comapny's name
@@ -25,6 +28,8 @@ public class CareerFairBooth
       this.company = company;
       listOfAttendees = new ArrayList<> ();
       listOfRecuriters = new ArrayList<> ();
+      hasSocialized = false;
+      metRecruiter = false;
    }
 
    /**
@@ -61,5 +66,23 @@ public class CareerFairBooth
 
    public Company getCompany() {
       return this.company;
+   }
+
+   public boolean canSocialize() {
+      return !hasSocialized;
+   }
+
+   public boolean canMeetRecruiter() {
+      return !metRecruiter;
+   }
+
+   public String meetRecruiter() {
+      this.metRecruiter = true;
+      return GameState.getInstance().getNextPersonName();
+   }
+
+   public String socialize() {
+      this.hasSocialized = true;
+      return GameState.getInstance().getNextPersonName();
    }
 }
