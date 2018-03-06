@@ -1,34 +1,31 @@
 package simternship.simternship;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AccountSettingsView.OnFragmentInteractionListener} interface
+ * {@link PrepQuestionStartView.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AccountSettingsView#newInstance} factory method to
+ * Use the {@link PrepQuestionStartView#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AccountSettingsView extends android.app.Fragment {
+public class PrepQuestionStartView extends android.app.Fragment implements View.OnClickListener{
+
+
     private Context context;
     private OnFragmentInteractionListener mListener;
-    //final ProgressBar energyBar = this.getView().findViewById(R.id.energyBar);
 
-    public AccountSettingsView() {
+    public PrepQuestionStartView() {
         // Required empty public constructor
     }
 
@@ -36,11 +33,11 @@ public class AccountSettingsView extends android.app.Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment AccountSettingsView.
+     * @return A new instance of fragment CareerFairView.
      */
     // TODO: Rename and change types and number of parameters
-    public static AccountSettingsView newInstance() {
-        AccountSettingsView fragment = new AccountSettingsView();
+    public static PrepQuestionStartView newInstance() {
+        PrepQuestionStartView fragment = new PrepQuestionStartView();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -49,15 +46,18 @@ public class AccountSettingsView extends android.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ProgressBar energyBar = (ProgressBar) findViewById(R.id.energyBar);
-        //energyBar.
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account_settings_view, container, false);
+        View v = inflater.inflate(R.layout.prep_question_start_view, container, false);
+        Button b = (Button) v.findViewById(R.id.button3);
+        b.setOnClickListener(this);
+        return v;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -78,7 +78,10 @@ public class AccountSettingsView extends android.app.Fragment {
         }
 
         this.context = context;
+
+
     }
+
 
     @Override
     public void onDetach() {
@@ -86,47 +89,7 @@ public class AccountSettingsView extends android.app.Fragment {
         mListener = null;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        ProgressBar energyBar = getView().findViewById(R.id.energyBar);
-        energyBar.setProgress(GameState.getInstance().getCurrentEnergy());
-        ProgressBar networkBar = getView().findViewById(R.id.networkBar);
-        networkBar.setProgress(GameState.getInstance().getCurrentNetworking());
-
-        getView().findViewById(R.id.settings).setOnClickListener(
-                new Listener(context, "Setting screen!", settings_screen.class)
-        );
-
-        getView().findViewById(R.id.leaderboard).setOnClickListener(
-                new Listener(context, "Leaderboard!", leaderboard_screen.class)
-        );
-
-        getView().findViewById(R.id.button2).setOnClickListener(
-                new Listener(context, "Interview!", JobInterviewPreview.class)
-        );
-
-        getView().findViewById(R.id.jobOffer).setOnClickListener(
-                new Listener(context, "Offers!", JobOfferPreview.class)
-        );
-    }
-
-    private class Listener implements Button.OnClickListener {
-        String text;
-        Class type;
-        Context context;
-        Listener(Context context, String text, Class type) {
-            this.text = text;
-            this.type = type;
-            this.context = context;
-        }
-
-        @Override
-        public void onClick(View view) {
-            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(context, type));
-        }
-    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -142,4 +105,16 @@ public class AccountSettingsView extends android.app.Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button3: //start click
+                setPage(PrepQuestionView.newInstance());
+        }
+    }
+    private void setPage(android.app.Fragment fragment) {
+        //fragment.getView().setBackgroundColor(Color.WHITE);
+        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
+
+    }
+
 }

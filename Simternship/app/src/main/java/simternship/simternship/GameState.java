@@ -41,6 +41,8 @@ public class GameState {
     private String firstName;
     private String lastName;
     private int finalScore;
+    private JobInterview interview;
+    private JobOffer offer;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity startingActivity;
@@ -139,6 +141,16 @@ public class GameState {
     }
 
     public void setFinalScore(int score) {this.finalScore = score; }
+
+    public void setCurrentInterview(JobInterview interview)
+    {
+        this.interview = interview;
+    }
+
+    public void setCurrentOffer(JobOffer offer)
+    {
+        this.offer = offer;
+    }
 
     // Getters
     public int getGameDifficulty() {
