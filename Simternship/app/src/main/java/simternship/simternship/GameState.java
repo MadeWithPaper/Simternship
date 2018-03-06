@@ -47,6 +47,8 @@ public class GameState extends Observable {
     private JobInterview interview;
     private JobOffer offer;
     private JobOffer chosenOffer;
+    private int lastNameCount;
+    private RandomGenerator randomGenerator;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity currentActivity;
@@ -91,6 +93,8 @@ public class GameState extends Observable {
         currentJobOffers.add(new JobOffer("Microsoft", new java.math.BigDecimal("140000")));
         currentJobOffers.add(new JobOffer("Facebook", new java.math.BigDecimal("80000")));
         currentJobOffers.add(new JobOffer("Sears", new java.math.BigDecimal("50000")));
+
+        lastNameCount = 0;
     }
 
     public void setCurrentBooth(CareerFairBooth booth) {
@@ -132,6 +136,7 @@ public class GameState extends Observable {
         this.companyFactory = new CompanyFactory(MIN_COMPANIES, MAX_COMPANIES);
         this.careerFairFactory = new CareerFairFactory(MIN_RECRUITERS, MAX_RECRUITERS,
                 MIN_ATTENDEES, MAX_ATTENDEES, names);
+        this.randomGenerator = new RandomGenerator();
     }
 
     //actions
@@ -163,6 +168,11 @@ public class GameState extends Observable {
     public void gotUpdated() {
         this.setChanged();
         this.notifyObservers();
+    }
+
+    public String getNextPersonName() {
+        char lastName = (char) ('A' + (lastNameCount++ % 26));
+        return "Davide " + lastName + ".";
     }
 
     // Setters
@@ -242,5 +252,9 @@ public class GameState extends Observable {
     public JobOffer getCurrentOffer()
     {
         return offer;
+    }
+
+    public RandomGenerator getRandomGenerator() {
+        return randomGenerator;
     }
 }
