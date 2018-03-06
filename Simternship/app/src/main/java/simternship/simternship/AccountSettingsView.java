@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
 
 /**
@@ -24,6 +26,7 @@ import android.widget.Toast;
 public class AccountSettingsView extends android.app.Fragment {
     private Context context;
     private OnFragmentInteractionListener mListener;
+    //final ProgressBar energyBar = this.getView().findViewById(R.id.energyBar);
 
     public AccountSettingsView() {
         // Required empty public constructor
@@ -46,6 +49,8 @@ public class AccountSettingsView extends android.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //ProgressBar energyBar = (ProgressBar) findViewById(R.id.energyBar);
+        //energyBar.
     }
 
     @Override
@@ -83,6 +88,12 @@ public class AccountSettingsView extends android.app.Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        ProgressBar energyBar = getView().findViewById(R.id.energyBar);
+        energyBar.setProgress(GameState.getInstance().getCurrentEnergy());
+        ProgressBar networkBar = getView().findViewById(R.id.networkBar);
+        networkBar.setProgress(GameState.getInstance().getCurrentNetworking());
+
         getView().findViewById(R.id.settings).setOnClickListener(
                 new Listener(context, "Setting screen!", settings_screen.class)
         );
