@@ -5,7 +5,8 @@
     android:id="@+id/loginView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="simternship.simternship.StartScreen">
+    tools:context="simternship.simternship.StartScreen"
+    android:windowSoftInputMode="stateHidden">
 
     <Button
         android:id="@+id/logInButton"

@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,12 +27,17 @@ public class EndScreen extends AppCompatActivity
     DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Leaderboard");
     GameState theGame = GameState.getInstance();
     int finalScore = theGame.getFinalScore();
+    TextView scoreView = findViewById(R.id.endScore);
+    TextView nameView = findViewById(R.id.nameView);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
+
+        scoreView.setText((scoreView).toString());
+        nameView.setText(theGame.getFirstName() + " " + theGame.getLastName());
 
         getLeaderboard();
     }
@@ -111,7 +117,7 @@ public class EndScreen extends AppCompatActivity
     public void onClickPlayAgain(View view) {
         //todo: figure out how to send to beginning of game again
         //todo: change the class that we intend to go to
-        Intent intent = new Intent(this, JobOfferPreview.class);
+        Intent intent = new Intent(EndScreen.this, NewGameView.class);
         startActivity(intent);
     }
 }

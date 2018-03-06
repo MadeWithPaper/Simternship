@@ -93,3 +93,7 @@ q
 Aapp/src/main/java/simternship/simternship/leaderboard_screen.java,f/7/f75ea380a61edb4cb9e42b61c98427ad7262b95e
 n
 >app/src/main/java/simternship/simternship/settings_screen.java,6/4/64dcae406ef5b41e0847289ba2929ec57a6a9936
+i
+9app/src/main/res/layout/content_job_interview_preview.xml,4/d/4dac61347fa0d379a5c304acd2013057dd51ed04
+n
+>app/src/main/java/simternship/simternship/JobOfferPreview.java,0/b/0b130619c7a804f10f798b6acb4942aeaeb6dad2

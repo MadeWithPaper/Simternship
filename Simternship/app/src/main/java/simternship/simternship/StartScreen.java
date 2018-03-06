@@ -31,8 +31,6 @@ public class StartScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private static final String TAG = "MainActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -47,7 +45,7 @@ public class StartScreen extends AppCompatActivity {
         signUpButton = findViewById(R.id.registration);
 
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -56,12 +54,11 @@ public class StartScreen extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Log.d(TAG, "onAuthStateChanged:signed_in" + user.getUid());
                 }
             }
         };
 
-        userEmail.requestFocus();
+        //userEmail.requestFocus();
         userPass.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
@@ -117,7 +114,6 @@ public class StartScreen extends AppCompatActivity {
             if (!view.getText().toString().equals(""))
                 return view.getText().toString();
             else {
-                Toast.makeText(StartScreen.this, "Please enter Email/Password", Toast.LENGTH_SHORT).show();
                 return "";
                 }
         }
@@ -146,7 +142,6 @@ public class StartScreen extends AppCompatActivity {
                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                    String uid = user.getUid();
                    i.putExtra("user id", uid);
-                    Toast.makeText(StartScreen.this, "login success!", Toast.LENGTH_LONG).show();
                     clearFields();
                     startActivity(i);
                 } else{
