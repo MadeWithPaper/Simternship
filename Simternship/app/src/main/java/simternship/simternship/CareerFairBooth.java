@@ -76,13 +76,11 @@ public class CareerFairBooth
       return !metRecruiter;
    }
 
-   public String meetRecruiter() {
+   public void meetRecruiter() {
       this.metRecruiter = true;
-      return GameState.getInstance().getNextPersonName();
    }
 
-   public String socialize() {
+   public void socialize() {
       this.hasSocialized = true;
-      return GameState.getInstance().getNextPersonName();
    }
 }

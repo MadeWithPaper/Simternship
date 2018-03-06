@@ -62,14 +62,22 @@ public class CareerFairBoothScreen extends AppCompatActivity {
             }
         });
 
-        CareerFairBooth booth = GameState.getInstance().getCurrentBooth();
-        Company company = booth.getCompany();
-        setBooth(booth);
-        setCompany(company);
+        reset();
+
+    }
+
+    public void reset() {
+        setBooth(GameState.getInstance().getCurrentBooth());
     }
 
     public void setBooth(CareerFairBooth booth) {
         this.booth = booth;
+
+        socialize.setEnabled(booth.canSocialize());
+        interview.setEnabled(booth.canMeetRecruiter());
+
+        setCompany(booth.getCompany());
+
         this.update();
     }
 
@@ -109,7 +117,9 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     }
 
     private void startInterview() {
-        fakeAction("Talk to Recruiter");
+        booth.meetRecruiter();
+        reset();
+        startActivity(new Intent(CareerFairBoothScreen.this, SocializeDialogue.class));
     }
 
     private void collectSwag() {
@@ -117,6 +127,8 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     }
 
     private void meetFriend() {
+        booth.socialize();
+        reset();
         startActivity(new Intent(CareerFairBoothScreen.this, SocializeDialogue.class));
     }
 

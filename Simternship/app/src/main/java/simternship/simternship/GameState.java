@@ -48,6 +48,7 @@ public class GameState extends Observable {
     private JobOffer offer;
     private JobOffer chosenOffer;
     private int lastNameCount;
+    private RandomGenerator randomGenerator;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity currentActivity;
@@ -135,6 +136,7 @@ public class GameState extends Observable {
         this.companyFactory = new CompanyFactory(MIN_COMPANIES, MAX_COMPANIES);
         this.careerFairFactory = new CareerFairFactory(MIN_RECRUITERS, MAX_RECRUITERS,
                 MIN_ATTENDEES, MAX_ATTENDEES, names);
+        this.randomGenerator = new RandomGenerator();
     }
 
     //actions
@@ -250,5 +252,9 @@ public class GameState extends Observable {
     public JobOffer getCurrentOffer()
     {
         return offer;
+    }
+
+    public RandomGenerator getRandomGenerator() {
+        return randomGenerator;
     }
 }
