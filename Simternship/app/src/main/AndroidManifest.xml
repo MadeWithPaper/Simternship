@@ -13,11 +13,6 @@
         <activity
             android:name="simternship.simternship.StartScreen"
             android:windowSoftInputMode="stateHidden|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="simternship.simternship.MainActivity"></activity>
         <activity
@@ -50,11 +45,20 @@
         <activity android:name="simternship.simternship.account_screen_view" />
         <activity android:name="simternship.simternship.leaderboard_screen" />
         <activity android:name="simternship.simternship.settings_screen" />
+        <!--
         <activity android:name="simternship.simternship.PrepQuestionScreen" />
+        -->
         <activity
             android:name="simternship.simternship.NewGameView"
             android:label="@string/title_activity_new_game_view"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
