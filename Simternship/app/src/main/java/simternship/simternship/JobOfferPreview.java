@@ -7,11 +7,14 @@ import android.view.View;
 import android.content.Intent;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Observer;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import java.util.Observable;
 
-public class JobOfferPreview extends AppCompatActivity
+public class JobOfferPreview extends AppCompatActivity implements Observer
 {
     List<JobOffer> offers;
 
@@ -26,9 +29,20 @@ public class JobOfferPreview extends AppCompatActivity
         setup();
     }
 
+    public void update(Observable a, Object b) {
+        this.reset();
+    }
+
     private void setup()
     {
+        GameState.getInstance().addObserver(this);
         reset();
+    }
+
+    @Override
+    public void finish() {
+        GameState.getInstance().deleteObserver(this);
+        super.finish();
     }
 
     public void reset()

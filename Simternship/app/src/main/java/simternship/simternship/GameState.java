@@ -1,16 +1,19 @@
 package simternship.simternship;
 
 import android.app.Activity;
+import android.widget.Toast;
+
 import java.util.LinkedList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by joel on 2/23/18.
  */
 
-public class GameState {
+public class GameState extends Observable {
     private static int MIN_COMPANIES = 5;
     private static int MAX_COMPANIES = 20;
     private static int MIN_RECRUITERS = 2;
@@ -43,9 +46,10 @@ public class GameState {
     private int finalScore;
     private JobInterview interview;
     private JobOffer offer;
+    private JobOffer chosenOffer;
 
     //we will use this to invoke timer actions on the UI thread
-    private Activity startingActivity;
+    private Activity currentActivity;
 
 
     /**
@@ -56,7 +60,7 @@ public class GameState {
      */
     public void newGame(Activity caller, String firstName, String lastName, int difficulty) {
         destroyOldGame();
-        startingActivity = caller;
+        currentActivity = caller;
         //TODO: career fair should be constructed by timer
         companies = companyFactory.createCompanies();
         careerFair = careerFairFactory.createCareerFair(companies);
@@ -130,17 +134,40 @@ public class GameState {
                 MIN_ATTENDEES, MAX_ATTENDEES, names);
     }
 
-    // Setters
-    public void setGameDifficulty(int difficulty) {
-        this.gameDifficulty = difficulty;
+    //actions
+
+    public void endGame() {
+        Toast.makeText(currentActivity, "Game Ended", Toast.LENGTH_SHORT).show();
     }
 
     public void newJobOffer(JobOffer job) {
         this.currentJobOffers.add(job);
+        this.gotUpdated();
     }
 
     public void newJobInterview(JobInterview interview) {
         this.currentJobInterviews.add(interview);
+        this.gotUpdated();
+    }
+
+    public void removeJobOffer(JobOffer offer) {
+        this.currentJobOffers.remove(offer);
+        this.gotUpdated();
+    }
+
+    public void removeJobInterview(JobInterview interview) {
+        this.currentJobInterviews.remove(interview);
+        this.gotUpdated();
+    }
+
+    public void gotUpdated() {
+        this.setChanged();
+        this.notifyObservers();
+    }
+
+    // Setters
+    public void setGameDifficulty(int difficulty) {
+        this.gameDifficulty = difficulty;
     }
 
     public void setFirstName(String name) {
@@ -169,6 +196,11 @@ public class GameState {
     public void setCurrentOffer(JobOffer offer)
     {
         this.offer = offer;
+    }
+
+    public void setChosenOffer(JobOffer offer)
+    {
+        this.chosenOffer = offer;
     }
 
     // Getters
@@ -201,4 +233,14 @@ public class GameState {
     }
 
     public int getFinalScore() {return this.finalScore; }
+
+    public JobInterview getCurrentInterview()
+    {
+        return interview;
+    }
+
+    public JobOffer getCurrentOffer()
+    {
+        return offer;
+    }
 }
