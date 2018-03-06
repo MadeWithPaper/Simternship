@@ -190,10 +190,16 @@ public class GameState extends Observable {
 
     public void updateEnergy(int change) {
         this.currentEnergy += change;
+        if (this.currentEnergy > 100) {
+            this.currentEnergy = 100;
+        }
     }
 
     public void updateNetworking(int change) {
         this.currentNetworking += change;
+        if (this.currentNetworking > 100) {
+            this.currentNetworking = 100;
+        }
     }
 
     public void setFinalScore(int score) {this.finalScore = score; }
