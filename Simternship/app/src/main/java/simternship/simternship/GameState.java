@@ -68,6 +68,25 @@ public class GameState {
         setFirstName(firstName);
         setLastName(lastName);
         setGameDifficulty(difficulty);
+
+        //tests for jobInterviews
+        currentJobInterviews.add(new JobInterview("Apple"));
+        currentJobInterviews.add(new JobInterview("Amazon"));
+        currentJobInterviews.add(new JobInterview("Microsoft"));
+        currentJobInterviews.add(new JobInterview("Facebook"));
+        currentJobInterviews.add(new JobInterview("Sears"));
+        currentJobInterviews.add(new JobInterview("Return of the Jedi"));
+        currentJobInterviews.add(new JobInterview("Computer Genies"));
+        currentJobInterviews.add(new JobInterview("Borat Sagdiyev"));
+        currentJobInterviews.add(new JobInterview("Kim Jung Un"));
+        currentJobInterviews.add(new JobInterview("Donald Trump"));
+
+        //tests for jobOffers
+        currentJobOffers.add(new JobOffer("Apple", new java.math.BigDecimal("100000")));
+        currentJobOffers.add(new JobOffer("Amazon", new java.math.BigDecimal("120000")));
+        currentJobOffers.add(new JobOffer("Microsoft", new java.math.BigDecimal("140000")));
+        currentJobOffers.add(new JobOffer("Facebook", new java.math.BigDecimal("80000")));
+        currentJobOffers.add(new JobOffer("Sears", new java.math.BigDecimal("50000")));
     }
 
     public void setCurrentBooth(CareerFairBooth booth) {
