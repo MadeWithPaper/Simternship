@@ -44,6 +44,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name="simternship.simternship.account_screen_view" />
         <activity android:name="simternship.simternship.leaderboard_screen" />
+        <activity android:name="simternship.simternship.SocializeDialogue" />
         <activity android:name="simternship.simternship.settings_screen" />
         <!--
         <activity android:name="simternship.simternship.PrepQuestionScreen" />
