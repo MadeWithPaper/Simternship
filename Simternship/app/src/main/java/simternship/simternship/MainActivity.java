@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity
 implements CareerFairView.OnFragmentInteractionListener,
         PrepQuestionView.OnFragmentInteractionListener,
         AccountSettingsView.OnFragmentInteractionListener,
+        PrepQuestionStartView.OnFragmentInteractionListener,
         PrepQuestionScoreView.OnFragmentInteractionListener{
     @Override
     protected void onCreate (Bundle savedInstanceState){
@@ -71,7 +72,7 @@ implements CareerFairView.OnFragmentInteractionListener,
     private void setPage(int pos) {
         switch (pos) {
             case 0:
-                setPage(PrepQuestionView.newInstance());
+                setPage(PrepQuestionStartView.newInstance());
                 break;
             case 1:
                 setPage(CareerFairView.newInstance());
