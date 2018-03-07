@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 
@@ -20,8 +21,8 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class PrepQuestionStartView extends android.app.Fragment implements View.OnClickListener{
-
-
+    static int questionType = 1;
+    NumberPicker fillDifficultyPicker;
     private Context context;
     private OnFragmentInteractionListener mListener;
 
@@ -46,8 +47,6 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -56,10 +55,18 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         View v = inflater.inflate(R.layout.prep_question_start_view, container, false);
         Button b = (Button) v.findViewById(R.id.button3);
         b.setOnClickListener(this);
+        fillDifficultyPicker = v.findViewById(R.id.difficultyPicker2);
+        final String [] difficulty = {"Behavioural Questions", "Technical Questions"};
+        fillDifficultyPicker.setMinValue(0);
+        fillDifficultyPicker.setMaxValue(difficulty.length-1);
+        fillDifficultyPicker.setDisplayedValues(difficulty);
+
         return v;
 
     }
-
+    public int getQuestionType(){ //1=behavioural, 2 = technical
+        return this.questionType;
+    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -108,6 +115,7 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button3: //start click
+                questionType = fillDifficultyPicker.getValue();
                 setPage(PrepQuestionView.newInstance());
         }
     }

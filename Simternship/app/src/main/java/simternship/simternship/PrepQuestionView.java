@@ -30,9 +30,9 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
     private Context context;
     private OnFragmentInteractionListener mListener;
     TextView tv2;
-    PrepSession ps = new PrepSession();
+
     PrepQuestion currentQuestion;
-    Iterator<PrepQuestion> pqIterator = ps.getQuestionList().iterator();
+    Iterator<PrepQuestion> pqIterator;
     public PrepQuestionView() {
         // Required empty public constructor
     }
@@ -62,6 +62,9 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_prep_question_view, container, false);
+        int questionType = PrepQuestionStartView.questionType;
+        PrepSession ps = new PrepSession();
+        pqIterator = ps.getQuestionList(questionType).iterator();
         if (pqIterator.hasNext()) {
             currentQuestion = pqIterator.next();
         }

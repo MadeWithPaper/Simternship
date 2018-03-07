@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import java.util.List;
  * Use the {@link PrepQuestionScoreView#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PrepQuestionScoreView extends android.app.Fragment {
+public class PrepQuestionScoreView extends android.app.Fragment implements View.OnClickListener{
 
 
     private Context context;
@@ -69,6 +70,8 @@ public class PrepQuestionScoreView extends android.app.Fragment {
             tv2.setText("Good job! You got " + "" + "Questions Prepared!");
             // Inflate the layout for this fragment
         }
+        Button b = (Button) v.findViewById(R.id.button4);
+        b.setOnClickListener(this);
         return v;
 
     }
@@ -117,5 +120,15 @@ public class PrepQuestionScoreView extends android.app.Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button4: //start click
+                setPage(PrepQuestionStartView.newInstance());
+        }
+    }
+    private void setPage(android.app.Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.prepScoreFrameLayout, fragment).commit();
+
     }
 }
