@@ -1,6 +1,7 @@
 package simternship.simternship;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.widget.Toast;
 
 import java.util.LinkedList;
@@ -8,6 +9,8 @@ import java.util.LinkedList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Observable;
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * Created by joel on 2/23/18.

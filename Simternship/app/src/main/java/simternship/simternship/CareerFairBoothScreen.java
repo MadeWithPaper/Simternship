@@ -31,6 +31,8 @@ public class CareerFairBoothScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_career_fair_booth_screen);
 
+        GameState.getInstance().updateEnergy(-20);
+
         difficulties = new HashMap<>();
         difficulties.put(1, "Very Easy");
         difficulties.put(2, "Easy");

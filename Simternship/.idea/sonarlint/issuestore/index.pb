@@ -115,3 +115,5 @@ Q
 !app/src/main/res/layout/popup.xml,c/3/c36d16a567c4a1af29b5cca69a4d99606a3a48bf
 n
 >app/src/main/java/simternship/simternship/CareerFairBooth.java,c/0/c00c29a0de188813b7c44f73e4cb2f07ed30600f
+c
+3app/src/main/java/simternship/simternship/Swag.java,e/3/e33f279060eccc742de03474b94067ad49aed4e8
