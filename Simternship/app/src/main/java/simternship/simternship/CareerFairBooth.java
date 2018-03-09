@@ -36,7 +36,7 @@ public class CareerFairBooth
    *  each SWAG from the booth will give the player 1 - 5 energy points
    *  @param attendee a player that stops by at a booth
    */
-   public int giveSWAG(Object attendee)
+   public int giveSWAG()
    {
       Random r = new Random();
 

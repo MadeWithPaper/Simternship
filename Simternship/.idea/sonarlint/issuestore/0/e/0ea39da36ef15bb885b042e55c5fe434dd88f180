@@ -1,13 +1,13 @@
 
-Lsquid:S1068"2Remove this unused "companyButtons" private field.(––÷üÿÿÿÿ
-=squid:S1068"(Remove this unused "prev" private field.(ÇÀò£
-nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(é©ª
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Š¤”Öşÿÿÿÿ
-_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŸÅ¹,
 =squid:S1068"(Remove this unused "page" private field.(¡»µÁ
 esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¦ºìüÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ò¢–ùÿÿÿÿ
-hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(üı¿øøÿÿÿÿ
 7squid:S1659""Declare "next" on a separate line.(ÇÀò£
-=squid:S1068"(Remove this unused "next" private field.(ÇÀò£
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(üı¿øøÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(é©ª
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŸÅ¹,
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ò¢–ùÿÿÿÿ
+=squid:S1068"(Remove this unused "prev" private field.(ÇÀò£
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Š¤”Öşÿÿÿÿ
 `squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¼ã
+Lsquid:S1068"2Remove this unused "companyButtons" private field.(––÷üÿÿÿÿ
+=squid:S1068"(Remove this unused "next" private field.(ÇÀò£

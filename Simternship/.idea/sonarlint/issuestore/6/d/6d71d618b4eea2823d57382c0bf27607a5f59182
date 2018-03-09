@@ -1,16 +1,16 @@
 
-<squid:S1659""Declare "swag" on a separate line.(û’Òžûÿÿÿÿ
-asquid:UselessImportCheck"8Remove this unused import 'android.view.LayoutInflater'.(À¯ÑÇ8ÔàÊŸ,
-hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(«¾Åøÿÿÿÿ
-Asquid:S1659"'Declare "attendees" on a separate line.(‚Ôñ¸ùÿÿÿÿ
-Asquid:S1659"'Declare "socialize" on a separate line.(û’Òžûÿÿÿÿ
-fsquid:UselessImportCheck"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8ÔàÊŸ,
-_squid:UselessImportCheck"7Remove this unused import 'android.widget.PopupWindow'.(ªþ¨x8ÔàÊŸ,
-Csquid:S1659")Declare "companyName" on a separate line.(‚Ôñ¸ùÿÿÿÿ
-Bsquid:S1659"(Declare "difficulty" on a separate line.(‚Ôñ¸ùÿÿÿÿ
-_squid:UselessImportCheck"1Remove this unused import 'android.view.Gravity'.(ÎÎÎýÿÿÿÿ8ÔàÊŸ,
-=squid:S1643"Use a StringBuilder instead.(ßË²Ùüÿÿÿÿ8‡üÊŸ,
-Ysquid:UnusedPrivateMethod"/Remove this unused private "fakeAction" method.(úñîÔ8â¿£ÊŸ,
 Bsquid:S1659"(Declare "recruiters" on a separate line.(‚Ôñ¸ùÿÿÿÿ
+Csquid:S1659")Declare "companyName" on a separate line.(‚Ôñ¸ùÿÿÿÿ
+=squid:S1643"Use a StringBuilder instead.(ßË²Ùüÿÿÿÿ8‡üÊŸ,
+Asquid:S1659"'Declare "socialize" on a separate line.(û’Òžûÿÿÿÿ
+_squid:UselessImportCheck"7Remove this unused import 'android.widget.PopupWindow'.(ªþ¨x8ÔàÊŸ,
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(«¾Åøÿÿÿÿ
+_squid:UselessImportCheck"1Remove this unused import 'android.view.Gravity'.(ÎÎÎýÿÿÿÿ8ÔàÊŸ,
+Asquid:S1659"'Declare "attendees" on a separate line.(‚Ôñ¸ùÿÿÿÿ
+fsquid:UselessImportCheck"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8ÔàÊŸ,
+Ysquid:UnusedPrivateMethod"/Remove this unused private "fakeAction" method.(úñîÔ8â¿£ÊŸ,
+<squid:S1659""Declare "swag" on a separate line.(û’Òžûÿÿÿÿ
 csquid:UselessImportCheck"5Remove this unused import 'android.view.MotionEvent'.(˜šËÞúÿÿÿÿ8ÔàÊŸ,
+Bsquid:S1659"(Declare "difficulty" on a separate line.(‚Ôñ¸ùÿÿÿÿ
+asquid:UselessImportCheck"8Remove this unused import 'android.view.LayoutInflater'.(À¯ÑÇ8ÔàÊŸ,
 msquid:S1450"SRemove the "swag" field and declare it as a local variable in the relevant methods.(û’Òžûÿÿÿÿ

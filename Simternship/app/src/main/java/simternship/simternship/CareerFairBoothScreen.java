@@ -134,7 +134,9 @@ public class CareerFairBoothScreen extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup);
         TextView txt = (TextView)dialog.findViewById(R.id.popUpText);
-        txt.setText("Gained " + "Engery Points."); //add method to show how many points gained
+        int energyPoints = booth.giveSWAG();
+        GameState.getInstance().updateEnergy(energyPoints);
+        txt.setText("Gained " + energyPoints + " Engery Points."); //add method to show how many points gained
         dialog.show();
     }
 

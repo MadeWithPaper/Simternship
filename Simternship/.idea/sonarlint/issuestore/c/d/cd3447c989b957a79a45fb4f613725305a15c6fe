@@ -1,0 +1,14 @@
+
+Psquid:S2696"6Make the enclosing method "static" or remove this set.(…â¿úÿÿÿÿ
+Gsquid:S1135"2Complete the task associated to this TODO comment.(‡‚ùˆ
+Gsquid:S1135"2Complete the task associated to this TODO comment.(åµÈ¶
+Lsquid:S1135"2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(’îá¬ÿÿÿÿÿ
+\squid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(İŒÜ±
+Jsquid:S2209"5Change this instance-reference to a static reference.(ãÏ³­
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(×“¾ñùÿÿÿÿ
+?squid:S1068"+Remove this unused "context" private field.(êİç
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(×“¾ñùÿÿÿÿ
+[squid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ
+=squid:S1185"(Remove this method to simply inherit it.(ßìê¯
+jsquid:S1450"VRemove the "context" field and declare it as a local variable in the relevant methods.(êİç
