@@ -83,6 +83,7 @@ public class CareerFairBoothScreen extends AppCompatActivity {
 
         socialize.setEnabled(booth.canSocialize());
         interview.setEnabled(booth.canMeetRecruiter());
+        swag.setEnabled(booth.canGetSwag());
 
         setCompany(booth.getCompany());
 
@@ -138,6 +139,7 @@ public class CareerFairBoothScreen extends AppCompatActivity {
         GameState.getInstance().updateEnergy(energyPoints);
         txt.setText("Gained " + energyPoints + " Engery Points."); //add method to show how many points gained
         dialog.show();
+        reset();
     }
 
     private void meetFriend() {

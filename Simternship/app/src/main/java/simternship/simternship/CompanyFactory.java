@@ -3,6 +3,8 @@ package simternship.simternship;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  * Created by joel on 3/4/18.
@@ -42,8 +44,13 @@ public class CompanyFactory {
     public List<Company> createCompanies() {
         int numCompanies = generator.random(minCompanies, maxCompanies);
         List<Company> companies = new ArrayList<>();
+        Set<String> created = new HashSet<>();
         while (numCompanies-- > 0) {
-            companies.add(createCompany());
+            Company company = createCompany();
+            if (!created.contains(company.getCompanyName())) {
+                companies.add(company);
+                created.add(company.getCompanyName());
+            }
         }
 
         return companies;

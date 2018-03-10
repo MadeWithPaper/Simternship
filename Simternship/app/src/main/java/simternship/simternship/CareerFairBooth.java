@@ -18,6 +18,7 @@ public class CareerFairBooth
 
    private boolean hasSocialized;
    private boolean metRecruiter;
+   private boolean hasCollectedSwag;
 
    /**
    *  construct a career fair booth
@@ -30,6 +31,7 @@ public class CareerFairBooth
       listOfRecuriters = new ArrayList<> ();
       hasSocialized = false;
       metRecruiter = false;
+      hasCollectedSwag = false;
    }
 
    /**
@@ -38,9 +40,8 @@ public class CareerFairBooth
    */
    public int giveSWAG()
    {
-      Random r = new Random();
-
-      return r.nextInt((5 - 1 ) + 1 ) + 1;
+      hasCollectedSwag = true;
+      return GameState.getInstance().getRandomGenerator().random(1, 5);
    }
 
    /**
@@ -82,5 +83,9 @@ public class CareerFairBooth
 
    public void socialize() {
       this.hasSocialized = true;
+   }
+
+   public boolean canGetSwag() {
+      return !hasCollectedSwag;
    }
 }
