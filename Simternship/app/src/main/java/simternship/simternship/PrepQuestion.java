@@ -3,7 +3,7 @@ package simternship.simternship;
 //Dustyn Zierman-Felix
 //Simternship
 
-public class PrepQuestion 
+public class PrepQuestion implements Question
 {
 	private String question;
 	private String answer;
@@ -12,7 +12,7 @@ public class PrepQuestion
 		this.answer = a;
 	}
 	public String getQuestion(){return this.question;}
-	public String getAnswer(){return this.answer;}
+	public String getHint(){return this.answer;}
 	/*
 	private String question;
 	private String[] answers;

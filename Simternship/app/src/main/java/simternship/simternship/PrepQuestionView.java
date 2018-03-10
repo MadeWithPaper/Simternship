@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Iterator;
@@ -31,8 +32,11 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
     private OnFragmentInteractionListener mListener;
     TextView tv2;
 
-    PrepQuestion currentQuestion;
-    Iterator<PrepQuestion> pqIterator;
+    Question currentQuestion;
+    Iterator<? extends Question> pqIterator;
+    QuestionController controller;
+    QuestionSession<? extends Question> session;
+    int questionNumber = 0;
     public PrepQuestionView() {
         // Required empty public constructor
     }
@@ -62,20 +66,27 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_prep_question_view, container, false);
-        int questionType = PrepQuestionStartView.questionType;
-        PrepSession ps = new PrepSession();
-        pqIterator = ps.getQuestionList(questionType).iterator();
+
+        controller = GameState.getInstance().getQuestionController();
+
+        controller.setView(this);
+
+        session = controller.getSession();
+
+        session.begin();
+
+        pqIterator = controller.getSession();
         if (pqIterator.hasNext()) {
             currentQuestion = pqIterator.next();
         }
-        TextView tv1 = (TextView)v.getRootView().findViewById(R.id.textView7);
-        if (tv1!=null) {
-            tv1.setText(currentQuestion.getQuestion());
-        }
+
+        setQuestion(v);
+
         Button b = (Button) v.findViewById(R.id.button6);
         b.setOnClickListener( this);
         Button b1 = (Button) v.findViewById(R.id.button7);
         b1.setOnClickListener( this);
+        b1.setVisibility(session.hasHints() ? View.VISIBLE : View.INVISIBLE);
         return v;
 
     }
@@ -84,6 +95,16 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    private void setQuestion(View v) {
+        String questionNum = "Question " + (++questionNumber) + ": ";
+        String question = questionNum + currentQuestion.getQuestion();
+
+        TextView tv1 = v.getRootView().findViewById(R.id.textView7);
+        if (tv1!=null) {
+            tv1.setText(question);
         }
     }
 
@@ -137,11 +158,13 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         switch (v.getId()) {
             case R.id.button6: //next click
                 if (pqIterator.hasNext()) {
-                    currentQuestion = pqIterator.next();
-                    TextView tv1 = (TextView)v.getRootView().findViewById(R.id.textView7);
-                    if (tv1!=null) {
-                        tv1.setText(currentQuestion.getQuestion());
+                    if (currentQuestion != null) {
+                        EditText text = v.getRootView().findViewById(R.id.question);
+                        session.submitAnswer(text.getText().toString());
                     }
+
+                    currentQuestion = pqIterator.next();
+                    setQuestion(v);
                     tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
                     if (tv2!=null){
                         tv2.setVisibility(View.INVISIBLE);//invisible
@@ -154,7 +177,7 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
                 else{
                     //Intent i = new Intent( , PrepQuestionScoreScreen.class);
 
-                    setPage(PrepQuestionScoreView.newInstance());
+                    controller.endQuestionSession();
                     //setPage(CareerFairView.newInstance());
                 }
 
@@ -163,7 +186,7 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
             case R.id.button7:
                 tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
                 if (tv2!=null){
-                    tv2.setText(currentQuestion.getAnswer());
+                    tv2.setText(currentQuestion.getHint());
                     tv2.setVisibility(View.VISIBLE);//visible
                 }
                 break;

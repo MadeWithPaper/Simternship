@@ -21,7 +21,6 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class PrepQuestionStartView extends android.app.Fragment implements View.OnClickListener{
-    static int questionType = 1;
     NumberPicker fillDifficultyPicker;
     private Context context;
     private OnFragmentInteractionListener mListener;
@@ -63,9 +62,6 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
 
         return v;
 
-    }
-    public int getQuestionType(){ //1=behavioural, 2 = technical
-        return this.questionType;
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -115,7 +111,9 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button3: //start click
-                questionType = fillDifficultyPicker.getValue();
+                GameState.getInstance().setQuestionController(new PrepQuestionController(
+                        fillDifficultyPicker.getValue()
+                ));
                 setPage(PrepQuestionView.newInstance());
         }
     }

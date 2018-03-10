@@ -52,6 +52,7 @@ public class GameState extends Observable {
     private JobOffer chosenOffer;
     private int lastNameCount;
     private RandomGenerator randomGenerator;
+    private QuestionController questionController;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity currentActivity;
@@ -222,6 +223,10 @@ public class GameState extends Observable {
         this.chosenOffer = offer;
     }
 
+    public void setQuestionController(QuestionController controller) {
+        questionController = controller;
+    }
+
     // Getters
     public int getGameDifficulty() {
         return this.gameDifficulty;
@@ -265,5 +270,9 @@ public class GameState extends Observable {
 
     public RandomGenerator getRandomGenerator() {
         return randomGenerator;
+    }
+
+    public QuestionController getQuestionController() {
+        return questionController;
     }
 }
