@@ -53,6 +53,7 @@ public class GameState extends Observable {
     private int lastNameCount;
     private RandomGenerator randomGenerator;
     private QuestionController questionController;
+    private List<JobInterview> completedInterviews;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity currentActivity;
@@ -74,6 +75,7 @@ public class GameState extends Observable {
         currentNetworking = 0;
         currentJobOffers = new LinkedList<>();
         currentJobInterviews = new LinkedList<>();
+        completedInterviews = new LinkedList<>();
 
         setFirstName(firstName);
         setLastName(lastName);
@@ -177,6 +179,10 @@ public class GameState extends Observable {
     public String getNextPersonName() {
         char lastName = (char) ('A' + (lastNameCount++ % 26));
         return "Davide " + lastName + ".";
+    }
+
+    public void completeInterview(JobInterview interview) {
+        this.completedInterviews.add(interview);
     }
 
     // Setters

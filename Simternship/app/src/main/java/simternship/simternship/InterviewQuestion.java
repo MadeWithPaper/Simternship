@@ -2,33 +2,28 @@ package simternship.simternship;
 //Dustyn Zierman-Felix
 //Simternship
 
-public class InterviewQuestion 
+public class InterviewQuestion implements Question
 {
 	private String question;
-	private String[] answers;
-	private int correctAnswerIndex;
+	private String answer;
 
 
-	public InterviewQuestion(String q, String a1, String a2, String a3, String a4, int correct) {
-		this.answers = new String[4];
-		this.answers[0] = a1;
-		this.answers[1] = a2;
-		this.answers[2] = a3;
-		this.answers[3] = a4;
-		this.question = q;
-		this.correctAnswerIndex = correct;
+	public InterviewQuestion(String question, String answer) {
+		this.question = question;
+		this.answer = answer;
+	}
+
+	@Override
+	public String getHint() {
+		return null;
 	}
 
 	public String getQuestion() {
 		return this.question;
 	}
 
-	public String[] getAnswers () {
-		return this.answers;
-	}
-
-	public int getCorrectAnswerIndex() {
-		return this.correctAnswerIndex;
+	public String getAnswer() {
+		return this.answer;
 	}
 
 

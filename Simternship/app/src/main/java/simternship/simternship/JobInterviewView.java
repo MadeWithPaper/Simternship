@@ -1,6 +1,8 @@
 package simternship.simternship;
 
+import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,9 +10,10 @@ import android.view.View;
 import android.widget.TextView;
 
 public class JobInterviewView extends AppCompatActivity
+    implements PrepQuestionView.OnFragmentInteractionListener
 {
 
-    TextView companyName = findViewById(R.id.companyNameText);
+    JobInterview interview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -18,25 +21,28 @@ public class JobInterviewView extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_interview_view);
 
-        
-        companyName.setText(GameState.getInstance().getCurrentInterview().getCompanyName());
+        GameState state = GameState.getInstance();
+        interview = state.getCurrentInterview();
+        QuestionController controller = new InterviewQuestionController(interview, this);
+
+        GameState.getInstance().setQuestionController(controller);
+
+        setPage(PrepQuestionView.newInstance());
+
     }
 
-    /*
-    method for Entering into the Interview process
-    Todo: Create the actual interview process
-     */
-    public void onClickEnter(View view)
-    {
-        //Todo: Change the class we intend to switch to
-        Intent intent = new Intent(this, JobInterviewPreview.class);
-        startActivity(intent);
+    public void finish() {
+        GameState.getInstance().completeInterview(interview);
+        GameState.getInstance().removeJobInterview(interview);
+
+        super.finish();
     }
 
-    //method for going back to JobInterviewPreview
-    public void onClickBack(View view)
-    {
-        Intent intent = new Intent(this, JobInterviewPreview.class);
-        startActivity(intent);
+    private void setPage(Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.mainFrameLayout, fragment).commit();
+    }
+
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

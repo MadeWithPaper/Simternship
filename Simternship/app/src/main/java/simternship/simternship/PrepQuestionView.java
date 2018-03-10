@@ -106,6 +106,11 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         if (tv1!=null) {
             tv1.setText(question);
         }
+
+        if (!pqIterator.hasNext()){
+            Button b = v.findViewById(R.id.button6);
+            b.setText("Submit");
+        }
     }
 
     @Override
@@ -168,10 +173,6 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
                     tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
                     if (tv2!=null){
                         tv2.setVisibility(View.INVISIBLE);//invisible
-                    }
-                    if (!pqIterator.hasNext()){
-                        Button b = (Button) v.findViewById(R.id.button6);
-                        b.setText("Submit");
                     }
                 }
                 else{

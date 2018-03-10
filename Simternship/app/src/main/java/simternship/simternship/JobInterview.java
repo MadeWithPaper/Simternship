@@ -1,14 +1,25 @@
 package simternship.simternship;
 
-public class JobInterview {
-	private String companyName;
-	private InterviewQuestion[] questions;
-	private int score = 0;
-	private int currentQuestionIndex = 0;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Iterator;
 
-	public JobInterview(String companyName) {
+public class JobInterview implements QuestionSession<InterviewQuestion> {
+	private String companyName;
+	private List<InterviewQuestion> questions;
+	private Iterator<InterviewQuestion> iterator;
+	private InterviewQuestion current;
+	private int score = 0;
+
+	public JobInterview(String companyName, List<InterviewQuestion> questions) {
 		this.companyName = companyName;
-		questions = new InterviewQuestion[10];
+		this.questions = questions;
+	}
+
+	public JobInterview(String companyName) { //constructor to test interview
+		this(companyName, Arrays.asList(
+				new InterviewQuestion("What is your first name?", GameState.getInstance().getFirstName())
+		));
 	}
 
 	public String getCompanyName() {
@@ -19,19 +30,37 @@ public class JobInterview {
 		return score;
 	}
 
-	public InterviewQuestion getNextQuestion() {
-		currentQuestionIndex++;
-		return questions[currentQuestionIndex-1];
+	@Override
+	public boolean hasHints() {
+		return false;
 	}
 
-	public boolean submitAnswer(String answer) {
-		InterviewQuestion currentQuestion = questions[currentQuestionIndex - 1];
-		if (currentQuestion.getAnswers()[currentQuestion.getCorrectAnswerIndex()] == answer) {
+	@Override
+	public void begin() {
+		current = null;
+		iterator = questions.iterator();
+	}
+
+	@Override
+	public List<InterviewQuestion> getQuestions() {
+		return questions;
+	}
+
+	@Override
+	public void submitAnswer(String answer) {
+		if (current.getAnswer().equals(answer)) {
 			score++;
-			return true;
 		}
-		else {
-			return false;
-		}
+	}
+
+	@Override
+	public boolean hasNext() {
+		return iterator.hasNext();
+	}
+
+	@Override
+	public InterviewQuestion next() {
+		current = iterator.next();
+		return current;
 	}
 }
