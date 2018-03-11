@@ -16,9 +16,6 @@
         </activity>
         <activity android:name="simternship.simternship.MainActivity"></activity>
         <activity
-            android:name="simternship.simternship.CareerFairScreen"
-            android:label="@string/title_activity_career_fair_screen"></activity>
-        <activity
             android:name="simternship.simternship.CareerFairBoothScreen"
             android:label="@string/title_activity_career_fair_booth_screen"></activity>
         <activity android:name="simternship.simternship.NewUser" />

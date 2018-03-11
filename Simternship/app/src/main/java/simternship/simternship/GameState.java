@@ -48,7 +48,6 @@ public class GameState extends Observable {
     private int gameDifficulty;
     private String firstName;
     private String lastName;
-    private int finalScore;
     private JobInterview interview;
     private JobOffer offer;
     private JobOffer chosenOffer;

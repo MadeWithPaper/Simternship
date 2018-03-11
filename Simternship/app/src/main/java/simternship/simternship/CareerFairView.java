@@ -34,7 +34,7 @@ public class CareerFairView extends android.app.Fragment implements Observer {
     private CareerFair careerFair;
 
     private Context context;
-    private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener cfvListener;
     private CountDownTimer timer;
 
     public CareerFairView() {
@@ -47,7 +47,6 @@ public class CareerFairView extends android.app.Fragment implements Observer {
      *
      * @return A new instance of fragment CareerFairView.
      */
-    // TODO: Rename and change types and number of parameters
     public static CareerFairView newInstance() {
         CareerFairView fragment = new CareerFairView();
         Bundle args = new Bundle();
@@ -55,11 +54,6 @@ public class CareerFairView extends android.app.Fragment implements Observer {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,10 +62,9 @@ public class CareerFairView extends android.app.Fragment implements Observer {
         return inflater.inflate(R.layout.fragment_career_fair_view, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+        if (cfvListener != null) {
+            cfvListener.onFragmentInteraction(uri);
         }
     }
 
@@ -79,7 +72,7 @@ public class CareerFairView extends android.app.Fragment implements Observer {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+            cfvListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -101,7 +94,7 @@ public class CareerFairView extends android.app.Fragment implements Observer {
         timer.cancel();
         GameState.getInstance().deleteObserver(this);
         super.onDetach();
-        mListener = null;
+        cfvListener = null;
     }
 
     private void visitCompany(int companyNumber) {
@@ -140,7 +133,7 @@ public class CareerFairView extends android.app.Fragment implements Observer {
 
             @Override
             public void onFinish() {
-
+                //empty placeholder method
             }
         };
 
@@ -199,7 +192,6 @@ public class CareerFairView extends android.app.Fragment implements Observer {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

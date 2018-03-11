@@ -38,9 +38,7 @@ public class CareerFairFactory {
         for (Company company : companies) {
             booths.add(createBooth(company));
         }
-
-        CareerFair fair = new CareerFair(booths);
-        return fair;
+        return new CareerFair(booths);
     }
 
     CareerFairBooth createBooth(Company company) {

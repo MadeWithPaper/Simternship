@@ -19,25 +19,21 @@ public class AccountScreenView extends AppCompatActivity {
     }
 
     public void onClickSetting(View view) {
-        view = null;
        Toast.makeText(AccountScreenView.this, "Setting screen!", Toast.LENGTH_SHORT).show();
        startActivity(new Intent(AccountScreenView.this, settings_screen.class));
     }
 
     public void onClickLeaderboard(View view) {
-        view = null;
        Toast.makeText(AccountScreenView.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
        startActivity(new Intent(AccountScreenView.this, leaderboard_screen.class));
     }
 
     public void onClickInterviews(View view) {
-        view = null;
         Toast.makeText(AccountScreenView.this, "Interview!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(AccountScreenView.this, JobInterviewPreview.class));
     }
 
     public void onClickJobOffers(View view) {
-        view = null;
         Toast.makeText(AccountScreenView.this, "Job Offers!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(AccountScreenView.this, JobOfferPreview.class));
     }

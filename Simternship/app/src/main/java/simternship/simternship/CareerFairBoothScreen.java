@@ -106,11 +106,12 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     }
 
     private String getRating(int rating) {
-        String result = "";
-        while (rating-- > 0) {
-            result += "*";
+        StringBuilder bld = new StringBuilder();
+        for (int i = 0; i<rating; i++)
+        {
+            bld.append("*");
         }
-        return result;
+        return bld.toString();
     }
 
     private String getDifficulty(int difficulty) {
@@ -134,7 +135,7 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     private void collectSwag() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup);
-        TextView txt = (TextView)dialog.findViewById(R.id.popUpText);
+        TextView txt = dialog.findViewById(R.id.popUpText);
         int energyPoints = booth.giveSWAG();
         GameState.getInstance().updateEnergy(energyPoints);
         txt.setText("Gained " + energyPoints + " Engery Points."); //add method to show how many points gained
@@ -146,10 +147,6 @@ public class CareerFairBoothScreen extends AppCompatActivity {
         booth.socialize();
         reset();
         startActivity(new Intent(CareerFairBoothScreen.this, SocializeDialogue.class));
-    }
-
-    private void fakeAction(String action) {
-        Toast.makeText(this, action + " clicked!", Toast.LENGTH_SHORT).show();
     }
 
 }
