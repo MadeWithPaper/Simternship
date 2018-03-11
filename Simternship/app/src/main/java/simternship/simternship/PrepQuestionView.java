@@ -2,7 +2,6 @@ package simternship.simternship;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,10 +107,8 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(" must implement OnFragmentInteractionListener");
+            throw new IllegalStateException(" must implement OnFragmentInteractionListener");
         }
-
-        //this.context = context;
     }
 
     @Override
@@ -165,6 +162,8 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
                     tv2.setText(currentQuestion.getHint());
                     tv2.setVisibility(View.VISIBLE);//visible
                 }
+                break;
+            default:
                 break;
         }
     }

@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
-import android.widget.TextView;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +20,6 @@ import android.widget.TextView;
  */
 public class PrepQuestionStartView extends android.app.Fragment implements View.OnClickListener{
     NumberPicker fillDifficultyPicker;
-    private Context context;
     private OnFragmentInteractionListener mListener;
 
     public PrepQuestionStartView() {
@@ -35,7 +32,7 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
      *
      * @return A new instance of fragment CareerFairView.
      */
-    // TODO: Rename and change types and number of parameters
+    // : Rename and change types and number of parameters
     public static PrepQuestionStartView newInstance() {
         PrepQuestionStartView fragment = new PrepQuestionStartView();
         Bundle args = new Bundle();
@@ -43,10 +40,6 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +56,7 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         return v;
 
     }
-    // TODO: Rename method, update argument and hook method into UI event
+    // : Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -76,13 +69,9 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
+            throw new IllegalStateException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-
-        this.context = context;
-
-
     }
 
 
@@ -105,22 +94,21 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+        //: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button3: //start click
+        if(v.getId()==R.id.button3) {
                 GameState.getInstance().setQuestionController(new PrepQuestionController(
                         fillDifficultyPicker.getValue()
                 ));
                 setPage(PrepQuestionView.newInstance());
         }
     }
-    private void setPage(android.app.Fragment fragment) {
-        //fragment.getView().setBackgroundColor(Color.WHITE);
-        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
 
+    private void setPage(android.app.Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
     }
 
 }

@@ -24,9 +24,8 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
 
 
     private OnFragmentInteractionListener mListener;
-
+    // Required empty public constructor
     public PrepQuestionScoreView() {
-        // Required empty public constructor
     }
 
     /**
@@ -48,7 +47,6 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.prep_question_score_view, container, false);
-
         TextView tv2 =  v.getRootView().findViewById(R.id.textView);
         if (tv2 != null) {
             tv2.setText("Good job! You got " + "" + "Questions Prepared!");
@@ -57,7 +55,6 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         Button b = v.findViewById(R.id.button4);
         b.setOnClickListener(this);
         return v;
-
     }
 
     //  Rename method, update argument and hook method into UI event
@@ -73,12 +70,8 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(" must implement OnFragmentInteractionListener");
+            throw new IllegalStateException(" must implement OnFragmentInteractionListener");
         }
-
-        //this.context = context;
-
-
     }
 
 
@@ -87,7 +80,6 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         super.onDetach();
         mListener = null;
     }
-
 
 
     /**
@@ -104,13 +96,14 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         // : Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
     public void onClick(View v) {
         if (v.getId()==R.id.button4) {
                 setPage(PrepQuestionStartView.newInstance());
         }
     }
+
     private void setPage(android.app.Fragment fragment) {
         getFragmentManager().beginTransaction().replace(R.id.prepScoreFrameLayout, fragment).commit();
-
     }
 }

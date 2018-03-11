@@ -29,49 +29,18 @@ public class PrepSession implements QuestionSession<PrepQuestion> {
 		this.iterator = this.questions.iterator();
 	}
 
+	@Override
 	public PrepQuestion next() {
 		return this.iterator.next();
 	}
 
+	@Override
 	public boolean hasNext() {
 		return this.iterator.hasNext();
 	}
 
+	@Override
 	public void remove() {
 		//ignore
 	}
-	/*
-	private String companyName;
-	private PrepQuestion[] questions;
-	private int score = 0;
-	private int currentQuestionIndex = 0;
-
-	public PrepSession(String companyName) {
-		this.companyName = companyName;
-		questions = new PrepQuestion[10];
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public int getScore() {
-		return score;
-	}
-
-	public PrepQuestion getNextQuestion() {
-		currentQuestionIndex++;
-		return questions[currentQuestionIndex-1];
-	}
-
-	public boolean submitAnswer(String answer) {
-		PrepQuestion currentQuestion = questions[currentQuestionIndex - 1];
-		if (currentQuestion.getAnswers()[currentQuestion.getCorrectAnswerIndex()] == answer) {
-			score++;
-			return true;
-		}
-		else {
-			return false;
-		}
-	}*/
 }
