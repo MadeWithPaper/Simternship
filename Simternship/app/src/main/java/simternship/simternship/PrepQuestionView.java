@@ -107,15 +107,11 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new IllegalStateException(" must implement OnFragmentInteractionListener");
+            throw new IllegalStateException("Prep Question View must implement OnFragmentInteractionListener");
         }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+
 
 
     /**
@@ -166,6 +162,12 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
 }

@@ -24,9 +24,7 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
 
 
     private OnFragmentInteractionListener mListener;
-    // Required empty public constructor
-    public PrepQuestionScoreView() {
-    }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -41,7 +39,9 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         fragment.setArguments(args);
         return fragment;
     }
-
+    private void setPage(android.app.Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.prepScoreFrameLayout, fragment).commit();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,7 +70,7 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new IllegalStateException(" must implement OnFragmentInteractionListener");
+            throw new IllegalStateException("PrepQuestionScoreView must implement OnFragmentInteractionListener");
         }
     }
 
@@ -101,9 +101,5 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         if (v.getId()==R.id.button4) {
                 setPage(PrepQuestionStartView.newInstance());
         }
-    }
-
-    private void setPage(android.app.Fragment fragment) {
-        getFragmentManager().beginTransaction().replace(R.id.prepScoreFrameLayout, fragment).commit();
     }
 }

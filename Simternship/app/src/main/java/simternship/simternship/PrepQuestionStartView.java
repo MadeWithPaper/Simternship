@@ -39,20 +39,21 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         fragment.setArguments(args);
         return fragment;
     }
-
+    private void setPage(android.app.Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.prep_question_start_view, container, false);
-        Button b = (Button) v.findViewById(R.id.button3);
+        Button b =  v.findViewById(R.id.button3);
         b.setOnClickListener(this);
         fillDifficultyPicker = v.findViewById(R.id.difficultyPicker2);
         final String [] difficulty = {"Behavioural Questions", "Technical Questions"};
         fillDifficultyPicker.setMinValue(0);
         fillDifficultyPicker.setMaxValue(difficulty.length-1);
         fillDifficultyPicker.setDisplayedValues(difficulty);
-
         return v;
 
     }
@@ -69,8 +70,7 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new IllegalStateException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new IllegalStateException("PrepQuestionStartView must implement OnFragmentInteractionListener");
         }
     }
 
@@ -80,8 +80,6 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         super.onDetach();
         mListener = null;
     }
-
-
 
     /**
      * This interface must be implemented by activities that contain this
@@ -100,15 +98,10 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
 
     public void onClick(View v) {
         if(v.getId()==R.id.button3) {
-                GameState.getInstance().setQuestionController(new PrepQuestionController(
-                        fillDifficultyPicker.getValue()
-                ));
+                GameState.getInstance().setQuestionController(new PrepQuestionController(fillDifficultyPicker.getValue()));
                 setPage(PrepQuestionView.newInstance());
         }
     }
 
-    private void setPage(android.app.Fragment fragment) {
-        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
-    }
 
 }
