@@ -71,25 +71,14 @@ public class NewUser extends AppCompatActivity {
          }
       });
 
-        /*fillLastNameView.setOnKeyListener(new View.OnKeyListener() {
-           @Override
-           public boolean onKey(View view, int i, KeyEvent keyEvent) {
-              boolean keyEntered = false;
-              if (i == keyEvent.KEYCODE_ENTER && (!getString(fillFirstNameView).equals(""))
-                    && (!getString(fillLastNameView).equals(""))
-                    && (!getString(fillEmailView).equals(""))
-                    && (!getString(fillPasswordView).equals(""))
-                    && (fillDifficultyPicker.getValue() > 0)) {
-                 keyEntered = true;
-                 signUpAttempt();
-           }
-           return keyEntered;
-        }
-        });*/
+      signUp.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            signUpAttempt();
+         }
+      });
+
     }
-   public void onClickSignUp(View view) {
-       signUpAttempt();
-   }
 
    private void signUpAttempt () {
        String firstName = getString(fillFirstNameView);
@@ -129,11 +118,11 @@ public class NewUser extends AppCompatActivity {
       });
    }
 
-   private String getString(EditText view) {
-      if (!view.getText().toString().equals(null) && !view.getText().toString().equals(""))
+   private String getString(EditText view)
+   {
+      if (!view.getText().toString().equals(""))
          return view.getText().toString();
       else {
-         Toast.makeText(NewUser.this, "Fields are empty", Toast.LENGTH_SHORT).show();
          return "";
       }
    }

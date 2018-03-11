@@ -33,6 +33,11 @@ public class JobOffer
                 this.equals((JobOffer) other);
     }
 
+    @Override
+    public int hashCode()
+    {
+       return super.hashCode();
+    }
     public boolean equals(JobOffer other) {
         return company.getCompanyName().equals(other.getCompanyName())
                 && salary.equals(other.salary);

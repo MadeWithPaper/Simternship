@@ -16,13 +16,6 @@ public class JobInterview implements QuestionSession<InterviewQuestion> {
 		this.questions = questions;
 	}
 
-	/*
-	public JobInterview( companyName) { //constructor to test interview
-		this(companyName, Arrays.asList(
-				new InterviewQuestion("What is your first name?", GameState.getInstance().getFirstName())
-		));
-	}*/
-
 	public Company getCompany() {
 		return company;
 	}

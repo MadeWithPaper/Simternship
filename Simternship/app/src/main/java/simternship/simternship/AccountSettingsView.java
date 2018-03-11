@@ -88,7 +88,7 @@ public class AccountSettingsView extends android.app.Fragment {
         );
 
         getView().findViewById(R.id.leaderboard).setOnClickListener(
-                new Listener(context, "Leaderboard!", leaderboard_screen.class)
+                new Listener(context, "Leaderboard!", leaderboardScreen.class)
         );
 
         getView().findViewById(R.id.button2).setOnClickListener(

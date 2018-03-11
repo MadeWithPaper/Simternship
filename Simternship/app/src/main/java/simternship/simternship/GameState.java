@@ -18,12 +18,12 @@ import static android.support.v4.content.ContextCompat.startActivity;
  */
 
 public class GameState extends Observable {
-    private static int MIN_COMPANIES = 5;
-    private static int MAX_COMPANIES = 20;
-    private static int MIN_RECRUITERS = 2;
-    private static int MAX_RECRUITERS = 5;
-    private static int MIN_ATTENDEES = 2;
-    private static int MAX_ATTENDEES = 30;
+    private static int MINCOMPANIES = 5;
+    private static int MAXCOMPANIES = 20;
+    private static int MINRECRUITERS = 2;
+    private static int MAXRECRUITERS = 5;
+    private static int MINATTENDEES = 2;
+    private static int MAXATTENDEES = 30;
 
     private CareerFairFactory careerFairFactory;
     private CompanyFactory companyFactory;
@@ -72,13 +72,6 @@ public class GameState extends Observable {
 
         gameState.careerFairController.start();
 
-        //tests
-        /*gameState.currentNetworking = 100;
-        gameState.computeInterviews();
-        for (JobInterview interview : gameState.currentJobInterviews) {
-            interview.setScore(1000);
-            gameState.completeInterview(interview);
-        }*/
     }
 
     public void setCurrentBooth(CareerFairBooth booth) {
@@ -105,10 +98,10 @@ public class GameState extends Observable {
     private static GameState gameState;
 
     private GameState(Activity caller, String firstName, String lastName, int difficulty) {
-        this.companyFactory = new CompanyFactory(MIN_COMPANIES, MAX_COMPANIES);
+        this.companyFactory = new CompanyFactory(MINCOMPANIES, MAXCOMPANIES);
         companies = companyFactory.createCompanies();
-        this.careerFairFactory = new CareerFairFactory(MIN_RECRUITERS, MAX_RECRUITERS,
-                MIN_ATTENDEES, MAX_ATTENDEES, names);
+        this.careerFairFactory = new CareerFairFactory(MINRECRUITERS, MAXRECRUITERS,
+                MINATTENDEES, MAXATTENDEES, names);
 
         this.careerFairController = new CareerFairController(new UITimer(caller),
                 this, companies, careerFairFactory);
@@ -182,8 +175,8 @@ public class GameState extends Observable {
     }
 
     public String getNextPersonName() {
-        char lastName = (char) ('A' + (lastNameCount++ % 26));
-        return "Davide " + lastName + ".";
+        char lastNameChar = (char) ('A' + (lastNameCount++ % 26));
+        return "Davide " + lastNameChar + ".";
     }
 
     public void completeInterview(JobInterview interview) {
@@ -197,7 +190,7 @@ public class GameState extends Observable {
     private JobOffer bestOffer() {
         BigDecimal best = new BigDecimal(0);
         JobOffer bestOffer = null;
-        for (JobOffer offer : currentJobOffers) {
+        for (JobOffer o : currentJobOffers) {
             if (offer.getSalary().compareTo(best) >= 0) {
                 bestOffer = offer;
                 best = offer.getSalary();
@@ -297,11 +290,11 @@ public class GameState extends Observable {
         return this.gameDifficulty;
     }
 
-    public LinkedList<JobOffer> getCurrentJobOffers(){
+    public List<JobOffer> getCurrentJobOffers(){
         return this.currentJobOffers;
     }
 
-    public LinkedList<JobInterview> getCurrentJobInterviews(){
+    public List<JobInterview> getCurrentJobInterviews(){
         return this.currentJobInterviews;
     }
 

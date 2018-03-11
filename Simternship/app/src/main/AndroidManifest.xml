@@ -40,7 +40,7 @@
             android:label="@string/title_activity_job_offer_view"
             android:theme="@style/AppTheme" />
         <activity android:name="simternship.simternship.AccountScreenView" />
-        <activity android:name="simternship.simternship.leaderboard_screen" />
+        <activity android:name="simternship.simternship.leaderboardScreen" />
         <activity android:name="simternship.simternship.SocializeDialogue" />
         <activity android:name="simternship.simternship.settings_screen" />
         <!--

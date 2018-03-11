@@ -25,7 +25,7 @@ public class AccountScreenView extends AppCompatActivity {
 
     public void onClickLeaderboard(View view) {
        Toast.makeText(AccountScreenView.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
-       startActivity(new Intent(AccountScreenView.this, leaderboard_screen.class));
+       startActivity(new Intent(AccountScreenView.this, leaderboardScreen.class));
     }
 
     public void onClickInterviews(View view) {
