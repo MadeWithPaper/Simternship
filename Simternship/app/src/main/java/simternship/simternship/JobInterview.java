@@ -5,25 +5,34 @@ import java.util.List;
 import java.util.Iterator;
 
 public class JobInterview implements QuestionSession<InterviewQuestion> {
-	private String companyName;
+	private Company company;
 	private List<InterviewQuestion> questions;
 	private Iterator<InterviewQuestion> iterator;
 	private InterviewQuestion current;
 	private int score = 0;
 
-	public JobInterview(String companyName, List<InterviewQuestion> questions) {
-		this.companyName = companyName;
+	public JobInterview(Company company, List<InterviewQuestion> questions) {
+		this.company = company;
 		this.questions = questions;
 	}
 
-	public JobInterview(String companyName) { //constructor to test interview
+	/*
+	public JobInterview( companyName) { //constructor to test interview
 		this(companyName, Arrays.asList(
 				new InterviewQuestion("What is your first name?", GameState.getInstance().getFirstName())
 		));
+	}*/
+
+	public Company getCompany() {
+		return company;
+	}
+
+	void setScore(int score) {
+		this.score = score;
 	}
 
 	public String getCompanyName() {
-		return companyName;
+		return company.getCompanyName();
 	}
 
 	public int getScore() {

@@ -1,47 +1,63 @@
 package simternship.simternship;
 
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
+
 public class settings_screen extends AppCompatActivity {
+
+    boolean soundOn;
+    AudioManager aManager;
+    int stream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
 
-       Switch soundSwitch = findViewById(R.id.soundSwitch);
+        aManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        stream = AudioManager.STREAM_NOTIFICATION;
 
-       soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-          AudioManager aManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-          public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-             if (isChecked) {
-                aManager.setStreamMute(AudioManager.STREAM_NOTIFICATION, false);
-             } else {
-                aManager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
-             }
-          }
-       });
+        Switch soundSwitch = findViewById(R.id.soundSwitch);
+        soundOn = !isMuted();
+        soundSwitch.setChecked(soundOn);
+        soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                settings_screen.this.soundOn = isChecked;
+            }
+        });
+
+        TextView currentScore = findViewById(R.id.scoreView);
+        currentScore.setText("Current Score: " + GameState.getInstance().getCurrentScore());
     }
 
-   public void onClickSave(View view)
-    {
-       Intent i = new Intent(settings_screen.this, MainActivity.class);
-       Toast.makeText(settings_screen.this, "settings saved!", Toast.LENGTH_LONG).show();
-       startActivity(i);
+    private boolean isMuted() {
+        try {
+            Method m = AudioManager.class.getMethod("isStreamMute", int.class);
+            return (boolean) m.invoke(aManager, stream);
+        }
+        catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException ex) {
+            return false;
+        }
+    }
+
+    public void onClickSave(View view) {
+        aManager.setStreamMute(stream, !soundOn);
+        finish();
     }
 
     public void onClickCancel(View view)
     {
-       Intent i = new Intent(settings_screen.this, MainActivity.class);
-       Toast.makeText(settings_screen.this, "Canceled!", Toast.LENGTH_LONG).show();
-       startActivity(i);
+        finish();
     }
 }

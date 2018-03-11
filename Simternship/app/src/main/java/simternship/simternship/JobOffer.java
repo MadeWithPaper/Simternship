@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  */
 public class JobOffer
 {
-    public final String companyName;
+    public final Company company;
     public final BigDecimal salary;
 
     /**
@@ -22,9 +22,9 @@ public class JobOffer
      * @param companyName The name of the company the offer is for
      * @param salary The salary the company has offered
      */
-    public JobOffer(String companyName, BigDecimal salary)
+    public JobOffer(Company company, BigDecimal salary)
     {
-        this.companyName = companyName;
+        this.company = company;
         this.salary = salary;
     }
 
@@ -34,13 +34,13 @@ public class JobOffer
     }
 
     public boolean equals(JobOffer other) {
-        return companyName.equals(other.companyName)
+        return company.getCompanyName().equals(other.getCompanyName())
                 && salary.equals(other.salary);
     }
 
     public String getCompanyName()
     {
-        return companyName;
+        return company.getCompanyName();
     }
 
     public BigDecimal getSalary()

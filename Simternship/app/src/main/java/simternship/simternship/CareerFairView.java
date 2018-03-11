@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,10 +13,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 
 /**
@@ -26,11 +30,12 @@ import java.util.List;
  * Use the {@link CareerFairView#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CareerFairView extends android.app.Fragment {
+public class CareerFairView extends android.app.Fragment implements Observer {
     private CareerFair careerFair;
 
     private Context context;
     private OnFragmentInteractionListener mListener;
+    private CountDownTimer timer;
 
     public CareerFairView() {
         // Required empty public constructor
@@ -87,11 +92,14 @@ public class CareerFairView extends android.app.Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        GameState.getInstance().addObserver(this);
         this.resetState();
     }
 
     @Override
     public void onDetach() {
+        timer.cancel();
+        GameState.getInstance().deleteObserver(this);
         super.onDetach();
         mListener = null;
     }
@@ -108,8 +116,51 @@ public class CareerFairView extends android.app.Fragment {
     }
 
     private void resetState() {
-        this.careerFair = GameState.getInstance().getCareerFair();
-        this.setCompanies();
+        ListView lv = this.getView().findViewById(R.id.careerFairCompanyList);
+        this.careerFair = GameState.getInstance().getCareerFairController().getCareerFair();
+        if (careerFair != null)
+            this.setCompanies();
+        else
+            lv.setVisibility(View.INVISIBLE);
+
+        this.setTime();
+    }
+
+    private void setTime() {
+        long time = GameState.getInstance().getCareerFairController().timeRemaining();
+
+        if (timer != null)
+            timer.cancel();
+
+        timer = new CountDownTimer(time, 1000) {
+            @Override
+            public void onTick(long l) {
+                CareerFairView.this.setCurrentTime(l);
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+
+        timer.start();
+
+        setCurrentTime(time);
+    }
+
+    private void setCurrentTime(long time) {
+        TextView tv = getView().findViewById(R.id.CareerFairTimer);
+
+        long min = time / (60 * 1000);
+        long minInSec = min * 60;
+        long sec = time / 1000 - minInSec;
+
+        String timeStr = String.format("%02d:%02d", min, sec);
+
+        String message = careerFair != null ? "Remaining: " : "Time To Career Fair: ";
+
+        tv.setText(message + timeStr);
     }
 
     private void setCompanies() {
@@ -121,6 +172,7 @@ public class CareerFairView extends android.app.Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, names);
 
         ListView lv = this.getView().findViewById(R.id.careerFairCompanyList);
+        lv.setVisibility(View.VISIBLE);
 
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -129,6 +181,11 @@ public class CareerFairView extends android.app.Fragment {
                 CareerFairView.this.visitCompany(position);
             }
         });
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        this.resetState();
     }
 
     /**

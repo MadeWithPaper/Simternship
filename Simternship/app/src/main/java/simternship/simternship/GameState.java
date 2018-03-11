@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 
 import java.util.Arrays;
@@ -26,6 +27,7 @@ public class GameState extends Observable {
 
     private CareerFairFactory careerFairFactory;
     private CompanyFactory companyFactory;
+    private InterviewFactory interviewFactory;
 
     //names that recruiters/attendees can have
     //probably would load from file if we had time.
@@ -54,6 +56,7 @@ public class GameState extends Observable {
     private RandomGenerator randomGenerator;
     private QuestionController questionController;
     private List<JobInterview> completedInterviews;
+    private CareerFairController careerFairController;
 
     //we will use this to invoke timer actions on the UI thread
     private Activity currentActivity;
@@ -65,42 +68,18 @@ public class GameState extends Observable {
      * being null and existing, since some things will be constructed
      * by a timer.
      */
-    public void newGame(Activity caller, String firstName, String lastName, int difficulty) {
-        destroyOldGame();
-        currentActivity = caller;
-        //TODO: career fair should be constructed by timer
-        companies = companyFactory.createCompanies();
-        careerFair = careerFairFactory.createCareerFair(companies);
-        currentEnergy = 100;
-        currentNetworking = 0;
-        currentJobOffers = new LinkedList<>();
-        currentJobInterviews = new LinkedList<>();
-        completedInterviews = new LinkedList<>();
+    public static void newGame(Activity caller, String firstName, String lastName, int difficulty) {
+        gameState = new GameState(caller, firstName, lastName, difficulty);
 
-        setFirstName(firstName);
-        setLastName(lastName);
-        setGameDifficulty(difficulty);
+        gameState.careerFairController.start();
 
-        //tests for jobInterviews
-        currentJobInterviews.add(new JobInterview("Apple"));
-        currentJobInterviews.add(new JobInterview("Amazon"));
-        currentJobInterviews.add(new JobInterview("Microsoft"));
-        currentJobInterviews.add(new JobInterview("Facebook"));
-        currentJobInterviews.add(new JobInterview("Sears"));
-        currentJobInterviews.add(new JobInterview("Return of the Jedi"));
-        currentJobInterviews.add(new JobInterview("Computer Genies"));
-        currentJobInterviews.add(new JobInterview("Borat Sagdiyev"));
-        currentJobInterviews.add(new JobInterview("Kim Jung Un"));
-        currentJobInterviews.add(new JobInterview("Donald Trump"));
-
-        //tests for jobOffers
-        currentJobOffers.add(new JobOffer("Apple", new java.math.BigDecimal("100000")));
-        currentJobOffers.add(new JobOffer("Amazon", new java.math.BigDecimal("120000")));
-        currentJobOffers.add(new JobOffer("Microsoft", new java.math.BigDecimal("140000")));
-        currentJobOffers.add(new JobOffer("Facebook", new java.math.BigDecimal("80000")));
-        currentJobOffers.add(new JobOffer("Sears", new java.math.BigDecimal("50000")));
-
-        lastNameCount = 0;
+        //tests
+        /*gameState.currentNetworking = 100;
+        gameState.computeInterviews();
+        for (JobInterview interview : gameState.currentJobInterviews) {
+            interview.setScore(1000);
+            gameState.completeInterview(interview);
+        }*/
     }
 
     public void setCurrentBooth(CareerFairBooth booth) {
@@ -121,34 +100,61 @@ public class GameState extends Observable {
     }
 
     public static GameState getInstance() {
-        if (gameState == null) {
-            gameState = new GameState();
-        }
-
         return gameState;
-    }
-
-    /**
-     * Destroy the state/timers/resources used by an
-     * old instance of the game here.
-     */
-    private void destroyOldGame() {
-
     }
 
     private static GameState gameState;
 
-    private GameState() {
+    private GameState(Activity caller, String firstName, String lastName, int difficulty) {
         this.companyFactory = new CompanyFactory(MIN_COMPANIES, MAX_COMPANIES);
+        companies = companyFactory.createCompanies();
         this.careerFairFactory = new CareerFairFactory(MIN_RECRUITERS, MAX_RECRUITERS,
                 MIN_ATTENDEES, MAX_ATTENDEES, names);
+
+        this.careerFairController = new CareerFairController(new UITimer(caller),
+                this, companies, careerFairFactory);
+
+        interviewFactory = new InterviewFactory();
+
         this.randomGenerator = new RandomGenerator();
+
+        currentActivity = caller;
+        currentEnergy = 100;
+        currentNetworking = 0;
+        currentJobOffers = new LinkedList<>();
+        currentJobInterviews = new LinkedList<>();
+        completedInterviews = new LinkedList<>();
+
+        setFirstName(firstName);
+        setLastName(lastName);
+        setGameDifficulty(difficulty);
+
+        lastNameCount = 0;
     }
 
     //actions
 
+    public void showToast(String message, int length) {
+        Toast.makeText(currentActivity, message, length).show();
+    }
+
     public void endGame() {
-        Toast.makeText(currentActivity, "Game Ended", Toast.LENGTH_SHORT).show();
+        clearAndStart(EndScreen.class);
+    }
+
+    public void clearAndStart(Class<? extends Activity> newClass) {
+        Intent intent = new Intent(currentActivity, newClass);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        currentActivity.startActivity(intent);
+    }
+
+    public void forceChooseOffer() {
+        if (currentJobOffers.isEmpty()) {
+            endGame();
+            return;
+        }
+
+        clearAndStart(JobOfferPreview.class);
     }
 
     public void newJobOffer(JobOffer job) {
@@ -182,7 +188,57 @@ public class GameState extends Observable {
     }
 
     public void completeInterview(JobInterview interview) {
-        this.completedInterviews.add(interview);
+        if (interview.getScore() >= gameDifficulty
+                && randomGenerator.random(1, 10) > 5) {
+            Company company = interview.getCompany();
+            newJobOffer(new JobOffer(company, computeAmount(company)));
+        }
+    }
+
+    private JobOffer bestOffer() {
+        BigDecimal best = new BigDecimal(0);
+        JobOffer bestOffer = null;
+        for (JobOffer offer : currentJobOffers) {
+            if (offer.getSalary().compareTo(best) >= 0) {
+                bestOffer = offer;
+                best = offer.getSalary();
+            }
+        }
+
+        return bestOffer;
+    }
+
+    int computeScore(JobOffer offer) {
+        if (offer == null) {
+            return 0;
+        }
+
+        return offer.getSalary().intValueExact() * gameDifficulty;
+    }
+
+    private BigDecimal computeAmount(Company company) {
+        int difficultyOffset = company.getDifficulty() * 10000;
+        int ratingOffset = company.getRating() * 10000;
+
+        int baseOffer = randomGenerator.random(50000, 200000);
+
+        int amount = baseOffer + difficultyOffset - ratingOffset;
+
+        return new BigDecimal(amount);
+    }
+
+    public void computeInterviews() {
+        for (Company company : companies) {
+            if (company.getAvailability() && gotInterview()) {
+                newJobInterview(interviewFactory.createInterview(company));
+            }
+        }
+    }
+
+    private boolean gotInterview() {
+        int random = randomGenerator.random(1, 50);
+        int prob = Math.min(random + currentNetworking, 100);
+        return prob > 50;
     }
 
     // Setters
@@ -203,6 +259,11 @@ public class GameState extends Observable {
         if (this.currentEnergy > 100) {
             this.currentEnergy = 100;
         }
+
+        if (this.currentEnergy < 0) {
+            this.currentEnergy = 0;
+            endGame();
+        }
     }
 
     public void updateNetworking(int change) {
@@ -212,7 +273,6 @@ public class GameState extends Observable {
         }
     }
 
-    public void setFinalScore(int score) {this.finalScore = score; }
 
     public void setCurrentInterview(JobInterview interview)
     {
@@ -262,7 +322,7 @@ public class GameState extends Observable {
         return this.currentNetworking;
     }
 
-    public int getFinalScore() {return this.finalScore; }
+    public int getFinalScore() {return computeScore(chosenOffer); }
 
     public JobInterview getCurrentInterview()
     {
@@ -280,5 +340,13 @@ public class GameState extends Observable {
 
     public QuestionController getQuestionController() {
         return questionController;
+    }
+
+    public CareerFairController getCareerFairController() {
+        return careerFairController;
+    }
+
+    public int getCurrentScore() {
+        return computeScore(bestOffer());
     }
 }

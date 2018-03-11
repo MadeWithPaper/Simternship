@@ -27,8 +27,8 @@ public class EndScreen extends AppCompatActivity
     DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Leaderboard");
     GameState theGame = GameState.getInstance();
     int finalScore = theGame.getFinalScore();
-    TextView scoreView = findViewById(R.id.endScore);
-    TextView nameView = findViewById(R.id.nameView);
+    TextView scoreView;
+    TextView nameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,7 +36,10 @@ public class EndScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
 
-        scoreView.setText((scoreView).toString());
+        scoreView = findViewById(R.id.endScore);
+        nameView = findViewById(R.id.nameView);
+
+        scoreView.setText("Score: " + theGame.getFinalScore());
         nameView.setText(theGame.getFirstName() + " " + theGame.getLastName());
 
         getLeaderboard();
@@ -115,9 +118,6 @@ public class EndScreen extends AppCompatActivity
 
     //method for starting the game again
     public void onClickPlayAgain(View view) {
-        //todo: figure out how to send to beginning of game again
-        //todo: change the class that we intend to go to
-        Intent intent = new Intent(EndScreen.this, NewGameView.class);
-        startActivity(intent);
+        theGame.clearAndStart(NewGameView.class);
     }
 }

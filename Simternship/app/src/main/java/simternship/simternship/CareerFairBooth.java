@@ -19,6 +19,7 @@ public class CareerFairBooth
    private boolean hasSocialized;
    private boolean metRecruiter;
    private boolean hasCollectedSwag;
+   private boolean visited;
 
    /**
    *  construct a career fair booth
@@ -32,6 +33,7 @@ public class CareerFairBooth
       hasSocialized = false;
       metRecruiter = false;
       hasCollectedSwag = false;
+      visited = false;
    }
 
    /**
@@ -79,6 +81,12 @@ public class CareerFairBooth
 
    public void meetRecruiter() {
       this.metRecruiter = true;
+   }
+
+   public void visit() {
+      if (!visited)
+         GameState.getInstance().updateEnergy(-20);
+      visited = true;
    }
 
    public void socialize() {
