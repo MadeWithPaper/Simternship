@@ -4,24 +4,23 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Button;
-import android.widget.Toast;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CareerFairBoothScreen extends AppCompatActivity {
 
-    private TextView rating, difficulty, recruiters, attendees, companyName;
-    private Button interview, swag, socialize;
+    private TextView rating;
+    private TextView difficulty;
+    private TextView recruiters;
+    private TextView attendees;
+    private TextView companyName;
+    private Button interview;
+    private Button swag;
+    private Button socialize;
     private CareerFairBooth booth;
     private Company company;
     private Map<Integer, String> difficulties;

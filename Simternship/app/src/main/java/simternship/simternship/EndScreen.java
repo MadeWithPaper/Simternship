@@ -1,12 +1,9 @@
 package simternship.simternship;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +26,7 @@ public class EndScreen extends AppCompatActivity
     int finalScore = theGame.getFinalScore();
     TextView scoreView;
     TextView nameView;
+    Button playAgain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,11 +36,19 @@ public class EndScreen extends AppCompatActivity
 
         scoreView = findViewById(R.id.endScore);
         nameView = findViewById(R.id.nameView);
+        playAgain = findViewById(R.id.playAgainButton);
 
         scoreView.setText("Score: " + theGame.getFinalScore());
         nameView.setText(theGame.getFirstName() + " " + theGame.getLastName());
 
         getLeaderboard();
+
+        playAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                theGame.clearAndStart(NewGameView.class);
+            }
+        });
     }
 
     void getLeaderboard() {
@@ -50,25 +56,22 @@ public class EndScreen extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Iterable values = postSnapshot.getChildren();
-                    Iterator iter = values.iterator();
-                    DataSnapshot firstNameJSON = (DataSnapshot) iter.next();
-                    DataSnapshot lastNameJSON = (DataSnapshot) iter.next();
-                    DataSnapshot scoreJSON = (DataSnapshot) iter.next();
-                    String first = (String) firstNameJSON.getValue();
-                    firstNames.add(first);
-                    String last = (String) lastNameJSON.getValue();
-                    lastNames.add(last);
-                    Long scoreLong = (Long) scoreJSON.getValue();
-                    Integer scoreInt = scoreLong.intValue();
-                    scores.add(scoreInt);
+                    Iterable ivalues = postSnapshot.getChildren();
+                    Iterator myIter = ivalues.iterator();
+                    DataSnapshot firstNamesJSON = (DataSnapshot) myIter.next();
+                    DataSnapshot lastNamesJSON = (DataSnapshot) myIter.next();
+                    DataSnapshot scoresJSON = (DataSnapshot) myIter.next();
+                    String firstName = (String) firstNamesJSON.getValue();
+                    firstNames.add(firstName);
+                    String lastName = (String) lastNamesJSON.getValue();
+                    lastNames.add(lastName);
+                    Long scoreLongValue = (Long) scoresJSON.getValue();
+                    Integer scoreIntValue = scoreLongValue.intValue();
+                    scores.add(scoreIntValue);
                 }
-
-
 
                 ListIterator<String> firstIter = firstNames.listIterator();
                 while(firstIter.hasNext()) {
-                    System.out.println(firstIter.next());
                 }
 
                 updateLeaderboard();
@@ -76,7 +79,7 @@ public class EndScreen extends AppCompatActivity
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //empty placeholder method
             }
         });
     }
@@ -114,10 +117,4 @@ public class EndScreen extends AppCompatActivity
         }
     }
 
-
-
-    //method for starting the game again
-    public void onClickPlayAgain(View view) {
-        theGame.clearAndStart(NewGameView.class);
-    }
 }
