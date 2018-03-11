@@ -29,8 +29,8 @@ public class PlayerTest {
         player.completeInterview(three);
 
 
-        JobOffer expected = new JobOffer("Facebook", new BigDecimal("100000"));
-        JobOffer actual = player.getBestOffer();
+        //JobOffer expected = new JobOffer("Facebook", new BigDecimal("100000"));
+        //JobOffer actual = player.getBestOffer();
 
         //assertEquals(expected, actual);
     }
