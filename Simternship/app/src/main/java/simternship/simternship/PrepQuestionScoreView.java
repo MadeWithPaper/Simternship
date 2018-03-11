@@ -1,24 +1,15 @@
 package simternship.simternship;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 /**
@@ -32,7 +23,6 @@ import java.util.List;
 public class PrepQuestionScoreView extends android.app.Fragment implements View.OnClickListener{
 
 
-    private Context context;
     private OnFragmentInteractionListener mListener;
 
     public PrepQuestionScoreView() {
@@ -45,7 +35,7 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
      *
      * @return A new instance of fragment CareerFairView.
      */
-    // TODO: Rename and change types and number of parameters
+    //Rename and change types and number of parameters
     public static PrepQuestionScoreView newInstance() {
         PrepQuestionScoreView fragment = new PrepQuestionScoreView();
         Bundle args = new Bundle();
@@ -53,30 +43,24 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.prep_question_score_view, container, false);
 
-        TextView tv2 = (TextView) v.getRootView().findViewById(R.id.textView);
+        TextView tv2 =  v.getRootView().findViewById(R.id.textView);
         if (tv2 != null) {
             tv2.setText("Good job! You got " + "" + "Questions Prepared!");
             // Inflate the layout for this fragment
         }
-        Button b = (Button) v.findViewById(R.id.button4);
+        Button b = v.findViewById(R.id.button4);
         b.setOnClickListener(this);
         return v;
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    //  Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -89,11 +73,10 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(" must implement OnFragmentInteractionListener");
         }
 
-        this.context = context;
+        //this.context = context;
 
 
     }
@@ -118,12 +101,11 @@ public class PrepQuestionScoreView extends android.app.Fragment implements View.
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+        // : Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button4: //start click
+        if (v.getId()==R.id.button4) {
                 setPage(PrepQuestionStartView.newInstance());
         }
     }
