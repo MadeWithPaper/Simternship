@@ -45,7 +45,7 @@ implements CareerFairView.OnFragmentInteractionListener,
                         break;
                     case 2:
                     //case R.id.account:
-                        startActivity(new Intent(MainActivity.this, account_screen_view.class));
+                        startActivity(new Intent(MainActivity.this, AccountScreenView.class));
                         Toast.makeText(MainActivity.this, "account clicked", Toast.LENGTH_SHORT).show();
                         break;
                 }*/

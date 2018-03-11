@@ -135,3 +135,5 @@ f
 6app/src/main/res/layout/content_job_interview_view.xml,e/6/e68bea5c4e4d2b9f09d43d8a18f52ecb46790f9a
 o
 ?app/src/main/java/simternship/simternship/PrepQuestionView.java,f/c/fca25f515e9c1d960aaf5b9b96be78636e2cd602
+j
+:app/src/main/res/layout/fragment_account_settings_view.xml,1/e/1ef04e2f985735b504faf20b2be03eec196192f3

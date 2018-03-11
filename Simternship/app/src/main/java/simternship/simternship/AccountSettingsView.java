@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
 
 
 /**
@@ -26,7 +25,6 @@ import android.support.v7.app.AppCompatActivity;
 public class AccountSettingsView extends android.app.Fragment {
     private Context context;
     private OnFragmentInteractionListener mListener;
-    //final ProgressBar energyBar = this.getView().findViewById(R.id.energyBar);
 
     public AccountSettingsView() {
         // Required empty public constructor
@@ -38,7 +36,6 @@ public class AccountSettingsView extends android.app.Fragment {
      *
      * @return A new instance of fragment AccountSettingsView.
      */
-    // TODO: Rename and change types and number of parameters
     public static AccountSettingsView newInstance() {
         AccountSettingsView fragment = new AccountSettingsView();
         Bundle args = new Bundle();
@@ -49,8 +46,6 @@ public class AccountSettingsView extends android.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ProgressBar energyBar = (ProgressBar) findViewById(R.id.energyBar);
-        //energyBar.
     }
 
     @Override
@@ -60,7 +55,6 @@ public class AccountSettingsView extends android.app.Fragment {
         return inflater.inflate(R.layout.fragment_account_settings_view, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -139,7 +133,6 @@ public class AccountSettingsView extends android.app.Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
