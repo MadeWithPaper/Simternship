@@ -71,8 +71,6 @@ public class EndScreen extends AppCompatActivity
                 }
 
                 ListIterator<String> firstIter = firstNames.listIterator();
-                while(firstIter.hasNext()) {
-                }
 
                 updateLeaderboard();
             }

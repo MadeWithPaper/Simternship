@@ -74,7 +74,7 @@ public class CareerFairView extends android.app.Fragment implements Observer {
         if (context instanceof OnFragmentInteractionListener) {
             cfvListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
+            throw new IllegalStateException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
 

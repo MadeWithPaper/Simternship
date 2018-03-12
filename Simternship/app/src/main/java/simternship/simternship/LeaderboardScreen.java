@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class leaderboardScreen extends AppCompatActivity {
+public class LeaderboardScreen extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Leaderboard");
     LinkedList<String> firstNames = new LinkedList<>();
@@ -44,8 +44,6 @@ public class leaderboardScreen extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    System.err.print("GETTING THE DATA: ");
-                    System.err.println(postSnapshot);
                     Iterable values = postSnapshot.getChildren();
                     Iterator iter = values.iterator();
                     DataSnapshot firstNameJSON = (DataSnapshot) iter.next();
@@ -61,9 +59,7 @@ public class leaderboardScreen extends AppCompatActivity {
                     lines.add(first + " " + last + ": " + scoreInt);
                 }
                 ListIterator<String> firstIter = firstNames.listIterator();
-                while(firstIter.hasNext()) {
-                    System.err.println(firstIter.next());
-                }
+
                 populateLeaderboard();
             }
 

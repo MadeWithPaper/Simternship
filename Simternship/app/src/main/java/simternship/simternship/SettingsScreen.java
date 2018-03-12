@@ -2,6 +2,7 @@ package simternship.simternship;
 
 import android.content.Context;
 import android.media.AudioManager;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
-public class settingsScreen extends AppCompatActivity {
+public class SettingsScreen extends AppCompatActivity {
 
     boolean soundOn;
     AudioManager aManager;
@@ -36,7 +37,7 @@ public class settingsScreen extends AppCompatActivity {
         soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                settingsScreen.this.soundOn = isChecked;
+                SettingsScreen.this.soundOn = isChecked;
             }
         });
 
@@ -46,7 +47,12 @@ public class settingsScreen extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aManager.setStreamMute(stream, !soundOn);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    aManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_MUTE, 0);
+                }
+                else {
+                    aManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+                }
                 finish();
             }
         });
