@@ -18,12 +18,12 @@ import static android.support.v4.content.ContextCompat.startActivity;
  */
 
 public class GameState extends Observable {
-    private static int MINCOMPANIES = 5;
-    private static int MAXCOMPANIES = 20;
-    private static int MINRECRUITERS = 2;
-    private static int MAXRECRUITERS = 5;
-    private static int MINATTENDEES = 2;
-    private static int MAXATTENDEES = 30;
+    private static int minCompanies = 5;
+    private static int maxCompanies = 20;
+    private static int minRecuriters = 2;
+    private static int maxRecuriters = 5;
+    private static int minAttendees = 2;
+    private static int maxAttendees = 30;
 
     private CareerFairFactory careerFairFactory;
     private CompanyFactory companyFactory;
@@ -98,10 +98,10 @@ public class GameState extends Observable {
     private static GameState gameState;
 
     private GameState(Activity caller, String firstName, String lastName, int difficulty) {
-        this.companyFactory = new CompanyFactory(MINCOMPANIES, MAXCOMPANIES);
+        this.companyFactory = new CompanyFactory(minCompanies, maxCompanies);
         companies = companyFactory.createCompanies();
-        this.careerFairFactory = new CareerFairFactory(MINRECRUITERS, MAXRECRUITERS,
-                MINATTENDEES, MAXATTENDEES, names);
+        this.careerFairFactory = new CareerFairFactory(minRecuriters, maxRecuriters,
+                minAttendees, maxAttendees, names);
 
         this.careerFairController = new CareerFairController(new UITimer(caller),
                 this, companies, careerFairFactory);
