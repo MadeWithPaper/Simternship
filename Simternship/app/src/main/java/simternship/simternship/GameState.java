@@ -11,8 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Observable;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
 /**
  * Created by joel on 2/23/18.
  */
@@ -54,7 +52,6 @@ public class GameState extends Observable {
     private int lastNameCount;
     private RandomGenerator randomGenerator;
     private QuestionController questionController;
-    private List<JobInterview> completedInterviews;
     private CareerFairController careerFairController;
 
     //we will use this to invoke timer actions on the UI thread
@@ -115,8 +112,6 @@ public class GameState extends Observable {
         currentNetworking = 0;
         currentJobOffers = new LinkedList<>();
         currentJobInterviews = new LinkedList<>();
-        completedInterviews = new LinkedList<>();
-
         setFirstName(firstName);
         setLastName(lastName);
         setGameDifficulty(difficulty);
