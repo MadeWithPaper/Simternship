@@ -3,9 +3,9 @@ package simternship.simternship;
 import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 
-public class JobInterviewView extends AppCompatActivity
+public class JobInterviewView extends Activity
     implements PrepQuestionView.OnFragmentInteractionListener
 {
 

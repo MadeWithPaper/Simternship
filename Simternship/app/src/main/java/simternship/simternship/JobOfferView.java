@@ -1,13 +1,12 @@
 package simternship.simternship;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class JobOfferView extends AppCompatActivity
+public class JobOfferView extends Activity
 {
     GameState state;
     JobOffer offer;
@@ -19,8 +18,6 @@ public class JobOfferView extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_offer_view);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         state = GameState.getInstance();
         offer = state.getCurrentOffer();

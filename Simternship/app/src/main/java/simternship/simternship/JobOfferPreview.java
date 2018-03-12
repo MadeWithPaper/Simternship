@@ -1,8 +1,7 @@
 package simternship.simternship;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.app.Activity;
 import android.view.View;
 import android.content.Intent;
 import java.util.List;
@@ -14,7 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.Observable;
 
-public class JobOfferPreview extends AppCompatActivity implements Observer
+public class JobOfferPreview extends Activity implements Observer
 {
     List<JobOffer> offers;
 
@@ -23,8 +22,6 @@ public class JobOfferPreview extends AppCompatActivity implements Observer
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_offer_preview);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         setup();
     }

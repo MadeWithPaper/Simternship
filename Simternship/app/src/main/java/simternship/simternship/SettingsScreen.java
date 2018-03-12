@@ -48,10 +48,11 @@ public class SettingsScreen extends Activity {
             @Override
             public void onClick(View view) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    aManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_MUTE, 0);
+                    int adjust = soundOn ? AudioManager.ADJUST_UNMUTE : AudioManager.ADJUST_MUTE;
+                    aManager.adjustStreamVolume(stream, adjust, 0);
                 }
                 else {
-                    aManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+                    setStreamMute();
                 }
                 finish();
             }
@@ -63,6 +64,17 @@ public class SettingsScreen extends Activity {
                 finish();
             }
         });
+    }
+
+    private void setStreamMute() {
+        try {
+            Method m = AudioManager.class.getMethod("setStreamMute", int.class,
+                    boolean.class);
+            m.invoke(stream, !soundOn);
+        }
+        catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException ex) {
+            /* Ignored because we don't care about it */
+        }
     }
 
     private boolean isMuted() {
