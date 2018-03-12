@@ -3,7 +3,7 @@ package simternship.simternship;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
-public class SettingsScreen extends AppCompatActivity {
+public class SettingsScreen extends Activity {
 
     boolean soundOn;
     AudioManager aManager;

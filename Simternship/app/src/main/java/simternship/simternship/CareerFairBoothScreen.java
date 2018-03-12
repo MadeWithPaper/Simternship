@@ -3,7 +3,7 @@ package simternship.simternship;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CareerFairBoothScreen extends AppCompatActivity {
+public class CareerFairBoothScreen extends Activity {
 
     private TextView rating;
     private TextView difficulty;

@@ -1,12 +1,12 @@
 package simternship.simternship;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SocializeDialogue extends AppCompatActivity {
+public class SocializeDialogue extends Activity {
 
    GameState state;
    CareerFairBooth booth;

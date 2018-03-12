@@ -3,14 +3,14 @@ package simternship.simternship;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.app.Fragment;
 
 /**
  * Created by annie on 1/28/18.
  */
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity
 implements CareerFairView.OnFragmentInteractionListener,
         PrepQuestionView.OnFragmentInteractionListener,
         AccountSettingsView.OnFragmentInteractionListener,

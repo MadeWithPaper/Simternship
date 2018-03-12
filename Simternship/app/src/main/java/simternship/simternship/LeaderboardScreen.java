@@ -1,21 +1,16 @@
 package simternship.simternship;
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import java.util.LinkedList;
 import java.util.Iterator;
-import java.util.ListIterator;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-//public class LeaderboardScreen extends AppCompatActivity {
 public class LeaderboardScreen extends Activity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Leaderboard");

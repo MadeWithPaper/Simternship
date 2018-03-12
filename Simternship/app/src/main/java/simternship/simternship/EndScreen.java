@@ -1,7 +1,7 @@
 package simternship.simternship;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.LinkedList;
 
-public class EndScreen extends AppCompatActivity
+public class EndScreen extends Activity
 {
     LinkedList<String> firstNames = new LinkedList<>();
     LinkedList<String> lastNames = new LinkedList<>();

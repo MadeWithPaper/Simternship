@@ -1,7 +1,7 @@
 package simternship.simternship;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Iterator;
 
-public class NewGameView extends AppCompatActivity {
+public class NewGameView extends Activity {
 
     NumberPicker fillDifficultyPicker;
 
