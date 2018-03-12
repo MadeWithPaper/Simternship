@@ -25,11 +25,9 @@ public class CareerFairController extends Observable {
     private State state;
 
 
-    public static final int min = 60 * 1000;
-    public static final int timeBetweenFairs = 10 * min;
-    public static final int timeOfFair = 15 * min;
-    //public static final int timeBetweenFairs = 5000;
-    //public static final int timeOfFair = 5000;
+    public static final int MIN = 60 * 1000;
+    public static final int TIMEBETWEENFAIRS = 10 * MIN;
+    public static final int TIMEOFFAIR = 15 * MIN;
 
     public CareerFairController(UITimer timer,
                                 GameState gameState,
@@ -59,12 +57,12 @@ public class CareerFairController extends Observable {
 
     private void scheduleNext() {
         int time = 0;
-        if (state == State.FALL || state == State.WINTER || state == state.SPRING) {
-            time = timeOfFair;
+        if (state == State.FALL || state == State.WINTER || state == State.SPRING) {
+            time = TIMEOFFAIR;
         }
         if (state == State.BEGIN || state == State.FALL_WINTER
                 || state == State.WINTER_SPRING || state == State.SPRING_END) {
-            time = timeBetweenFairs;
+            time = TIMEBETWEENFAIRS;
         }
 
         timerStatus = timer.runAfter(time, new Runnable() {
@@ -103,6 +101,8 @@ public class CareerFairController extends Observable {
             case SPRING_END:
                 state = State.END;
                 endGame();
+                break;
+            default:
                 break;
         }
     }

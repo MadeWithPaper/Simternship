@@ -4,24 +4,23 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Button;
-import android.widget.Toast;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CareerFairBoothScreen extends AppCompatActivity {
 
-    private TextView rating, difficulty, recruiters, attendees, companyName;
-    private Button interview, swag, socialize;
+    private TextView rating;
+    private TextView difficulty;
+    private TextView recruiters;
+    private TextView attendees;
+    private TextView companyName;
+    private Button interview;
+    private Button swag;
+    private Button socialize;
     private CareerFairBooth booth;
     private Company company;
     private Map<Integer, String> difficulties;
@@ -106,11 +105,12 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     }
 
     private String getRating(int rating) {
-        String result = "";
-        while (rating-- > 0) {
-            result += "*";
+        StringBuilder bld = new StringBuilder();
+        for (int i = 0; i<rating; i++)
+        {
+            bld.append("*");
         }
-        return result;
+        return bld.toString();
     }
 
     private String getDifficulty(int difficulty) {
@@ -134,7 +134,7 @@ public class CareerFairBoothScreen extends AppCompatActivity {
     private void collectSwag() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup);
-        TextView txt = (TextView)dialog.findViewById(R.id.popUpText);
+        TextView txt = dialog.findViewById(R.id.popUpText);
         int energyPoints = booth.giveSWAG();
         GameState.getInstance().updateEnergy(energyPoints);
         txt.setText("Gained " + energyPoints + " Engery Points."); //add method to show how many points gained
@@ -146,10 +146,6 @@ public class CareerFairBoothScreen extends AppCompatActivity {
         booth.socialize();
         reset();
         startActivity(new Intent(CareerFairBoothScreen.this, SocializeDialogue.class));
-    }
-
-    private void fakeAction(String action) {
-        Toast.makeText(this, action + " clicked!", Toast.LENGTH_SHORT).show();
     }
 
 }

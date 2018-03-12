@@ -1,12 +1,10 @@
 package simternship.simternship;
 
-import android.icu.util.TimeZone;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.constraint.solver.widgets.Snapshot;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -18,8 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.Iterator;
 
 public class NewGameView extends AppCompatActivity {
@@ -29,11 +25,12 @@ public class NewGameView extends AppCompatActivity {
     String firstName;
     String lastName;
     String uid;
+    Button startGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game_view);
-
+      startGame = findViewById(R.id.register);
        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
        uid = user.getUid();
        FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -44,6 +41,7 @@ public class NewGameView extends AppCompatActivity {
              Iterable data = dataSnapshot.getChildren();
              Iterator readData = data.iterator();
              DataSnapshot snap = (DataSnapshot) readData.next();
+             System.err.print(snap.getValue());
              snap = (DataSnapshot) readData.next();
              firstName = (String) snap.getValue();
              snap = (DataSnapshot) readData.next();
@@ -54,6 +52,7 @@ public class NewGameView extends AppCompatActivity {
 
           @Override
           public void onCancelled(DatabaseError databaseError) {
+             //empty method on purpose
           }
        });
 
@@ -64,12 +63,14 @@ public class NewGameView extends AppCompatActivity {
         fillDifficultyPicker.setMinValue(0);
         fillDifficultyPicker.setMaxValue(difficulty.length-1);
         fillDifficultyPicker.setDisplayedValues(difficulty);
+
+       startGame.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+             GameState.newGame(NewGameView.this, firstName, lastName, fillDifficultyPicker.getValue() + 1);
+
+             startActivity(new Intent(NewGameView.this, MainActivity.class));
+          }
+       });
     }
-
-    public void onClickBeginGame(View view) {
-        GameState.newGame(this, firstName, lastName, fillDifficultyPicker.getValue() + 1);
-
-       startActivity(new Intent(this, MainActivity.class));
-    }
-
 }

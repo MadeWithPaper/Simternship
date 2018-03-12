@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -44,9 +43,6 @@ public class StartScreen extends AppCompatActivity {
         logInButton = findViewById(R.id.logInButton);
         signUpButton = findViewById(R.id.registration);
 
-
-        //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -54,11 +50,11 @@ public class StartScreen extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
+                   Toast.makeText(StartScreen.this, "Please Log In!", Toast.LENGTH_SHORT).show();
                 }
             }
         };
 
-        //userEmail.requestFocus();
         userPass.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
@@ -71,6 +67,13 @@ public class StartScreen extends AppCompatActivity {
                 return keyEntered;
             }
         });
+
+       logInButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+             loginAttempt();
+          }
+       });
 
        signUpButton.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -89,10 +92,6 @@ public class StartScreen extends AppCompatActivity {
                    0);
           }
        });
-    }
-
-    public void onClickLogIn(View view) {
-        loginAttempt();
     }
 
         private void loginAttempt()
@@ -117,13 +116,13 @@ public class StartScreen extends AppCompatActivity {
                 return "";
                 }
         }
-
+         @Override
         public void onStart()
         {
             super.onStart();
             mAuth.addAuthStateListener(mAuthListener);
         }
-
+         @Override
         public  void onStop()
         {
             super.onStop();

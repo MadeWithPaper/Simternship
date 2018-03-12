@@ -1,7 +1,7 @@
 
-Ksquid:S1905"*Remove this unnecessary cast to "Toolbar".(ªü–ıÿÿÿÿ8ƒÿŠÈŸ,
-xsquid:UselessImportCheck"ORemove this unused import 'android.support.design.widget.FloatingActionButton'.(„Ÿ¹¼8ñ˜‰ÈŸ,
-Nsquid:S1135"2Complete the task associated to this TODO comment.(ö€¥…8©ÿ®ÉŸ,
-Nsquid:S1135"2Complete the task associated to this TODO comment.(àÚ²à8©ÿ®ÉŸ,
-ksquid:UselessImportCheck"CRemove this unused import 'android.support.design.widget.Snackbar'.( À®p8ñ˜‰ÈŸ,
+[squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8¿«©´¡,
 hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ÚëĞıÿÿÿÿ
+bsquid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8¿«©´¡,
+\squid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8¿«©´¡,
+fsquid:UselessImportCheck">Remove this unused import 'android.support.v7.widget.Toolbar'.(à½£8¢Ÿìå ,
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„˜®’8¿«©´¡,

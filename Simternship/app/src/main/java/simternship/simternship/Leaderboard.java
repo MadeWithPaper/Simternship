@@ -61,7 +61,7 @@ public class Leaderboard
     */
    public void addPlayer(Player player)
    {
-
+      //handle by screen view class instead
    }
 
    /**
@@ -72,7 +72,7 @@ public class Leaderboard
     */
    public void removePlayer(Player player)
    {
-
+      //handle by screen view class instead
    }
 
    /**
@@ -106,6 +106,11 @@ public class Leaderboard
                  this.equals((LeaderboardEntry) other);
       }
 
+      @Override
+      public int hashCode()
+      {
+         return super.hashCode();
+      }
       public boolean equals(LeaderboardEntry other) {
          return playerName.equals(other.playerName)
                  && score == other.score;

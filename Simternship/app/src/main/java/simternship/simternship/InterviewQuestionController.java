@@ -28,6 +28,6 @@ public class InterviewQuestionController implements QuestionController {
 
     @Override
     public void setView(Fragment fragment) {
-
+        //method left empty on purpose
     }
 }
