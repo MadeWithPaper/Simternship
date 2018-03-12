@@ -4,37 +4,56 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
 public class AccountScreenView extends AppCompatActivity {
 
     String name;
+    Button settings;
+    Button jobInterviews;
+    Button jobOffers;
+    Button leaderBoard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_screen_view);
 
-    }
+        settings = findViewById(R.id.settings);
+        jobInterviews = findViewById(R.id.jobInterview);
+        jobOffers = findViewById(R.id.jobOffer);
+        leaderBoard = findViewById(R.id.leaderboard);
 
-    public void onClickSetting(View view) {
-       Toast.makeText(AccountScreenView.this, "Setting screen!", Toast.LENGTH_SHORT).show();
-       startActivity(new Intent(AccountScreenView.this, settingsScreen.class));
-    }
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AccountScreenView.this, "Setting screen!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AccountScreenView.this, SettingsScreen.class));
+            }
+        });
+        jobOffers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AccountScreenView.this, "Job Offers!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AccountScreenView.this, JobOfferPreview.class));
+            }
+        });
+        jobInterviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AccountScreenView.this, "Interview!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AccountScreenView.this, JobInterviewPreview.class));
+            }
+        });
+        leaderBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AccountScreenView.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AccountScreenView.this, LeaderboardScreen.class));
+            }
+        });
 
-    public void onClickLeaderboard(View view) {
-       Toast.makeText(AccountScreenView.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
-       startActivity(new Intent(AccountScreenView.this, leaderboardScreen.class));
-    }
-
-    public void onClickInterviews(View view) {
-        Toast.makeText(AccountScreenView.this, "Interview!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(AccountScreenView.this, JobInterviewPreview.class));
-    }
-
-    public void onClickJobOffers(View view) {
-        Toast.makeText(AccountScreenView.this, "Job Offers!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(AccountScreenView.this, JobOfferPreview.class));
     }
 }

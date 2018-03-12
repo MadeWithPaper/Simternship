@@ -62,7 +62,7 @@ public class AccountSettingsView extends android.app.Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
+            throw new IllegalStateException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
 
@@ -84,11 +84,11 @@ public class AccountSettingsView extends android.app.Fragment {
         networkBar.setProgress(GameState.getInstance().getCurrentNetworking());
 
         getView().findViewById(R.id.settings).setOnClickListener(
-                new Listener(context, "Setting screen!", settingsScreen.class)
+                new Listener(context, "Setting screen!", SettingsScreen.class)
         );
 
         getView().findViewById(R.id.leaderboard).setOnClickListener(
-                new Listener(context, "Leaderboard!", leaderboardScreen.class)
+                new Listener(context, "Leaderboard!", LeaderboardScreen.class)
         );
 
         getView().findViewById(R.id.button2).setOnClickListener(

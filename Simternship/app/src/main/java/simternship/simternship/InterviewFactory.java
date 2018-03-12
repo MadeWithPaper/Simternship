@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class InterviewFactory {
     RandomGenerator generator;
     List<InterviewQuestion> questions;
-    private String f = "false";
+    public static final String F = "false";
     public InterviewFactory(RandomGenerator randomGenerator,
                             List<InterviewQuestion> questions) {
         generator = randomGenerator;
@@ -31,16 +31,16 @@ public class InterviewFactory {
                 new InterviewQuestion("What software methodology involves user stores and sprints", "Agile"),
                 new InterviewQuestion("What do we call the case when a new bug is introduced while fixing another bug", "regression"),
                 new InterviewQuestion("How can you determine the similarity of two strings?", "edit distance"),
-                new InterviewQuestion("If a function has no side effects, it is pure (true or false)", "f"),
-                new InterviewQuestion("If a function does not depend on mutable state, it is pure (true or false)", "f"),
+                new InterviewQuestion("If a function has no side effects, it is pure (true or false)", F),
+                new InterviewQuestion("If a function does not depend on mutable state, it is pure (true or false)", F),
                 new InterviewQuestion("What do we call data structures that preserve their previous version when modified", "persistent data structures"),
                 new InterviewQuestion("What does Haskell have that Scala lacks, other than purity", "full type inference"),
                 new InterviewQuestion("What paradigm does SQL belong to", "declarative"),
                 new InterviewQuestion("What kind of logic does SQL have", "3-valued logic"),
                 new InterviewQuestion("What is the simplest and clearest way to implement BFS", "iteration with queue"),
                 new InterviewQuestion("Can you write an efficient algorithm to make optimal change for an arbitrary currency", "no"),
-                new InterviewQuestion("Binary search takes linear time", "f"),
-                new InterviewQuestion("Heap sort and Quick sort have the same worst case time complexity", "f")
+                new InterviewQuestion("Binary search takes linear time", F),
+                new InterviewQuestion("Heap sort and Quick sort have the same worst case time complexity", F)
         ));
     }
 

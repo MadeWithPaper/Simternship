@@ -57,8 +57,7 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         return v;
 
     }
-    // : Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPresse(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
@@ -92,7 +91,6 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        //: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 

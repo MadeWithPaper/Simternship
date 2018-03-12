@@ -41,7 +41,7 @@ public class NewGameView extends AppCompatActivity {
              Iterable data = dataSnapshot.getChildren();
              Iterator readData = data.iterator();
              DataSnapshot snap = (DataSnapshot) readData.next();
-             System.err.print(snap.getValue());
+             uid = (String) snap.getValue();
              snap = (DataSnapshot) readData.next();
              firstName = (String) snap.getValue();
              snap = (DataSnapshot) readData.next();

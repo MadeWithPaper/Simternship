@@ -191,9 +191,9 @@ public class GameState extends Observable {
         BigDecimal best = new BigDecimal(0);
         JobOffer bestOffer = null;
         for (JobOffer o : currentJobOffers) {
-            if (offer.getSalary().compareTo(best) >= 0) {
-                bestOffer = offer;
-                best = offer.getSalary();
+            if (o.getSalary().compareTo(best) >= 0) {
+                bestOffer = o;
+                best = o.getSalary();
             }
         }
 

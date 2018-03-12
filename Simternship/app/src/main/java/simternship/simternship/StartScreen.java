@@ -55,18 +55,6 @@ public class StartScreen extends AppCompatActivity {
             }
         };
 
-        userPass.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                boolean keyEntered = false;
-                if (i == keyEvent.KEYCODE_ENTER && (!getString(userPass).equals("") && !getString(userEmail).equals(""))) {
-                    keyEntered = true;
-                    loginAttempt();
-
-                }
-                return keyEntered;
-            }
-        });
 
        logInButton.setOnClickListener(new View.OnClickListener() {
           @Override

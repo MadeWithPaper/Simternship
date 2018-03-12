@@ -27,17 +27,18 @@ public class JobInterviewPreview extends AppCompatActivity implements Observer
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        setup();
+        setupJobInterview();
     }
+
 
     public void update(Observable a, Object b) {
-        this.reset();
+        this.resetJobInterview();
     }
 
-    private void setup()
+    private void setupJobInterview()
     {
         GameState.getInstance().addObserver(this);
-        reset();
+        resetJobInterview();
     }
 
 
@@ -47,7 +48,7 @@ public class JobInterviewPreview extends AppCompatActivity implements Observer
         super.finish();
     }
 
-    public void reset()
+    public void resetJobInterview()
     {
         interviews = GameState.getInstance().getCurrentJobInterviews();
         setItems(interviews);
