@@ -70,8 +70,6 @@ public class EndScreen extends AppCompatActivity
                     scores.add(scoreIntValue);
                 }
 
-                ListIterator<String> firstIter = firstNames.listIterator();
-
                 updateLeaderboard();
             }
 

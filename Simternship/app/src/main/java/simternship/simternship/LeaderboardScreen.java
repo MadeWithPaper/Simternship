@@ -58,8 +58,6 @@ public class LeaderboardScreen extends AppCompatActivity {
                     scores.add(scoreInt);
                     lines.add(first + " " + last + ": " + scoreInt);
                 }
-                ListIterator<String> firstIter = firstNames.listIterator();
-
                 populateLeaderboard();
             }
 

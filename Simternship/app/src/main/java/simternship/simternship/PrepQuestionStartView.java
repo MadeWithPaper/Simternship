@@ -20,7 +20,7 @@ import android.widget.NumberPicker;
  */
 public class PrepQuestionStartView extends android.app.Fragment implements View.OnClickListener{
     NumberPicker fillDifficultyPicker;
-    private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener pqsvListener;
 
     public PrepQuestionStartView() {
         // Required empty public constructor
@@ -58,8 +58,8 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
 
     }
     public void onButtonPresse(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+        if (pqsvListener != null) {
+            pqsvListener.onFragmentInteraction(uri);
         }
     }
 
@@ -67,18 +67,12 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+            pqsvListener = (OnFragmentInteractionListener) context;
         } else {
             throw new IllegalStateException("PrepQuestionStartView must implement OnFragmentInteractionListener");
         }
     }
 
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -101,5 +95,10 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         }
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        pqsvListener = null;
+    }
 
 }
