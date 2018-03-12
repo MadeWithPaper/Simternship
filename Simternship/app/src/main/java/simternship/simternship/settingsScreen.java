@@ -5,19 +5,21 @@ import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
-public class settings_screen extends AppCompatActivity {
+public class settingsScreen extends AppCompatActivity {
 
     boolean soundOn;
     AudioManager aManager;
     int stream;
+    Button save;
+    Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +28,35 @@ public class settings_screen extends AppCompatActivity {
 
         aManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         stream = AudioManager.STREAM_NOTIFICATION;
-
+        save = findViewById(R.id.saveSettings);
+        cancel = findViewById(R.id.cancelSettings);
         Switch soundSwitch = findViewById(R.id.soundSwitch);
         soundOn = !isMuted();
         soundSwitch.setChecked(soundOn);
         soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                settings_screen.this.soundOn = isChecked;
+                settingsScreen.this.soundOn = isChecked;
             }
         });
 
         TextView currentScore = findViewById(R.id.scoreView);
         currentScore.setText("Current Score: " + GameState.getInstance().getCurrentScore());
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aManager.setStreamMute(stream, !soundOn);
+                finish();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private boolean isMuted() {
@@ -49,15 +67,5 @@ public class settings_screen extends AppCompatActivity {
         catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException ex) {
             return false;
         }
-    }
-
-    public void onClickSave(View view) {
-        aManager.setStreamMute(stream, !soundOn);
-        finish();
-    }
-
-    public void onClickCancel(View view)
-    {
-        finish();
     }
 }

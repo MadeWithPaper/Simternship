@@ -1,9 +1,9 @@
 package simternship.simternship;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SocializeDialogue extends AppCompatActivity {
@@ -11,13 +11,23 @@ public class SocializeDialogue extends AppCompatActivity {
    GameState state;
    CareerFairBooth booth;
    int pointsToAdd;
+   Button dismiss;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_socialize_dialogue);
-
+      dismiss = findViewById(R.id.dismissSocial);
       reset();
+
+      dismiss.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            state.updateNetworking(pointsToAdd);
+
+            finish();
+         }
+      });
    }
 
    private void reset() {
@@ -31,12 +41,5 @@ public class SocializeDialogue extends AppCompatActivity {
 
       name.setText(state.getNextPersonName() + " wants to be friends!");
       points.setText("You will gain " + pointsToAdd + " point(s) if you become friends.");
-   }
-
-   public void onClickDismissSocial(View view)
-   {
-      state.updateNetworking(pointsToAdd);
-
-      finish();
    }
 }

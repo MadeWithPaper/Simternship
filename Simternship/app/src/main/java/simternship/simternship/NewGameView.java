@@ -67,7 +67,7 @@ public class NewGameView extends AppCompatActivity {
        startGame.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-             GameState.newGame(this, firstName, lastName, fillDifficultyPicker.getValue() + 1);
+             GameState.newGame(NewGameView.this, firstName, lastName, fillDifficultyPicker.getValue() + 1);
 
              startActivity(new Intent(NewGameView.this, MainActivity.class));
           }

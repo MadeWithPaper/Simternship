@@ -20,7 +20,7 @@ public class AccountScreenView extends AppCompatActivity {
 
     public void onClickSetting(View view) {
        Toast.makeText(AccountScreenView.this, "Setting screen!", Toast.LENGTH_SHORT).show();
-       startActivity(new Intent(AccountScreenView.this, settings_screen.class));
+       startActivity(new Intent(AccountScreenView.this, settingsScreen.class));
     }
 
     public void onClickLeaderboard(View view) {

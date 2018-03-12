@@ -42,7 +42,7 @@
         <activity android:name="simternship.simternship.AccountScreenView" />
         <activity android:name="simternship.simternship.leaderboardScreen" />
         <activity android:name="simternship.simternship.SocializeDialogue" />
-        <activity android:name="simternship.simternship.settings_screen" />
+        <activity android:name="simternship.simternship.settingsScreen" />
         <!--
         <activity android:name="simternship.simternship.PrepQuestionScreen" />
         -->

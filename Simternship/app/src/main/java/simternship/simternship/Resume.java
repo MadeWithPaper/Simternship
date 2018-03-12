@@ -66,32 +66,6 @@ public class Resume
          this.email = email;
          this.phone = phone;
 
-         validateEmail(email);
-         validatePhone(phone);
-      }
-
-      /**
-       * Validates an email address. If the address does
-       * does not match the validation pattern, a runtime
-       * exception is thrown.
-       *
-       * @param email The email address to check.
-       */
-      private void validateEmail(String email)
-      {
-
-      }
-
-      /**
-       * Validates a phone number. If the phone number
-       * does match the validation pattern, a runtime exception
-       * is thrown.
-       *
-       * @param phone The phone number to check.
-       */
-      private void validatePhone(String phone)
-      {
-
       }
    }
 

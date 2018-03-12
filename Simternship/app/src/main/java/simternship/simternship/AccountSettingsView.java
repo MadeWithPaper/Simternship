@@ -84,7 +84,7 @@ public class AccountSettingsView extends android.app.Fragment {
         networkBar.setProgress(GameState.getInstance().getCurrentNetworking());
 
         getView().findViewById(R.id.settings).setOnClickListener(
-                new Listener(context, "Setting screen!", settings_screen.class)
+                new Listener(context, "Setting screen!", settingsScreen.class)
         );
 
         getView().findViewById(R.id.leaderboard).setOnClickListener(
