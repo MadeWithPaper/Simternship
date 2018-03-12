@@ -1,14 +1,8 @@
 package simternship.simternship;
-
-import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +22,6 @@ import java.util.Iterator;
  */
 
 public class PrepQuestionView extends android.app.Fragment implements View.OnClickListener{
-    private Context context;
     private OnFragmentInteractionListener mListener;
     TextView tv2;
 
@@ -47,7 +40,7 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
      *
      * @return A new instance of fragment PrepQuestionView.
      */
-    // TODO: Rename and change types and number of parameters
+    // : Rename and change types and number of parameters
     public static PrepQuestionView newInstance() {
         PrepQuestionView fragment = new PrepQuestionView();
         Bundle args = new Bundle();
@@ -55,11 +48,6 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,16 +70,16 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
 
         setQuestion(v);
 
-        Button b = (Button) v.findViewById(R.id.button6);
+        Button b = v.findViewById(R.id.button6);
         b.setOnClickListener( this);
-        Button b1 = (Button) v.findViewById(R.id.button7);
+        Button b1 =  v.findViewById(R.id.button7);
         b1.setOnClickListener( this);
         b1.setVisibility(session.hasHints() ? View.VISIBLE : View.INVISIBLE);
         return v;
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    // : Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -119,23 +107,12 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new IllegalStateException("Prep Question View must implement OnFragmentInteractionListener");
         }
-
-        this.context = context;
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -148,15 +125,11 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+        //  Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
-    private void setPage(android.app.Fragment fragment) {
-        //fragment.getView().setBackgroundColor(Color.WHITE);
-        getFragmentManager().beginTransaction().replace(R.id.prepFrameLayout, fragment).commit();
 
-    }
 
     @Override
     public void onClick(View v) {
@@ -170,28 +143,31 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
 
                     currentQuestion = pqIterator.next();
                     setQuestion(v);
-                    tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
+                    tv2 = v.getRootView().findViewById(R.id.textView11);
                     if (tv2!=null){
                         tv2.setVisibility(View.INVISIBLE);//invisible
                     }
                 }
                 else{
-                    //Intent i = new Intent( , PrepQuestionScoreScreen.class);
-
                     controller.endQuestionSession();
-                    //setPage(CareerFairView.newInstance());
                 }
-
-
                 break;
             case R.id.button7:
-                tv2 = (TextView)v.getRootView().findViewById(R.id.textView11);
+                tv2 = v.getRootView().findViewById(R.id.textView11);
                 if (tv2!=null){
                     tv2.setText(currentQuestion.getHint());
                     tv2.setVisibility(View.VISIBLE);//visible
                 }
                 break;
+            default:
+                break;
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
 }

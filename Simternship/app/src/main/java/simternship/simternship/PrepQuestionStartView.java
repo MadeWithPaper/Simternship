@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
-import android.widget.TextView;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +20,6 @@ import android.widget.TextView;
  */
 public class PrepQuestionStartView extends android.app.Fragment implements View.OnClickListener{
     NumberPicker fillDifficultyPicker;
-    private Context context;
     private OnFragmentInteractionListener mListener;
 
     public PrepQuestionStartView() {
@@ -35,35 +32,32 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
      *
      * @return A new instance of fragment CareerFairView.
      */
-    // TODO: Rename and change types and number of parameters
+    // : Rename and change types and number of parameters
     public static PrepQuestionStartView newInstance() {
         PrepQuestionStartView fragment = new PrepQuestionStartView();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private void setPage(android.app.Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.prep_question_start_view, container, false);
-        Button b = (Button) v.findViewById(R.id.button3);
+        Button b =  v.findViewById(R.id.button3);
         b.setOnClickListener(this);
         fillDifficultyPicker = v.findViewById(R.id.difficultyPicker2);
         final String [] difficulty = {"Behavioural Questions", "Technical Questions"};
         fillDifficultyPicker.setMinValue(0);
         fillDifficultyPicker.setMaxValue(difficulty.length-1);
         fillDifficultyPicker.setDisplayedValues(difficulty);
-
         return v;
 
     }
-    // TODO: Rename method, update argument and hook method into UI event
+    // : Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -76,13 +70,8 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new IllegalStateException("PrepQuestionStartView must implement OnFragmentInteractionListener");
         }
-
-        this.context = context;
-
-
     }
 
 
@@ -91,8 +80,6 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
         super.onDetach();
         mListener = null;
     }
-
-
 
     /**
      * This interface must be implemented by activities that contain this
@@ -105,22 +92,16 @@ public class PrepQuestionStartView extends android.app.Fragment implements View.
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+        //: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button3: //start click
-                GameState.getInstance().setQuestionController(new PrepQuestionController(
-                        fillDifficultyPicker.getValue()
-                ));
+        if(v.getId()==R.id.button3) {
+                GameState.getInstance().setQuestionController(new PrepQuestionController(fillDifficultyPicker.getValue()));
                 setPage(PrepQuestionView.newInstance());
         }
     }
-    private void setPage(android.app.Fragment fragment) {
-        //fragment.getView().setBackgroundColor(Color.WHITE);
-        getFragmentManager().beginTransaction().replace(R.id.startPrepFrameLayout, fragment).commit();
 
-    }
 
 }

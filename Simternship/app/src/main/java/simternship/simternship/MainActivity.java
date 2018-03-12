@@ -23,42 +23,22 @@ implements CareerFairView.OnFragmentInteractionListener,
 
         setContentView(R.layout.activity_main);
         TabLayout tl = findViewById(R.id.TabLayout);
-
-        FrameLayout fl = findViewById(R.id.mainFrameLayout);
-
         tl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 setPage(tab.getPosition());
-                /*
-                switch (tab.getPosition()) {
-                    //case R.id.career_fair:
-                    case 0:
-                        startActivity(new Intent(MainActivity.this, PrepQuestionScreen.class));
-                        Toast.makeText(MainActivity.this, "prep question clicked", Toast.LENGTH_SHORT).show();
-                        break;
-                    //case R.id.prep_question:
-                    case 1:
-                        //startActivity(new Intent(MainActivity.this, CareerFairScreen.class));
-                        setPage(1);
-                        Toast.makeText(MainActivity.this, "career fair clicked", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                    //case R.id.account:
-                        startActivity(new Intent(MainActivity.this, AccountScreenView.class));
-                        Toast.makeText(MainActivity.this, "account clicked", Toast.LENGTH_SHORT).show();
-                        break;
-                }*/
             }
 
+            // Compliant
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                //ignore
             }
 
+            // Compliant
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                //ignore
             }
         });
 
@@ -80,11 +60,15 @@ implements CareerFairView.OnFragmentInteractionListener,
             case 2:
                 setPage(AccountSettingsView.newInstance());
                 break;
+            default:
+                break;
         }
     }
 
+    // Compliant
+    @Override
     public void onFragmentInteraction(Uri uri) {
-
+        //ignore
     }
 
 }
