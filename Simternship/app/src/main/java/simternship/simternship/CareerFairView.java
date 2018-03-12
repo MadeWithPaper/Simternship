@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,11 +99,8 @@ public class CareerFairView extends android.app.Fragment implements Observer {
     private void visitCompany(int companyNumber) {
         CareerFairBooth booth = careerFair.getBooths().get(companyNumber);
 
-        String name = booth.getCompany().getCompanyName();
-
         GameState.getInstance().setCurrentBooth(booth);
 
-        Toast.makeText(context, name + " clicked!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(context, CareerFairBoothScreen.class));
     }
 

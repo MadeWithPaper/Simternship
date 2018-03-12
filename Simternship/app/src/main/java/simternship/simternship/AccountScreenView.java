@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import android.app.Activity;
 
 
@@ -28,28 +27,24 @@ public class AccountScreenView extends Activity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AccountScreenView.this, "Setting screen!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AccountScreenView.this, SettingsScreen.class));
             }
         });
         jobOffers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AccountScreenView.this, "Job Offers!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AccountScreenView.this, JobOfferPreview.class));
             }
         });
         jobInterviews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AccountScreenView.this, "Interview!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AccountScreenView.this, JobInterviewPreview.class));
             }
         });
         leaderBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AccountScreenView.this, "Leaderboard!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AccountScreenView.this, LeaderboardScreen.class));
             }
         });

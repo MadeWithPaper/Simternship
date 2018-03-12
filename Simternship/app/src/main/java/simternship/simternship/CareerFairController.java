@@ -44,6 +44,10 @@ public class CareerFairController extends Observable {
         this.scheduleNext();
     }
 
+    public void stop() {
+        this.timer.stop();
+    }
+
     public CareerFair getCareerFair() {
         return this.careerFair;
     }
@@ -119,8 +123,8 @@ public class CareerFairController extends Observable {
         scheduleNext();
         gameState.computeInterviews();
         gameState.gotUpdated();
-        gameState.showToast("Career Fair Ended!", Toast.LENGTH_SHORT);
-        gameState.showToast("Good Luck With Interviews!", Toast.LENGTH_SHORT);
+        gameState.showToast("Career Fair Ended! Good luck with interviews!",
+                Toast.LENGTH_SHORT);
     }
 
     private void endGame() {

@@ -147,8 +147,7 @@ public class NewUser extends Activity {
       // Go to MainActivity
       clearFields();
 
-      Toast.makeText(NewUser.this, "Registration success!", Toast.LENGTH_SHORT).show();
-      startActivity(new Intent(NewUser.this, MainActivity.class));
+      startActivity(new Intent(NewUser.this, NewGameView.class));
    }
 
 

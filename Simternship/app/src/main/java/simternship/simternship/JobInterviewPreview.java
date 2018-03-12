@@ -12,7 +12,6 @@ import java.util.Observer;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class JobInterviewPreview extends Activity implements Observer
 {
@@ -77,7 +76,6 @@ public class JobInterviewPreview extends Activity implements Observer
     private void goToInterview(int position)
     {
         JobInterview interview = interviews.get(position);
-        Toast.makeText(this, interview.getCompanyName() + " clicked!", Toast.LENGTH_SHORT).show();
         GameState.getInstance().setCurrentInterview(interview);
         startActivity(new Intent(this, JobInterviewView.class));
     }

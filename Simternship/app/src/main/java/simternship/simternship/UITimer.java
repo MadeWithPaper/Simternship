@@ -2,6 +2,7 @@ package simternship.simternship;
 
 import java.util.Timer;
 import android.app.Activity;
+
 import java.util.TimerTask;
 
 /**
@@ -26,6 +27,10 @@ public class UITimer {
         }, ms);
 
         return new TimerStatus(ms);
+    }
+
+    public void stop() {
+        timer.cancel();
     }
 
     private synchronized void run(Runnable runnable) {

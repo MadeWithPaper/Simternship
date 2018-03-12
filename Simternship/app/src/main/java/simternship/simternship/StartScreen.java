@@ -65,7 +65,6 @@ public class StartScreen extends Activity {
        signUpButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-             Toast.makeText(StartScreen.this, "New Account!", Toast.LENGTH_SHORT).show();
              clearFields();
              startActivity(new Intent(StartScreen.this, NewUser.class));
           }

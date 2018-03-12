@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.TextView;
 
 
 /**
@@ -82,37 +82,37 @@ public class AccountSettingsView extends android.app.Fragment {
         energyBar.setProgress(GameState.getInstance().getCurrentEnergy());
         ProgressBar networkBar = getView().findViewById(R.id.networkBar);
         networkBar.setProgress(GameState.getInstance().getCurrentNetworking());
+        TextView name = getView().findViewById(R.id.acountName);
+        name.setText(GameState.getInstance().getFirstName() + " "
+                + GameState.getInstance().getLastName());
 
         getView().findViewById(R.id.settings).setOnClickListener(
-                new Listener(context, "Setting screen!", SettingsScreen.class)
+                new Listener(context, SettingsScreen.class)
         );
 
         getView().findViewById(R.id.leaderboard).setOnClickListener(
-                new Listener(context, "Leaderboard!", LeaderboardScreen.class)
+                new Listener(context, LeaderboardScreen.class)
         );
 
         getView().findViewById(R.id.button2).setOnClickListener(
-                new Listener(context, "Interview!", JobInterviewPreview.class)
+                new Listener(context, JobInterviewPreview.class)
         );
 
         getView().findViewById(R.id.jobOffer).setOnClickListener(
-                new Listener(context, "Offers!", JobOfferPreview.class)
+                new Listener(context, JobOfferPreview.class)
         );
     }
 
     private class Listener implements Button.OnClickListener {
-        String text;
         Class type;
         Context context;
-        Listener(Context context, String text, Class type) {
-            this.text = text;
+        Listener(Context context, Class type) {
             this.type = type;
             this.context = context;
         }
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             startActivity(new Intent(context, type));
         }
     }

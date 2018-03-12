@@ -65,10 +65,20 @@ public class GameState extends Observable {
      * by a timer.
      */
     public static void newGame(Activity caller, String firstName, String lastName, int difficulty) {
+        if (gameState != null) {
+            gameState.careerFairController.stop();
+        }
+
         gameState = new GameState(caller, firstName, lastName, difficulty);
 
         gameState.careerFairController.start();
+    }
 
+    private void makeFakeInterviews() {
+        /* Use to test interviews and offers */
+        JobInterview x = gameState.interviewFactory.createInterview(gameState.companies.get(0));
+        gameState.newJobInterview(x);
+        gameState.newJobOffer(new JobOffer(gameState.companies.get(0), new BigDecimal(100)));
     }
 
     public void setCurrentBooth(CareerFairBooth booth) {
@@ -126,6 +136,8 @@ public class GameState extends Observable {
     }
 
     public void endGame() {
+        careerFairController.stop();
+
         clearAndStart(EndScreen.class);
     }
 
@@ -140,6 +152,8 @@ public class GameState extends Observable {
             endGame();
             return;
         }
+
+        careerFairController.stop();
 
         clearAndStart(JobOfferPreview.class);
     }
