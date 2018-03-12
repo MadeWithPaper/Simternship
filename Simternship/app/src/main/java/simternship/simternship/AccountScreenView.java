@@ -1,14 +1,14 @@
 package simternship.simternship;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import android.app.Activity;
 
-
-public class AccountScreenView extends AppCompatActivity {
-
+//public class AccountScreenView extends AppCompatActivity {
+public class AccountScreenView extends Activity {
     String name;
 
     @Override
