@@ -64,7 +64,9 @@ public class CareerFairBooth
    }
 
    public void addRecruiter(Recruiter recruiter) {
-      listOfRecuriters.add(recruiter);
+      if (company.equals(recruiter.getCompany())) {
+         listOfRecuriters.add(recruiter);
+      }
    }
 
    public Company getCompany() {
