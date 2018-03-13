@@ -1,9 +1,0 @@
-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ñ¿‰­8Û¹Ù·¡,
-csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(ÝŒÜ±8Û¹Ù·¡,
-Ssquid:S1135"2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿ8Û¹Ù·¡,
-Nsquid:S1135"2Complete the task associated to this TODO comment.(åµÈ¶8Û¹Ù·¡,
-Nsquid:S1135"2Complete the task associated to this TODO comment.(‡‚ùˆ8Û¹Ù·¡,
-ssquid:UselessImportCheck"ERemove this unused import 'android.support.v7.app.AppCompatActivity'.(«Û®ûüÿÿÿÿ8Û¹Ù·¡,
-Dsquid:S1185"(Remove this method to simply inherit it.(ßìê¯8Û¹Ù·¡,
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Â’‚Ñùÿÿÿÿ8Û¹Ù·¡,

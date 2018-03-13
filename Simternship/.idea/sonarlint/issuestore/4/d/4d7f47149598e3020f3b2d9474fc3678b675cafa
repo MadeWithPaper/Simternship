@@ -1,16 +1,2 @@
 
-Ssquid:S1135"2Complete the task associated to this TODO comment.(Â‘¹–ıÿÿÿÿ8Î„ıÆŸ,
-Psquid:S1068"/Remove this unused "chosenOffer" private field.(ôó¤®øÿÿÿÿ8û–™š ,
-squid:S1319"qThe return type of this method should be an interface such as "List" rather than the implementation "LinkedList".(øé®æ8™ ßŸ,
-ysquid:S3008"XRename this field "MAX_COMPANIES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇŸöÂıÿÿÿÿ8Ã½óÀŸ,
-tsquid:S1450"XRemove the "companies" field and declare it as a local variable in the relevant methods.(÷ÕÒ8ĞÎŸ¡Ÿ,
-ysquid:S3008"XRename this field "MIN_ATTENDEES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•ÔçÉùÿÿÿÿ8Ã½óÀŸ,
-ysquid:S3008"XRename this field "MAX_ATTENDEES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³§»Ğøÿÿÿÿ8Ã½óÀŸ,
-{squid:S1450"ZRemove the "chosenOffer" field and declare it as a local variable in the relevant methods.(ôó¤®øÿÿÿÿ8û–™š ,
-’squid:S1319"qThe return type of this method should be an interface such as "List" rather than the implementation "LinkedList".(›Ã¥ùÿÿÿÿ8™ ßŸ,
-ysquid:S3008"XRename this field "MIN_COMPANIES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÑ»Ñüÿÿÿÿ8Ã½óÀŸ,
-¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹Ü±Øûÿÿÿÿ8Î„ıÆŸ,
-[squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8Îû¦š ,
-csquid:HiddenFieldCheck"<Rename "lastName" which hides the field declared at line 48.(÷úü…8û–™š ,
-zsquid:S3008"YRename this field "MIN_RECRUITERS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ƒâúÿÿÿÿ8Ã½óÀŸ,
-usquid:S3008"YRename this field "MAX_RECRUITERS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¢Èé8Ã½óÀŸ,
+fsquid:UnusedPrivateMethod"7Remove this unused private "makeFakeInterviews" method.(†äÉËüÿÿÿÿ8Ô§Šâ¡,

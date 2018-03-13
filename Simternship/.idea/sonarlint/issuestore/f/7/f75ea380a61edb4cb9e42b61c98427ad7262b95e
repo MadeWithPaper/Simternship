@@ -1,17 +1,0 @@
-
-fsquid:UselessImportCheck"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8’èŸŸ,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÄÓ¶­ùÿÿÿÿ8’èŸŸ,
-\squid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8’èŸŸ,
-Jsquid:EmptyStatementUsageCheck"Remove this empty statement.(…Å˜.8’èŸŸ,
-jsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ï¥¬8’èŸŸ,
-usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‹”¡Ø8’èŸŸ,
-`squid:UselessImportCheck"7Remove this unused import 'android.widget.AdapterView'.(¶¾éæ8’èŸŸ,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(¯üº8’èŸŸ,
-jsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ï¥¬8’èŸŸ,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(üúŠû8’èŸŸ,
-Ysquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8’èŸŸ,
-squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Ş‰8’èŸŸ,
-Ysquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8’èŸŸ,
