@@ -159,3 +159,17 @@ m
 =app/src/main/java/simternship/simternship/SettingsScreen.java,1/e/1e4e38445bfffc86cf66a29fece31eea981f8f6d
 f
 6app/src/main/java/simternship/simternship/Company.java,c/d/cd12edbb9d6450f538a925e1b10f2f268911d590
+r
+Bapp/src/test/java/simternship/simternship/TestCareerFairBooth.java,f/8/f87d16f23efabbb76d1c911a347f7b86c44f38d7
+j
+:app/src/test/java/simternship/simternship/TestCompany.java,4/0/402547cefd58eb132bbb8cc4391b19137d35d69c
+m
+=app/src/test/java/simternship/simternship/JackyTestSuite.java,c/3/c3592f9a7c38c4ede712eeabd6e2a3d16493090c
+l
+<app/src/test/java/simternship/simternship/JoelTestSuite.java,b/5/b595f2e2e78d712dd881079875cca29e593861b8
+s
+Capp/src/test/java/simternship/simternship/IntegrationTestSuite.java,a/1/a1ab40328d3d9e3ef8cebedc52107ec077a38290
+|
+Lapp/src/test/java/simternship/simternship/TestCareerFairBoothAndCompany.java,4/0/40cbd766819011c59b6751b9a36f92bc0a8d1590
+|
+Lapp/src/test/java/simternship/simternship/TestStartScreenAndNewGameView.java,0/a/0a61389f5aab6bd5b2f271c6762c1424e559d9eb

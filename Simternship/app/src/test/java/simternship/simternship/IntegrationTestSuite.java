@@ -7,7 +7,8 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        TestCareerFairBoothAndCompany.class
+        TestCareerFairBoothAndCompany.class,
+         TestStartScreenAndNewGameView.class
 })
 public class IntegrationTestSuite {
 }

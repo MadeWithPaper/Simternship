@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
       TestCareerFairBooth.class,
-      TestCompany.class
+      TestCompany.class,
+      TestStartScreenAndNewGameView.class
 })
 public class JackyTestSuite {
 }
