@@ -1,7 +1,5 @@
 package simternship.simternship;
 
-import android.content.Context;
-import android.os.Bundle;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +18,6 @@ public class TestStartScreenAndNewGameView {
       @Mock
       StartScreen sc;
       NewGameView ngv;
-      Bundle b;
 
       @Test
       public void readStringFromContext_LocalizedString() {
