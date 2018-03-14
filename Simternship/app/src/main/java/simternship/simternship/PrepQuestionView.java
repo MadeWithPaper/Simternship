@@ -94,6 +94,10 @@ public class PrepQuestionView extends android.app.Fragment implements View.OnCli
         if (tv1!=null) {
             tv1.setText(question);
         }
+        EditText et = v.getRootView().findViewById(R.id.question);
+        if (et != null){
+            et.setText("");
+        }
 
         if (!pqIterator.hasNext()){
             Button b = v.findViewById(R.id.button6);
