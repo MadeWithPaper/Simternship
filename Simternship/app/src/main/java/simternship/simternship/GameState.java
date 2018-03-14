@@ -104,7 +104,7 @@ public class GameState extends Observable {
 
     private static GameState gameState;
 
-    private GameState(Activity caller, String firstName, String lastName, int difficulty) {
+    public GameState(Activity caller, String firstName, String lastName, int difficulty) {
         this.companyFactory = new CompanyFactory(minCompanies, maxCompanies);
         companies = companyFactory.createCompanies();
         this.careerFairFactory = new CareerFairFactory(minRecuriters, maxRecuriters,
@@ -196,7 +196,7 @@ public class GameState extends Observable {
         }
     }
 
-    private JobOffer bestOffer() {
+    public JobOffer bestOffer() {
         BigDecimal best = new BigDecimal(0);
         JobOffer bestOffer = null;
         for (JobOffer o : currentJobOffers) {
