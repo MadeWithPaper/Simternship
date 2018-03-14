@@ -83,13 +83,15 @@ public class StartScreen extends Activity {
         private void loginAttempt()
         {
 
-            String email = getString(userEmail);
+           /* String email = getString(userEmail);
             String password = getString(userPass);
 
             if (email.equals("") || password.equals(""))
                 Toast.makeText(StartScreen.this, "Required fields are empty!", Toast.LENGTH_SHORT).show();
             else
-                signIn(email, password);
+                signIn(email, password);*/
+
+           signIn("test@gmail.com", "123456");
 
         }
 

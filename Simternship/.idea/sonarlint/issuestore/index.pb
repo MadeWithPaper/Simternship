@@ -179,3 +179,11 @@ o
 ?app/src/test/java/simternship/simternship/TestPrepQuestion.java,d/6/d6e43e6c049fb34bb8c8b404dd385fe3f78d3a72
 l
 <app/src/test/java/simternship/simternship/TestGameState.java,e/4/e4471ef9cadb6cd0efa09061d2a7544d1592283d
+v
+Fapp/src/test/java/simternship/simternship/LoopTestRandomGenerator.java,3/5/3566d39b198c4a59015e1e96b62800c1eec0a15b
+
+Qapp/src/test/java/simternship/simternship/LoopTestGameStateComputeInterviews.java,7/9/79cd90216d5071e51d3041a06c28181df0d41326
+p
+@app/src/test/java/simternship/simternship/LoopTestGameState.java,1/3/13b9af0839a2653c7f443a7a24e3ed074cdb48a0
+x
+Happ/src/test/java/simternship/simternship/LoopTestCareerFairFactory.java,d/4/d43dae235ce03cbff143795d0b094c48955bc688
