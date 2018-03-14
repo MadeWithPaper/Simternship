@@ -22,7 +22,7 @@ public class TestGameState {
         GameState pointer = GameState.getInstance();
         pointer.updateNetworking(10);
         int result = pointer.getCurrentNetworking();
-        assertEquals(result, 10);
+        assertEquals(10, result);
     }
 
     @Test
@@ -32,6 +32,6 @@ public class TestGameState {
         GameState pointer = GameState.getInstance();
         pointer.updateEnergy(-10);
         int result = pointer.getCurrentEnergy();
-        assertEquals(result, 90);
+        assertEquals(90, result);
     }
 }
