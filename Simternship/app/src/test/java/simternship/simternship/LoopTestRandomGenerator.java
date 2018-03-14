@@ -24,7 +24,7 @@ public class LoopTestRandomGenerator {
         l.add(3);
         l.add(3);
         List<Integer> res = r.sample(l,0);
-        assertEquals(res.size(),0);
+        assertEquals(0, res.size());
     }
     @Test
     public void Test_sample1() {   //loop 1 time
@@ -32,7 +32,7 @@ public class LoopTestRandomGenerator {
         List<Integer> l = new ArrayList<>();
         l.add(3);
         List<Integer> res = r.sample(l,1);
-        assertEquals(res.size(),1);
+        assertEquals(1, res.size());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class LoopTestRandomGenerator {
         l.add(3);
         l.add(3);
         List<Integer> res = r.sample(l,2);
-        assertEquals(res.size(),2);
+        assertEquals(2, res.size());
     }
 
 
@@ -54,6 +54,6 @@ public class LoopTestRandomGenerator {
             l.add(i);
         }
         List<Integer> res = r.sample(l,100);
-        assertEquals(res.size(),100);
+        assertEquals(100, res.size());
     }
 }

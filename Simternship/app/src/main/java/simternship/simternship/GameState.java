@@ -74,12 +74,6 @@ public class GameState extends Observable {
         gameState.careerFairController.start();
     }
 
-    private void makeFakeInterviews() {
-        /* Use to test interviews and offers */
-        JobInterview x = gameState.interviewFactory.createInterview(gameState.companies.get(0));
-        gameState.newJobInterview(x);
-        gameState.newJobOffer(new JobOffer(gameState.companies.get(0), new BigDecimal(100)));
-    }
 
     public void setCurrentBooth(CareerFairBooth booth) {
         this.booth = booth;

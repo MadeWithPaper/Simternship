@@ -24,7 +24,7 @@ public class LoopTestGameState {
     public void Test_bestOffer0() {   //loop 0 times
         GameState g = new GameState(new Activity(), "John", "Lee", 1);
         JobOffer res = g.bestOffer();
-        assertEquals(res,null);
+        assertEquals(null, res);
     }
 
     @Test

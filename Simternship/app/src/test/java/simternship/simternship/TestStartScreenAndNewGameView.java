@@ -26,7 +26,7 @@ public class TestStartScreenAndNewGameView {
          sc.signIn("test@gmail.com", "123456");
          when(ngv.getString(R.id.welcomeText)).thenReturn("Welcome Jacky Huang");
          String s = ngv.getString(R.id.welcomeText);
-         assertEquals(s, "Welcome Jacky Huang");
+         assertEquals("Welcome Jacky Huang", s);
       }
    }
 

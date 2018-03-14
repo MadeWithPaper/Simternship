@@ -30,7 +30,7 @@ public class LoopTestCareerFairFactory {
         ));
         List<Company> companies = new ArrayList<Company>(); //0 elements
         CareerFair c = factory.createCareerFair(companies);
-        assertEquals(c.getBooths().size(),0);
+        assertEquals(0, c.getBooths().size());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class LoopTestCareerFairFactory {
         List<Company> companies = new ArrayList<Company>(); //0 elements
         companies.add(new Company("Facebook",1, true, 1));
         CareerFair c = factory.createCareerFair(companies);
-        assertEquals(c.getBooths().size(),1);
+        assertEquals(1, c.getBooths().size());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class LoopTestCareerFairFactory {
         companies.add(new Company("Facebook",1, true, 1));
         companies.add(new Company("Twitter",2, true, 2));
         CareerFair c = factory.createCareerFair(companies);
-        assertEquals(c.getBooths().size(),2);
+        assertEquals(2, c.getBooths().size());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class LoopTestCareerFairFactory {
             companies.add(c);
         }
         CareerFair cf = factory.createCareerFair(companies);
-        assertEquals(cf.getBooths().size(),10);
+        assertEquals(10, cf.getBooths().size());
     }
 
 }
